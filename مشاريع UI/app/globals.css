@@ -1,0 +1,216 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Educational Kids Platform Color System */
+  /* Background */
+  --background: #FFF8EE;
+  --foreground: #1F2A44;
+  --card: #FFFFFF;
+  --card-foreground: #1F2A44;
+  
+  /* Primary - Purple */
+  --primary: #7C5CFF;
+  --primary-foreground: #FFFFFF;
+  
+  /* Secondary - Sky Blue */
+  --secondary: #39BDF8;
+  --secondary-foreground: #FFFFFF;
+  
+  /* Accents */
+  --accent: #FFD166;
+  --accent-foreground: #1F2A44;
+  --accent-mint: #4ECDC4;
+  --accent-pink: #FF8FAB;
+  
+  /* Status Colors */
+  --success: #3DDC97;
+  --success-foreground: #FFFFFF;
+  --destructive: #FF6B6B;
+  --destructive-foreground: #FFFFFF;
+  
+  /* Neutrals */
+  --muted: #F3FBFF;
+  --muted-foreground: #6B7280;
+  --border: #E5E7EB;
+  --input: #F9FAFB;
+  --ring: #7C5CFF;
+  
+  /* Chart colors */
+  --chart-1: #7C5CFF;
+  --chart-2: #39BDF8;
+  --chart-3: #FFD166;
+  --chart-4: #4ECDC4;
+  --chart-5: #FF8FAB;
+  
+  /* Radius */
+  --radius: 1rem;
+  
+  /* Sidebar */
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1F2A44;
+  --sidebar-primary: #7C5CFF;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #39BDF8;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #E5E7EB;
+  --sidebar-ring: #7C5CFF;
+}
+
+.dark {
+  --background: #1F2A44;
+  --foreground: #FFFFFF;
+  --card: #2D3E56;
+  --card-foreground: #FFFFFF;
+  
+  --primary: #9B7FFF;
+  --primary-foreground: #1F2A44;
+  
+  --secondary: #5CD4FF;
+  --secondary-foreground: #1F2A44;
+  
+  --accent: #FFE599;
+  --accent-foreground: #1F2A44;
+  --accent-mint: #6FE5DB;
+  --accent-pink: #FFB0C7;
+  
+  --success: #6FEF9F;
+  --success-foreground: #1F2A44;
+  --destructive: #FF9999;
+  --destructive-foreground: #1F2A44;
+  
+  --muted: #3D4F6B;
+  --muted-foreground: #B0B5C0;
+  --border: #3D4F6B;
+  --input: #2D3E56;
+  --ring: #9B7FFF;
+  
+  --chart-1: #9B7FFF;
+  --chart-2: #5CD4FF;
+  --chart-3: #FFE599;
+  --chart-4: #6FE5DB;
+  --chart-5: #FFB0C7;
+  
+  --sidebar: #2D3E56;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #9B7FFF;
+  --sidebar-primary-foreground: #1F2A44;
+  --sidebar-accent: #5CD4FF;
+  --sidebar-accent-foreground: #1F2A44;
+  --sidebar-border: #3D4F6B;
+  --sidebar-ring: #9B7FFF;
+}
+
+@theme inline {
+  --font-sans: 'Cairo', 'Noto Kufi Arabic', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 8px);
+  --radius-2xl: calc(var(--radius) + 16px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html, body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Animations for Kids Educational Platform */
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes scale-in {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shake-small {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+@keyframes stars-appear {
+  0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+@keyframes slide-up {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100px) rotate(360deg); opacity: 0; }
+}
+
+@layer utilities {
+  .animate-bounce-gentle {
+    animation: bounce-gentle 2s ease-in-out infinite;
+  }
+  .animate-scale-in {
+    animation: scale-in 0.4s ease-out;
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  .animate-shake-small {
+    animation: shake-small 0.3s ease-in-out;
+  }
+  .animate-stars {
+    animation: stars-appear 0.5s ease-out forwards;
+  }
+  .animate-slide-up {
+    animation: slide-up 0.4s ease-out;
+  }
+  .animate-confetti {
+    animation: confetti-fall 2s ease-out forwards;
+  }
+}
