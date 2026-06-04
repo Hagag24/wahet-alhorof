@@ -12,6 +12,7 @@ export function generateStaticParams() {
   );
 }
 
-export default function GamePage({ params }: { params: { lessonId: string; gameIndex: string } }) {
-  return <GamePageClient lessonId={params.lessonId} gameIndex={params.gameIndex} />;
+export default async function GamePage({ params }: { params: Promise<{ lessonId: string; gameIndex: string }> }) {
+  const { lessonId, gameIndex } = await params;
+  return <GamePageClient lessonId={lessonId} gameIndex={gameIndex} />;
 }

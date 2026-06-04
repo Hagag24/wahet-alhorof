@@ -7,6 +7,7 @@ export function generateStaticParams() {
   }));
 }
 
-export default function LessonHubPage({ params }: { params: { lessonId: string } }) {
-  return <LessonHubPageClient lessonId={params.lessonId} />;
+export default async function LessonHubPage({ params }: { params: Promise<{ lessonId: string }> }) {
+  const { lessonId } = await params;
+  return <LessonHubPageClient lessonId={lessonId} />;
 }
