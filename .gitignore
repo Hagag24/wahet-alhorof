@@ -12,3 +12,10 @@ node_modules
 # Static export output
 out/
 tsconfig.tsbuildinfo
+
+# Deployment folders and archives
+deployment/monsterasp-upload/
+deployment/monsterasp-static-upload/
+deployment/wwwroot/
+deployment/*.zip
+*.zip

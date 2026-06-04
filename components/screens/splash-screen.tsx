@@ -154,7 +154,7 @@ const INTRO_SCENES: IntroScene[] = [
     phase: "welcome",
     audioKey: "welcome_intro_scene_1",
     audioPath: "/audio/ui/welcome_intro_scene_1.mp3",
-    durationMs: 10000,
+    durationMs: 20000,
     eyebrow: "واحة الحروف والأصوات السحرية",
     sceneTitle: "بوابة الترحيب",
     title: "مرحبًا بك!",
@@ -176,7 +176,7 @@ const INTRO_SCENES: IntroScene[] = [
     phase: "welcome",
     audioKey: "welcome_intro_scene_2",
     audioPath: "/audio/ui/welcome_intro_scene_2.mp3",
-    durationMs: 12000,
+    durationMs: 12500,
     eyebrow: "واحة الحروف والأصوات السحرية",
     sceneTitle: "جزيرة المهارات",
     title: "نسمع، نتعرف، نحلل، ندمج",
@@ -267,11 +267,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
       }
     }
 
-    if (!forceReplay && hasSeenIntro()) {
-      setShowIntro(false);
-      window.setTimeout(onComplete, 120);
-    }
-
+    // Always show intro - never skip based on localStorage
     setReady(true);
   }, [onComplete]);
 
@@ -333,7 +329,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-50 overflow-hidden bg-[#FFF9F0] text-gray-800 transition-all duration-700 ${
+      className={`fixed inset-0 z-50 overflow-y-auto bg-[#FFF9F0] text-gray-800 transition-all duration-700 ${
         leaving ? "pointer-events-none scale-105 opacity-0" : "scale-100 opacity-100"
       }`}
       dir="rtl"
