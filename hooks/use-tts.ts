@@ -59,7 +59,11 @@ export function useTTS(): UseTTSReturn {
     let defaultWordPath = `/audio/words/${encodeURIComponent(lookupKey)}.mp3`
     
     if (wordId) {
-      if (wordId.startsWith('phrase-')) {
+      if (
+        wordId.startsWith('phrase-') ||
+        wordId.startsWith('official_intro_') ||
+        wordId.startsWith('welcome_intro_')
+      ) {
         defaultWordPath = `/audio/ui/${wordId}.mp3`
       } else {
         defaultWordPath = `/audio/words/${wordId}.mp3`
@@ -112,7 +116,7 @@ export function useTTS(): UseTTSReturn {
 
       // Bust cache to avoid stale audio when regenerating clips locally.
       const baseSrc = uniqueClipCandidates[index]
-      const cacheBustedSrc = `${baseSrc}${baseSrc.includes('?') ? '&' : '?'}t=${Date.now()}`
+      const cacheBustedSrc = `${baseSrc}${baseSrc.includes('?') ? '&' : '?'}v=2`
       const audio = new Audio(cacheBustedSrc)
       audioRef.current = audio
       let movedNext = false

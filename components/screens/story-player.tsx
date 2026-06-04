@@ -182,43 +182,39 @@ export function StoryPlayer({ story, onComplete, onSkip }: StoryPlayerProps) {
           </Button>
         </div>
 
-        <div className="max-w-4xl w-full text-center mt-4">
+        <div className="max-w-4xl w-full text-center mt-4 overflow-y-auto max-h-[150px] sm:max-h-[200px] md:max-h-[300px]">
           <motion.div
             key={currentScene}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className={cn(
-              "text-3xl md:text-5xl font-black text-gray-800 leading-tight md:leading-relaxed min-h-[4rem] transition-colors duration-500",
+              "text-2xl sm:text-3xl md:text-5xl font-black text-gray-800 leading-tight md:leading-relaxed min-h-[3rem] sm:min-h-[4rem] transition-colors duration-500",
               isSpeaking ? "text-[#6366F1]" : "text-gray-800"
             )}
           >
-            <AudibleText 
-              text={scenes[currentScene]?.text || ""} 
-              audioPath={scenes[currentScene]?.id?.startsWith("scene-") ? `/audio/stories/${scenes[currentScene].id}.mp3` : undefined}
-              showIcon={false}
-              stopPropagation={false}
-            />
+            {scenes[currentScene]?.text || ""}
           </motion.div>
         </div>
 
-        <div className="flex items-center justify-between w-full mt-8 gap-4 max-w-4xl">
+        <div className="flex items-center justify-between w-full mt-6 sm:mt-8 gap-2 sm:gap-4 max-w-4xl">
            <Button
             variant="ghost"
             onClick={handlePrev}
             disabled={currentScene === 0}
-            className="text-gray-400 hover:text-[#6366F1] font-bold gap-2"
+            className="text-gray-400 hover:text-[#6366F1] font-bold gap-2 text-sm sm:text-base px-2 sm:px-4"
           >
-            <ChevronRight className="w-6 h-6" />
-            السابق
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+            <span className="hidden sm:inline">السابق</span>
+            <span className="sm:hidden">سابق</span>
           </Button>
 
-          <div className="flex gap-2">
+          <div className="flex gap-1 sm:gap-2">
             {scenes.map((_, i) => (
               <div 
                 key={i} 
                 className={cn(
-                  "h-1.5 rounded-full transition-all duration-300",
-                  i === currentScene ? "bg-[#6366F1] w-8" : "bg-gray-200 w-2"
+                  "h-1 sm:h-1.5 rounded-full transition-all duration-300",
+                  i === currentScene ? "bg-[#6366F1] w-6 sm:w-8" : "bg-gray-200 w-2"
                 )}
               />
             ))}
@@ -227,10 +223,10 @@ export function StoryPlayer({ story, onComplete, onSkip }: StoryPlayerProps) {
           <Button
             variant="ghost"
             onClick={handleNext}
-            className="text-[#6366F1] font-bold gap-2"
+            className="text-[#6366F1] font-bold gap-2 text-sm sm:text-base px-2 sm:px-4"
           >
             {isLastScene ? "انتهى" : "التالي"}
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </Button>
         </div>
       </div>

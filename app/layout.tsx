@@ -1,15 +1,8 @@
 import type { Metadata, Viewport } from 'next'
-import { Cairo } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { AppProvider } from "@/contexts/app-context";
 import { AudioGate } from "@/components/common/audio-gate";
 import './globals.css'
-
-const cairo = Cairo({ 
-  subsets: ['arabic', 'latin'],
-  variable: '--font-cairo',
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
   title: 'رحلة الوعي الصوتي | ألعاب تعليمية للأطفال',
@@ -21,8 +14,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  maximumScale: 5,
+  userScalable: true,
   themeColor: '#7C5CFF',
 }
 
@@ -33,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl" className="bg-background">
-      <body className={`${cairo.className} font-sans antialiased min-h-screen`}>
+      <body className="font-sans antialiased min-h-screen" style={{ fontFamily: 'Cairo, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, Arial, sans-serif' }}>
         <AppProvider>
           {children}
           <AudioGate />

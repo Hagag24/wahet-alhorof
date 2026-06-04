@@ -10,11 +10,11 @@ export const lessons: Lesson[] = [
     icon: '🏠',
     color: '#7C5CFF',
     order: 1,
-    story: 'اسمي مريم وعمري ست سنوات، وأخي يوسف عمره تسع سنوات، كان يوسف دائمًا يساعد أمي وأبي في أشياء عديدة بالبيت، كشراء الأكل من المتجر القريب، والاعتناء بأشجار الحديقة. كنت دائمًا أفكر في أن أتعلم أشياء لأساعد بها أمي وأبي في البيت أيضًا. وفي يوم من الأيام رأيت يوسف وهو يركب دراجته بسرعة ومهارة وهو ذاهب إلى المتجر ليشتري طلبات البيت. شعرت بالحزن، فأنا أيضًا أريد أن أساعد أمي وأبي.',
+    story: 'اسمي مريم وعمري ست سنوات، وأخي يوسف عمره تسع سنوات، كان يوسف دائمًا يساعد أمي وأبي في أشياء عديدة بالبيت، مثل شراء الأكل من المتجر القريب، والاعتناء بأشجار الحديقة. كنت دائمًا أفكر في أن أتعلم أشياء لأساعد بها أمي وأبي في البيت أيضًا. وفي يوم من الأيام رأيت يوسف وهو يركب دراجته بسرعة ومهارة وهو ذاهب إلى المتجر ليشتري طلبات البيت. شعرت بالحزن، فأنا أيضًا أريد أن أساعد أمي وأبي.',
     storyScenes: [
       { id: 'scene-1-1', text: 'اسمي مريم وعمري ست سنوات، وأخي يوسف عمره تسع سنوات.', image: '/images/stories/maryam_youssef.png' },
       { id: 'scene-1-2', text: 'كان يوسف دائمًا يساعد أمي وأبي في أشياء عديدة بالبيت.', image: '/images/stories/youssef_helping.png' },
-      { id: 'scene-1-3', text: 'كشراء الأكل من المتجر القريب، والاعتناء بأشجار الحديقة.', image: '/images/stories/youssef_bicycle.png' },
+      { id: 'scene-1-3', text: 'مثل شراء الأكل من المتجر القريب، والاعتناء بأشجار الحديقة.', image: '/images/stories/youssef_bicycle.png' },
       { id: 'scene-1-4', text: 'كنت دائمًا أفكر في أن أتعلم أشياء لأساعد بها أمي وأبي في البيت أيضًا.', image: '🧕' },
       { id: 'scene-1-5', text: 'وفي يوم من الأيام رأيت يوسف وهو يركب دراجته بسرعة ومهارة وهو ذاهب إلى المتجر ليشتري طلبات البيت.', image: '/images/stories/youssef_bicycle.png' },
       { id: 'scene-1-6', text: 'شعرت بالحزن؛ فأنا – أيضًا – أريد أن أساعد أمي وأبي.', image: '😔' },
@@ -30,60 +30,95 @@ export const lessons: Lesson[] = [
       { word: 'أبي', image: '👨' },
       { word: 'كريم', image: '👦' },
     ],
+    sections: {
+      objectives: [
+        { title: 'خريطة الأبطال السحرية: رادار الأذن الخارقة', description: 'نميّز الحروف المختلفة والمتشابهة في الصوت بأسلوب ممتع.' },
+        { title: 'خريطة الأبطال السحرية: مصنع الأشكال', description: 'نربط شكل الحرف بصوته الصحيح داخل الكلمات.' },
+        { title: 'خريطة الأبطال السحرية: شفرة الأسماء السرية', description: 'نفهم العلاقة بين اسم الحرف وصوته داخل الكلمة.' },
+        { title: 'خريطة الأبطال السحرية: صائد الأصوات والكلمات', description: 'نميّز أصوات الحروف في الكلمات المنطوقة وننطقها جيدًا.' },
+        { title: 'خريطة الأبطال السحرية: نادي التحدي والمرح', description: 'نشارك في أنشطة وألعاب تفاعلية ونحقق الإنجاز.' },
+      ],
+      warmup: [
+        { 
+          title: 'رسالة الجد المفقودة', 
+          description: 'استمع للصوت واختر الفقاعة الصحيحة من (جـ، د، ي) لإكمال كلمة جدي دون كشف الإجابة عند الخطأ.',
+          interactive: true,
+          scenario: {
+            character: 'جدي',
+            missingWord: 'جدي',
+            bubbles: ['جـ', 'د', 'ي'],
+            targetSound: 'جـ'
+          }
+        },
+      ],
+      explanation: [
+        { 
+          title: 'كتاب مريم ويوسف المتحرك', 
+          description: 'تمييز الحروف المتشابهة والمختلفة، شكل الحرف وصوته.', 
+          cinematic: true
+        },
+        { 
+          title: 'سينما الأصوات مع مريم ويوسف', 
+          description: 'اسم الحرف وصوته، وتمييز أصوات الحروف في الكلمات المنطوقة.',
+          cinematic: true
+        },
+      ],
+    },
     games: [
       {
         id: 'game-1-1',
         type: 'similar-sound-letters',
-        title: 'الحروف المتشابهة صوتيًا',
-        description: 'اختر الكلمة الصحيحة المطابقة للصورة',
+        title: 'ما الكلمة الصحيحة للصورة؟',
+        description: 'استمع للكلمة فقط ثم اختر الرسم الصحيح',
         icon: '🔤',
         questions: [
-          { id: 'q1', image: 'دراجة', question: 'ما الكلمة الصحيحة للصورة؟', options: ['دراجة', 'ضراجة', 'تراجة', 'طراجة'], correctAnswer: 'دراجة' },
-          { id: 'q2', image: 'يوسف', question: 'ما الكلمة الصحيحة للصورة؟', options: ['يوسف', 'يوصف', 'يوزف', 'يوذف'], correctAnswer: 'يوسف' },
-          { id: 'q3', image: 'متجر', question: 'ما الكلمة الصحيحة للصورة؟', options: ['متجر', 'مدجر', 'مضجر', 'مطجر'], correctAnswer: 'متجر' },
+          { id: 'q1', image: 'دراجة', question: 'ما الكلمة الصحيحة للصورة؟', audioText: 'دراجة', options: ['ضراجة', 'تراجة', 'دراجة', 'طراجة'], correctAnswer: 'دراجة' },
+          { id: 'q2', image: 'يوسف', question: 'ما الكلمة الصحيحة للصورة؟', audioText: 'يوسف', options: ['يوصف', 'يوسف', 'يوزف', 'يوذف'], correctAnswer: 'يوسف' },
+          { id: 'q3', image: 'متجر', question: 'ما الكلمة الصحيحة للصورة؟', audioText: 'المتجر', options: ['مدجر', 'مضجر', 'مطجر', 'متجر'], correctAnswer: 'متجر' },
         ],
       },
       {
         id: 'game-1-2',
         type: 'catch-different-word',
-        title: 'اصطد الكلمة المختلفة',
-        description: 'اختر الكلمة التي تبدأ بصوت مختلف',
+        title: 'صياد الأصوات المفقودة',
+        description: 'استمع جيدًا ثم اصطد الكلمة المختلفة في الصوت الأول',
         icon: '🎣',
         questions: [
-          { id: 'q1', question: 'ما الكلمة المختلفة في الصوت الأول؟', options: ['مريم', 'متجر', 'يوسف'], correctAnswer: 'يوسف' },
-          { id: 'q2', question: 'ما الكلمة المختلفة في الصوت الأول؟', options: ['باب', 'بيت', 'حديقة'], correctAnswer: 'حديقة' },
-          { id: 'q3', question: 'ما الكلمة المختلفة في الصوت الأول؟', options: ['يوسف', 'يوم', 'بيت'], correctAnswer: 'بيت' },
+          { id: 'q1', question: 'ما الكلمة المختلفة في الصوت الأول؟', options: ['باب', 'حديقة', 'بيت'], correctAnswer: 'حديقة', pronounceQuestionAndOptions: true },
+          { id: 'q2', question: 'ما الكلمة المختلفة في الصوت الأول؟', options: ['يوسف', 'يوم', 'بيت'], correctAnswer: 'بيت', pronounceQuestionAndOptions: true },
+          { id: 'q3', question: 'ما الكلمة المختلفة في الصوت الأول؟', options: ['مريم', 'متجر', 'يوسف'], correctAnswer: 'يوسف', pronounceQuestionAndOptions: true },
         ],
       },
       {
         id: 'game-1-3',
         type: 'choose-sound',
-        title: 'اختر الصوت الصحيح',
-        description: 'حدد الصوت الأول في الكلمة',
+        title: 'قفزة الحركات الذكية ومظلة يوسف الملونة',
+        description: 'حدد حركة الصوت الأول، ثم ساعد يوسف على اختيار صوت يـ الصحيح تحت المظلة',
         icon: '🔊',
         questions: [
-          { id: 'q1', word: 'مريم', question: 'ما الصوت الأول في كلمة مريم؟', options: ['مَ', 'مِ', 'مُ', 'مْ'], correctAnswer: 'مَ' },
+          { id: 'q1', word: 'مريم', question: 'ما الصوت الأول في كلمة مريم؟', options: ['مِ', 'مُ', 'مَ', 'مْ'], correctAnswer: 'مَ' },
           { id: 'q2', word: 'بيت', question: 'ما الصوت الأول في كلمة بيت؟', options: ['بَ', 'بِ', 'بُ', 'بْ'], correctAnswer: 'بَ' },
-          { id: 'q3', word: 'يوسف', question: 'ما الصوت الأول في كلمة يوسف؟', options: ['يَ', 'يِ', 'يُ', 'يْ'], correctAnswer: 'يُ' },
+          { id: 'q3', word: 'يوسف', question: 'استمع إلى كلمة يوسف، أي قطرة تحمل الصوت الصحيح؟', options: ['يَـ', 'يِـ', 'يُـ', 'يْـ'], correctAnswer: 'يُـ' },
         ],
       },
       {
         id: 'game-1-4',
         type: 'letter-forms',
-        title: 'أشكال الحرف',
-        description: 'تعرف على أشكال الحرف المختلفة',
+        title: 'قطار الحروف والمحطات وصيد النجوم',
+        description: 'حدد موقع حرف م في القطار، ثم اجمع النجمة التي يظهر فيها م في آخر الكلمة',
         icon: '✏️',
         questions: [
           { id: 'q1', word: 'م', question: 'أين يوجد حرف م في أول الكلمة؟', options: ['متجر', 'أمي', 'كريم', 'بيت'], correctAnswer: 'متجر' },
-          { id: 'q2', word: 'م', question: 'أين يوجد حرف م في وسط الكلمة؟', options: ['أمي', 'مريم', 'متجر', 'بيت'], correctAnswer: 'أمي' },
+          { id: 'q2', word: 'م', question: 'أين يوجد حرف م في وسط الكلمة؟', options: ['أمي', 'متجر', 'كريم', 'بيت'], correctAnswer: 'أمي' },
           { id: 'q3', word: 'م', question: 'أين يوجد حرف م في آخر الكلمة؟', options: ['كريم', 'متجر', 'أمي', 'بيت'], correctAnswer: 'كريم' },
+          { id: 'q4', word: 'م', question: 'صيد النجوم: اجمع النجمة التي يظهر فيها حرف م في آخر الكلمة', options: ['أمي', 'مريم', 'متجر', 'بيت'], correctAnswer: 'مريم' },
         ],
       },
       {
         id: 'game-1-5',
         type: 'letter-position',
-        title: 'حدد موقع الحرف',
-        description: 'اكتشف مكان الحرف في الكلمة',
+        title: 'بستان الحروف',
+        description: 'اسحب كل كلمة إلى شجرة الموقع المناسب',
         icon: '📍',
         questions: [
           { id: 'q1', word: 'متجر', question: 'أين يوجد صوت م في كلمة متجر؟', options: ['أول الكلمة', 'وسط الكلمة', 'آخر الكلمة'], correctAnswer: 'أول الكلمة' },
@@ -119,12 +154,24 @@ export const lessons: Lesson[] = [
       { word: 'أبي', image: '👨' },
       { word: 'حديقة', image: '🌳' },
     ],
+    sections: {
+      objectives: [
+        { title: 'صيد الحركة', description: 'نحدد الحركة القصيرة الصحيحة في أول الكلمة (الفتحة، الضمة، الكسرة).' },
+        { title: 'القلم السحري', description: 'نكمل الكلمة بالحرف الناقص من خلال مشهد بصري ممتع.' },
+      ],
+      warmup: [
+        { title: 'صندوق المفاجآت', description: 'نسحب أفراد أسرة أميرة الصحيحين إلى بيت الأسرة، والخطأ يعود دون كشف الإجابة.' },
+      ],
+      explanation: [
+        { title: 'رحلة أميرة السعيدة', description: 'شرح غير تفاعلي للحركات القصيرة وإكمال الكلمة بالحرف الناقص.' },
+      ],
+    },
     games: [
       {
         id: 'game-2-1',
         type: 'choose-sound',
-        title: 'اختر الصوت الصحيح',
-        description: 'حدد الصوت الأول في الكلمة',
+        title: 'سلة الحركات مع أميرة',
+        description: 'ضع كل كلمة في سلة الحركة المناسبة للصوت الأول',
         icon: '🔊',
         questions: [
           { id: 'q1', word: 'أميرة', question: 'ما الصوت الأول في كلمة أميرة؟', options: ['أَ', 'أِ', 'أُ', 'إ'], correctAnswer: 'أَ' },
@@ -135,11 +182,11 @@ export const lessons: Lesson[] = [
       {
         id: 'game-2-2',
         type: 'syllable-clap',
-        title: 'صفق المقاطع',
-        description: 'عدّ المقاطع الصوتية في الكلمة',
+        title: 'محقق المقاطع السحرية',
+        description: 'عدّ المقاطع الصوتية ثم اختر العدد الصحيح',
         icon: '👏',
         questions: [
-          { id: 'q1', word: 'أميرة', question: 'كم مقطعًا في كلمة أميرة؟', options: ['2', '3', '4'], correctAnswer: '3', syllables: ['أَ', 'مِي', 'رَة'] },
+          { id: 'q1', word: 'أميرة', question: 'كم مقطعًا في كلمة أميرة؟', options: ['2', '3', '4'], correctAnswer: '4', syllables: ['أَ', 'مِي', 'رَ', 'ة'] },
           { id: 'q2', word: 'أسرة', question: 'كم مقطعًا في كلمة أسرة؟', options: ['2', '3', '4'], correctAnswer: '3', syllables: ['أُسْ', 'رَ', 'ة'] },
           { id: 'q3', word: 'أبي', question: 'كم مقطعًا في كلمة أبي؟', options: ['2', '3', '4'], correctAnswer: '2', syllables: ['أَ', 'بِي'] },
         ],
@@ -147,8 +194,8 @@ export const lessons: Lesson[] = [
       {
         id: 'game-2-3',
         type: 'build-word',
-        title: 'ركّب الكلمة',
-        description: 'اجمع المقاطع لتكوين الكلمة',
+        title: 'مكعبات أميرة السحرية',
+        description: 'رتّب المقاطع لتكوين الكلمة المطلوبة',
         icon: '🧩',
         questions: [
           { id: 'q1', question: 'ركّب الكلمة من المقاطع', parts: ['أَ', 'مِي', 'رَة'], options: ['أميرة', 'أمير', 'ميرة', 'أمي'], correctAnswer: 'أميرة' },
@@ -159,8 +206,8 @@ export const lessons: Lesson[] = [
       {
         id: 'game-2-4',
         type: 'similar-words',
-        title: 'الكلمات المتشابهة',
-        description: 'اختر الكلمة المتشابهة في الصوت',
+        title: 'محطة الأصوات المتشابهة',
+        description: 'اختر الكلمة التي تبدأ بنفس الصوت',
         icon: '🔗',
         questions: [
           { id: 'q1', word: 'أميرة', question: 'أي كلمة تشبه أميرة في البداية؟', options: ['أسرة', 'بيت', 'حديقة', 'يوسف'], correctAnswer: 'أسرة' },
@@ -170,6 +217,7 @@ export const lessons: Lesson[] = [
       {
         id: 'game-2-5',
         type: 'letter-position',
+        hidden: true,
         title: 'حدد موقع الحرف',
         description: 'اكتشف مكان الحرف في الكلمة',
         icon: '📍',
@@ -181,6 +229,7 @@ export const lessons: Lesson[] = [
       {
         id: 'game-2-6',
         type: 'complete-word',
+        hidden: true,
         title: 'أكمل الكلمة',
         description: 'اختر الحرف الناقص',
         icon: '✍️',
@@ -193,6 +242,7 @@ export const lessons: Lesson[] = [
       {
         id: 'game-2-7',
         type: 'harakat',
+        hidden: true,
         title: 'اختر الحركة',
         description: 'حدد الحركة الصحيحة للحرف',
         icon: '🎯',
@@ -204,7 +254,7 @@ export const lessons: Lesson[] = [
       {
         id: 'game-2-8',
         type: 'match-picture-word',
-        title: 'طابق الصورة بالكلمة',
+        title: 'صائد الكلمات الصحيحة',
         description: 'صل كل صورة بالكلمة المناسبة',
         icon: '🖼️',
         questions: [
@@ -215,21 +265,22 @@ export const lessons: Lesson[] = [
       {
         id: 'game-2-9',
         type: 'similar-sound-letters',
-        title: 'الحروف المتشابهة صوتيًا',
-        description: 'اختر الكلمة الصحيحة',
+        title: 'محطة قطار الأصوات',
+        description: 'ميّز بين الحروف المتشابهة في الصوت',
         icon: '🔤',
         questions: [
-          { id: 'q1', image: 'أميرة', question: 'ما الكلمة الصحيحة؟', options: ['أميرة', 'عميرة', 'أميره', 'عميره'], correctAnswer: 'أميرة' },
+          { id: 'q1', image: 'أسرة', question: 'اختر الحرف الصحيح في كلمة أسرة', options: ['س', 'ص', 'ث'], correctAnswer: 'س' },
+          { id: 'q2', image: 'بيت', question: 'اختر الحرف الصحيح في كلمة بيت', options: ['ت', 'ط', 'ث'], correctAnswer: 'ت' },
         ],
       },
       {
         id: 'game-2-10',
         type: 'catch-different-word',
-        title: 'اصطد الكلمة المختلفة',
-        description: 'اختر الكلمة المختلفة في الصوت',
+        title: 'كاشف الكلمة المختلفة',
+        description: 'حدد الكلمة التي تبدأ بصوت مختلف',
         icon: '🎣',
         questions: [
-          { id: 'q1', question: 'ما الكلمة المختلفة؟', options: ['أميرة', 'أسرة', 'بيت'], correctAnswer: 'بيت' },
+          { id: 'q1', question: 'حدد الكلمة المختلفة في الصوت الأول: أميرة، أسرة، بيت', options: ['أميرة', 'أسرة', 'بيت'], correctAnswer: 'بيت' },
         ],
       },
     ],
@@ -263,6 +314,17 @@ export const lessons: Lesson[] = [
       { word: 'حيوان', image: '🐾' },
       { word: 'بلبل', image: '🐦' },
     ],
+    sections: {
+      objectives: [
+        { title: 'ألبوم حيوانات سامي السحري', description: 'مشهد تمهيدي يعرّف التحليل والدمج وتحويل الصوت إلى كتابة باستخدام: أرنب، نملة، أسد.' },
+      ],
+      warmup: [
+        { title: 'من خلف الشجرة؟', description: 'استمع للزئير الخفيف واختر: أسد أم أرنب.' },
+      ],
+      explanation: [
+        { title: 'قطار الكلمات في غابة الحيوان', description: 'تحليل الكلمات وعد المقاطع، دمج الأصوات، ثم تحويل الصوت المسموع إلى كتابة.' },
+      ],
+    },
     games: [
       {
         id: 'game-3-1',
@@ -272,9 +334,9 @@ export const lessons: Lesson[] = [
         icon: '👏',
         questions: [
           { id: 'q1', word: 'سامي', question: 'كم مقطعًا في كلمة سامي؟', options: ['2', '3', '4'], correctAnswer: '2', syllables: ['سا', 'مي'] },
-          { id: 'q2', word: 'أرنب', question: 'كم مقطعًا في كلمة أرنب؟', options: ['2', '3', '4'], correctAnswer: '2', syllables: ['أَر', 'نَب'] },
-          { id: 'q3', word: 'نملة', question: 'كم مقطعًا في كلمة نملة؟', options: ['2', '3', '4'], correctAnswer: '2', syllables: ['نَم', 'لة'] },
-          { id: 'q4', word: 'أسد', question: 'كم مقطعًا في كلمة أسد؟', options: ['2', '3', '4'], correctAnswer: '3', syllables: ['أ', 'سَ', 'د'] },
+          { id: 'q2', word: 'أرنب', question: 'كم مقطعًا في كلمة أرنب؟', options: ['2', '3', '4'], correctAnswer: '3', syllables: ['أَ', 'رَ', 'نَب'] },
+          { id: 'q3', word: 'نملة', question: 'كم مقطعًا في كلمة نملة؟', options: ['2', '3', '4'], correctAnswer: '3', syllables: ['نَ', 'مَ', 'لة'] },
+          { id: 'q4', word: 'أسد', question: 'كم مقطعًا في كلمة أسد؟', options: ['2', '3', '4'], correctAnswer: '3', syllables: ['أَ', 'سَ', 'د'] },
         ],
       },
       {
@@ -304,6 +366,7 @@ export const lessons: Lesson[] = [
       {
         id: 'game-3-4',
         type: 'choose-sound',
+        hidden: true,
         title: 'اختر الصوت الصحيح',
         description: 'حدد الصوت الأول في الكلمة',
         icon: '🔊',
@@ -345,6 +408,32 @@ export const lessons: Lesson[] = [
       { word: 'حقيبة', image: '🎒' },
       { word: 'طارق', image: '👦' },
     ],
+    sections: {
+      objectives: [
+        { title: 'فيديو الألوان والكلمات الذكي', description: 'تمييز الأصوات المتشابهة، قراءة الكلمات، ثم إكمال الكلمات والحروف داخل مشهد الفصل.' },
+      ],
+      warmup: [
+        {
+          title: 'صندوق الأصوات الضائع',
+          description: 'صندوق هدية سحري في المركز، ثلاث مفاتيح: كَ، قَ، خَ. الصندوق يهمس كَ... كَ... كَ... الطالب يختار كَ. الصحيح يفتح الصندوق ويظهر كريم. الخطأ يهز ويعيد المحاولة دون كشف الإجابة.',
+          interactive: true,
+          scenario: {
+            item: 'صندوق هدية سحري',
+            keys: ['كَ', 'قَ', 'خَ'],
+            whisper: 'كَ... كَ... كَ...',
+            correctChoice: 'كَ',
+            reward: 'كريم'
+          }
+        },
+      ],
+      explanation: [
+        { 
+          title: 'قطار كلمات كريم السريع', 
+          description: 'رادار الأصوات: طارق وليس تارق. صائد الصور: مطابقة ممحاة. الكلمة المفقودة: "حمل ........" correct "حقيبته".',
+          cinematic: true
+        },
+      ],
+    },
     games: [
       {
         id: 'game-4-1',
@@ -386,6 +475,7 @@ export const lessons: Lesson[] = [
       {
         id: 'game-4-4',
         type: 'choose-sound',
+        hidden: true,
         title: 'اختر الصوت الصحيح',
         description: 'حدد الصوت الأول في الكلمة',
         icon: '🔊',

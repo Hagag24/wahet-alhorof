@@ -52,7 +52,7 @@
             "fileName": "word-004.mp3",
             "path": "public/audio/words/word-004.mp3",
             "text": "أسرة",
-            "ttsText": "أُسْرَهْ",
+            "ttsText": "أُسْرَة",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -72,7 +72,7 @@
             "fileName": "word-006.mp3",
             "path": "public/audio/words/word-006.mp3",
             "text": "أميرة",
-            "ttsText": "أَمِيرَهْ",
+            "ttsText": "أَمِيرَة",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -102,7 +102,7 @@
             "fileName": "word-009.mp3",
             "path": "public/audio/words/word-009.mp3",
             "text": "حديقة",
-            "ttsText": "حَدِيقَهْ",
+            "ttsText": "حَدِيقَة",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -112,7 +112,7 @@
             "fileName": "word-010.mp3",
             "path": "public/audio/words/word-010.mp3",
             "text": "حقيبة",
-            "ttsText": "حَقِيبَهْ",
+            "ttsText": "حَقِيبَة",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -122,7 +122,7 @@
             "fileName": "word-011.mp3",
             "path": "public/audio/words/word-011.mp3",
             "text": "حيوان",
-            "ttsText": "حَيَوَانْ",
+            "ttsText": "حَيَوَان",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -132,7 +132,7 @@
             "fileName": "word-012.mp3",
             "path": "public/audio/words/word-012.mp3",
             "text": "دراجة",
-            "ttsText": "دَرَّاجَهْ",
+            "ttsText": "دَرَّاجَة",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -142,7 +142,7 @@
             "fileName": "word-013.mp3",
             "path": "public/audio/words/word-013.mp3",
             "text": "زهرة",
-            "ttsText": "زَهْرَهْ",
+            "ttsText": "زَهْرَة",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -162,7 +162,7 @@
             "fileName": "word-015.mp3",
             "path": "public/audio/words/word-015.mp3",
             "text": "شجرة",
-            "ttsText": "شَجَرَهْ",
+            "ttsText": "شَجَرَة",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -172,7 +172,7 @@
             "fileName": "word-016.mp3",
             "path": "public/audio/words/word-016.mp3",
             "text": "طارق",
-            "ttsText": "طَارِقْ",
+            "ttsText": "طَارِق",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -182,7 +182,7 @@
             "fileName": "word-017.mp3",
             "path": "public/audio/words/word-017.mp3",
             "text": "غابة",
-            "ttsText": "غَابَهْ",
+            "ttsText": "غَابَة",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -192,7 +192,7 @@
             "fileName": "word-018.mp3",
             "path": "public/audio/words/word-018.mp3",
             "text": "قلم",
-            "ttsText": "قَلَمْ",
+            "ttsText": "قَلَم",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -202,7 +202,7 @@
             "fileName": "word-019.mp3",
             "path": "public/audio/words/word-019.mp3",
             "text": "كريم",
-            "ttsText": "كَرِيمْ",
+            "ttsText": "كَرِيم",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -212,7 +212,7 @@
             "fileName": "word-020.mp3",
             "path": "public/audio/words/word-020.mp3",
             "text": "متجر",
-            "ttsText": "مَتْجَرْ",
+            "ttsText": "مَتْجَر",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -222,7 +222,7 @@
             "fileName": "word-021.mp3",
             "path": "public/audio/words/word-021.mp3",
             "text": "مدرسة",
-            "ttsText": "مَدْرَسَهْ",
+            "ttsText": "مَدْرَسَة",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -232,7 +232,7 @@
             "fileName": "word-022.mp3",
             "path": "public/audio/words/word-022.mp3",
             "text": "مريم",
-            "ttsText": "مَرْيَمْ",
+            "ttsText": "مَرْيَم",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -242,7 +242,7 @@
             "fileName": "word-023.mp3",
             "path": "public/audio/words/word-023.mp3",
             "text": "معلمة",
-            "ttsText": "مُعَلِّمَهْ",
+            "ttsText": "مُعَلِّمَة",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -252,7 +252,7 @@
             "fileName": "word-024.mp3",
             "path": "public/audio/words/word-024.mp3",
             "text": "ممحاة",
-            "ttsText": "مِمْحَاهْ",
+            "ttsText": "مِمْحَاة",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -262,7 +262,7 @@
             "fileName": "word-025.mp3",
             "path": "public/audio/words/word-025.mp3",
             "text": "نملة",
-            "ttsText": "نَمْلَهْ",
+            "ttsText": "نَمْلَة",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -272,7 +272,7 @@
             "fileName": "word-026.mp3",
             "path": "public/audio/words/word-026.mp3",
             "text": "يوسف",
-            "ttsText": "يُوسُفْ",
+            "ttsText": "يُوسُف",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -282,7 +282,7 @@
             "fileName": "word-027.mp3",
             "path": "public/audio/words/word-027.mp3",
             "text": "ضراجة",
-            "ttsText": "ضَرَاجَهْ",
+            "ttsText": "ضَرَاجَة",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -292,7 +292,7 @@
             "fileName": "word-028.mp3",
             "path": "public/audio/words/word-028.mp3",
             "text": "تراجة",
-            "ttsText": "تَرَاجَهْ",
+            "ttsText": "تَرَاجَة",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -302,7 +302,7 @@
             "fileName": "word-029.mp3",
             "path": "public/audio/words/word-029.mp3",
             "text": "طراجة",
-            "ttsText": "طَرَاجَهْ",
+            "ttsText": "طَرَاجَة",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -312,7 +312,7 @@
             "fileName": "word-030.mp3",
             "path": "public/audio/words/word-030.mp3",
             "text": "يوصف",
-            "ttsText": "يُوصَفْ",
+            "ttsText": "يُوصَف",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -322,7 +322,7 @@
             "fileName": "word-031.mp3",
             "path": "public/audio/words/word-031.mp3",
             "text": "يوزف",
-            "ttsText": "يُوزَفْ",
+            "ttsText": "يُوزَف",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -332,7 +332,7 @@
             "fileName": "word-032.mp3",
             "path": "public/audio/words/word-032.mp3",
             "text": "يوذف",
-            "ttsText": "يُوذَفْ",
+            "ttsText": "يُوذَف",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -342,7 +342,7 @@
             "fileName": "word-033.mp3",
             "path": "public/audio/words/word-033.mp3",
             "text": "مدجر",
-            "ttsText": "مَدْجَرْ",
+            "ttsText": "مَدْجَر",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -352,7 +352,7 @@
             "fileName": "word-034.mp3",
             "path": "public/audio/words/word-034.mp3",
             "text": "مضجر",
-            "ttsText": "مَضْجَرْ",
+            "ttsText": "مَضْجَر",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -362,7 +362,7 @@
             "fileName": "word-035.mp3",
             "path": "public/audio/words/word-035.mp3",
             "text": "مطجر",
-            "ttsText": "مَطْجَرْ",
+            "ttsText": "مَطْجَر",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -372,7 +372,7 @@
             "fileName": "word-036.mp3",
             "path": "public/audio/words/word-036.mp3",
             "text": "باب",
-            "ttsText": "بَابْ",
+            "ttsText": "بَاب",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -382,7 +382,7 @@
             "fileName": "word-037.mp3",
             "path": "public/audio/words/word-037.mp3",
             "text": "يوم",
-            "ttsText": "يَوْمْ",
+            "ttsText": "يَوْم",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -392,7 +392,7 @@
             "fileName": "word-038.mp3",
             "path": "public/audio/words/word-038.mp3",
             "text": "مهندسة",
-            "ttsText": "مُهَنْدِسَهْ",
+            "ttsText": "مُهَنْدِسَة",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -402,7 +402,7 @@
             "fileName": "word-039.mp3",
             "path": "public/audio/words/word-039.mp3",
             "text": "جميلة",
-            "ttsText": "جَمِيلَهْ",
+            "ttsText": "جَمِيلَة",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -412,7 +412,7 @@
             "fileName": "word-040.mp3",
             "path": "public/audio/words/word-040.mp3",
             "text": "هذه هي تفضل",
-            "ttsText": "هَذِهِ هِيَ، تَفَضَّلْ",
+            "ttsText": "هَذِهِ هِيَ، تَفَضَّل",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -422,7 +422,7 @@
             "fileName": "word-041.mp3",
             "path": "public/audio/words/word-041.mp3",
             "text": "أحسنت",
-            "ttsText": "أَحْسَنْتْ",
+            "ttsText": "أَحْسَنْتَ",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -432,7 +432,7 @@
             "fileName": "word-042.mp3",
             "path": "public/audio/words/word-042.mp3",
             "text": "لوحة",
-            "ttsText": "لَوْحَهْ",
+            "ttsText": "لَوْحَة",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -442,7 +442,7 @@
             "fileName": "word-043.mp3",
             "path": "public/audio/words/word-043.mp3",
             "text": "رسمة",
-            "ttsText": "رَسْمَهْ",
+            "ttsText": "رَسْمَة",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -452,7 +452,7 @@
             "fileName": "word-044.mp3",
             "path": "public/audio/words/word-044.mp3",
             "text": "رائع",
-            "ttsText": "رَائِع!ْ",
+            "ttsText": "رَائِع!",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -462,7 +462,7 @@
             "fileName": "word-045.mp3",
             "path": "public/audio/words/word-045.mp3",
             "text": "ممتاز",
-            "ttsText": "مُمْتَاز!ْ",
+            "ttsText": "مُمْتَاز!",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -472,7 +472,7 @@
             "fileName": "word-046.mp3",
             "path": "public/audio/words/word-046.mp3",
             "text": "أحسنت يا بطل",
-            "ttsText": "أَحْسَنْتَ يَا بَطَل!ْ",
+            "ttsText": "أَحْسَنْتَ يَا بَطَل!",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -482,7 +482,7 @@
             "fileName": "word-047.mp3",
             "path": "public/audio/words/word-047.mp3",
             "text": "حاول مرة أخرى",
-            "ttsText": "حَاوِلْ مَرَّةً أُخْرَى!ْ",
+            "ttsText": "حَاوِلْ مَرَّةً أُخْرَى!",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -789,7 +789,7 @@
             "fileName": "phrase-001.mp3",
             "path": "public/audio/ui/phrase-001.mp3",
             "text": "أهلاً بكم في رحلة الوعي الصوتي! هيا نلعب ونتعلم معاً.",
-            "ttsText": "أَهْلًا بِكُمْ فِي رِحْلَةِ الْوَعْيِ الصَّوْتِي! هَيَّا نَلْعَبْ وَنَتَعَلَّمْ مَعًا.",
+            "ttsText": "أَهْلًا بِكُمْ فِي رِحْلَةِ الْوَعْيِ الصَّوْتِي! هَيَّا نَلْعَبَ وَنَتَعَلَّمَ مَعًا.",
             "voice": "ar-SA-ZariyahNeural"
         },
         {
@@ -1079,7 +1079,7 @@
             "fileName": "phrase-030.mp3",
             "path": "public/audio/ui/phrase-030.mp3",
             "text": "هيا نتعلم يا جدي",
-            "ttsText": "هَيَّا نَتَعَلَّمْ يَا جَدِّي",
+            "ttsText": "هَيَّا نَتَعَلَّمَ يَا جَدِّي",
             "voice": "ar-EG-ShakirNeural"
         },
         {
@@ -1110,6 +1110,86 @@
             "path": "public/audio/ui/phrase-033.mp3",
             "text": "يوم في المدرسة",
             "ttsText": "يَوْمٌ فِي الْمَدْرَسَةِ",
+            "voice": "ar-EG-ShakirNeural"
+        },
+        {
+            "id": "official_intro_scene_1",
+            "kind": "phrase",
+            "group": "intro",
+            "fileName": "official_intro_scene_1.mp3",
+            "path": "public/audio/ui/official_intro_scene_1.mp3",
+            "text": "مرحبًا بكم في هذا التطبيق التعليمي، المُهدي من جامعة الأزهر الشريف، كلية التربية بنين بالقاهرة، قسم المناهج وطرق التدريس.",
+            "ttsText": "مَرْحَبًا بِكُمْ فِي هَذَا التَّطْبِيقِ التَّعْلِيمِيِّ، الْمُهْدَى مِنْ جَامِعَةِ الْأَزْهَرِ الشَّرِيفِ، كُلِّيَّةِ التَّرْبِيَةِ بَنِينَ بِالْقَاهِرَةِ، قِسْمِ الْمَنَاهِجِ وَطُرُقِ التَّدْرِيسِ.",
+            "voice": "ar-EG-ShakirNeural"
+        },
+        {
+            "id": "official_intro_scene_2",
+            "kind": "phrase",
+            "group": "intro",
+            "fileName": "official_intro_scene_2.mp3",
+            "path": "public/audio/ui/official_intro_scene_2.mp3",
+            "text": "هذا العمل مقدم استكمالًا لمتطلبات الحصول على درجة المَاجِسْتِر في التربية، تخصص مناهج وطرق تدريس اللغة العربية. من إعداد الباحث: مصطفى أحمد محمد حسن حسان، معلم اللغة العربية بوزارة التربية والتعليم.",
+            "ttsText": "هَذَا الْعَمَلُ مُقَدَّمٌ اسْتِكْمَالًا لِمُتَطَلَّبَاتِ الْحُصُولِ عَلَى دَرَجَةِ الْمَاجِسْتِر فِي التَّرْبِيَةِ، تَخَصُّصِ مَنَاهِجَ وَطُرُقِ تَدْرِيسِ اللُّغَةِ الْعَرَبِيَّةِ. مِنْ إِعْدَادِ الْبَاحِثِ: مُصْطَفَى أَحْمَد مُحَمَّد حَسَن حَسَّان، مُعَلِّمِ اللُّغَةِ الْعَرَبِيَّةِ بِوِزَارَةِ التَّرْبِيَةِ وَالتَّعْلِيمِ.",
+            "voice": "ar-EG-ShakirNeural"
+        },
+        {
+            "id": "official_intro_scene_3",
+            "kind": "phrase",
+            "group": "intro",
+            "fileName": "official_intro_scene_3.mp3",
+            "path": "public/audio/ui/official_intro_scene_3.mp3",
+            "text": "ويأتي هذا العمل تحت إشراف نخبة من العلماء الأجلاء: الأستاذ الدكتور خالد فاروق الهواري، الدكتور باسم محمد عبده الجندي، والدكتور أشرف محمد سعد، أساتذة المناهج وطرق التدريس بكلية التربية بجامعة الأزهر.",
+            "ttsText": "وَيَأْتِي هَذَا الْعَمَلُ تَحْتَ إِشْرَافِ نُخْبَةٍ مِنَ الْعُلَمَاءِ الْأَجِلَّاءِ: الْأُسْتَاذِ الدُّكْتُور خَالِد فَارُقْ الْهَوَارِي، الدُّكْتُور بَاسِم مُحَمَّد عَبْدُهْ الْجِنْدِي، وَالدُّكْتُور أَشْرَف مُحَمَّد سَعْد، أَسَاتِذَةِ الْمَنَاهِجِ وَطُرُقِ التَّدْرِيسِ بِكُلِّيَّةِ التَّرْبِيَةِ بِجَامِعَةِ الْأَزْهَرِ.",
+            "voice": "ar-EG-ShakirNeural"
+        },
+        {
+            "id": "welcome_intro_scene_1",
+            "kind": "phrase",
+            "group": "intro",
+            "fileName": "welcome_intro_scene_1.mp3",
+            "path": "public/audio/ui/welcome_intro_scene_1.mp3",
+            "text": "عزيزي تلميذ الصف الأول الابتدائي، أهلًا ومرحبًا بك يا بطل في رحلة ممتعة وشيقة، مليئة بالألعاب اللغوية الإلكترونية المرتبطة بالأصوات والحروف الجميلة.",
+            "ttsText": "عَزِيزِي تِلْمِيذَ الصَّفِّ الْأَوَّلِ الِابْتِدَائِيِّ، أَهْلًا وَمَرْحَبًا بِكَ يَا بَطَلُ فِي رِحْلَةٍ مُمْتِعَةٍ وَشَيِّقَةٍ، مَلِيئَةٌ بِالْأَلْعَابِ اللُّغَوِيَّةِ الْإِلِكْتُرُونِيَّةِ الْمُرْتَبِطَةِ بِالْأَصْوَاتِ وَالْحُرُوفِ الْجَمِيلَةِ.",
+            "voice": "ar-EG-ShakirNeural"
+        },
+        {
+            "id": "welcome_intro_scene_2",
+            "kind": "phrase",
+            "group": "intro",
+            "fileName": "welcome_intro_scene_2.mp3",
+            "path": "public/audio/ui/welcome_intro_scene_2.mp3",
+            "text": "عزيزي التلميذ، في هذا التطبيق سوف تتعلم كيف تسمع الأصوات، وتتعرف على الحروف والكلمات، وتحليلها ودمجها بطريقة سهلة ومرحة.",
+            "ttsText": "عَزِيزِي التِّلْمِيذُ، فِي هَذَا التَّطْبِيقِ سَوْفَ تَتَعَلَّمُ كَيْفَ تَسْمَعُ الْأَصْوَاتَ، وَتَتَعَرَّفُ عَلَى الْحُرُوفِ وَالْكَلِمَاتِ، وَتَحْلِيلِهَا وَدَمْجِهَا بِطَرِيقَةٍ سَهْلَةٍ وَمَرِحَةٍ.",
+            "voice": "ar-EG-ShakirNeural"
+        },
+        {
+            "id": "welcome_intro_scene_3",
+            "kind": "phrase",
+            "group": "intro",
+            "fileName": "welcome_intro_scene_3.mp3",
+            "path": "public/audio/ui/welcome_intro_scene_3.mp3",
+            "text": "هيا بنا عزيزي التلميذ ننطلق! نلعب ونتعلم الأصوات والحروف في مغامرات ممتعة تساعدك على التمييز بين الأصوات، والتعرف على الحروف، وبناء مهاراتك خطوة بخطوة.",
+            "ttsText": "هَيَّا بِنَا عَزِيزِي التِّلْمِيذُ نَنْطَلِقُ! نَلْعَبُ وَنَتَعَلَّمُ الْأَصْوَاتَ وَالْحُرُوفَ فِي مُغَامَرَاتٍ مُمْتِعَةٍ تُسَاعِدُكَ عَلَى التَّمْيِيزِ بَيْنَ الْأَصْوَاتِ، وَالتَّعَرُّفِ عَلَى الْحُرُوفِ، وَبِنَاءِ مَهَارَاتِكَ خُطْوَةً بِخُطْوَةٍ.",
+            "voice": "ar-EG-ShakirNeural"
+        },
+        {
+            "id": "phrase-034",
+            "kind": "phrase",
+            "group": "intro",
+            "fileName": "phrase-034.mp3",
+            "path": "public/audio/ui/phrase-034.mp3",
+            "text": "منارة العلم واللغة العربية. جامعة الأزهر. كلية التربية بنين بالقاهرة. قسم المناهج وطرق التدريس.",
+            "ttsText": "مَنَارَةُ الْعِلْمِ وَاللُّغَةِ الْعَرَبِيَّةِ. جَامِعَةُ الْأَزْهَرِ. كُلِّيَّةُ التَّرْبِيَةِ بَنِينَ بِالْقَاهِرَةِ. قِسْمُ الْمَنَاهِجِ وَطُرُقِ التَّدْرِيسِ.",
+            "voice": "ar-EG-ShakirNeural"
+        },
+        {
+            "id": "phrase-035",
+            "kind": "phrase",
+            "group": "intro",
+            "fileName": "phrase-035.mp3",
+            "path": "public/audio/ui/phrase-035.mp3",
+            "text": "عزيزي تلميذ الصف الأول الابتدائي، أهلًا ومرحبًا بك يا بطل في رحلة ممتعة وشيقة مليئة بالألعاب اللغوية الإلكترونية المرتبطة بالأصوات والحروف الجميلة.",
+            "ttsText": "عَزِيزِي تِلْمِيذَ الصَّفِّ الْأَوَّلِ الِابْتِدَائِيِّ، أَهْلًا وَمَرْحَبًا بِكَ يَا بَطَلُ فِي رِحْلَةٍ مُمْتِعَةٍ وَشَيِّقَةٍ مَلِيئَةٍ بِالْأَلْعَابِ اللُّغَوِيَّةِ الْإِلِكْتُرُونِيَّةِ الْمُرْتَبِطَةِ بِالْأَصْوَاتِ وَالْحُرُوفِ الْجَمِيلَةِ.",
             "voice": "ar-EG-ShakirNeural"
         }
     ]

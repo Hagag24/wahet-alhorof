@@ -15,7 +15,7 @@ export const feedbackAudioConfig: Record<FeedbackKind, FeedbackConfig> = {
     ],
   },
   wrong: {
-    fallbackText: "حاول مرة أخرى",
+    fallbackText: "جرّب مرة أخرى يا بطل",
     clips: ["/audio/words/word-047.mp3"],
   },
 };

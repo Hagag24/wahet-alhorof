@@ -8,10 +8,36 @@ export interface Lesson {
   story: string
   storyScenes: StoryScene[]
   vocabulary: VocabularyWord[]
+  sections?: LessonSections
   games: GameConfig[]
   icon: string
   color: string
   order: number
+}
+
+export interface LessonSectionItem {
+  title: string
+  description: string
+  audioText?: string
+  interactive?: boolean
+  scenario?: {
+    character?: string
+    missingWord?: string
+    bubbles?: string[]
+    targetSound?: string
+    item?: string
+    keys?: string[]
+    whisper?: string
+    correctChoice?: string
+    reward?: string
+  }
+  cinematic?: boolean
+}
+
+export interface LessonSections {
+  objectives: LessonSectionItem[]
+  warmup: LessonSectionItem[]
+  explanation: LessonSectionItem[]
 }
 
 
@@ -49,6 +75,7 @@ export interface GameConfig {
   title: string
   description: string
   icon: string
+  hidden?: boolean
   questions: GameQuestion[]
 }
 
@@ -59,6 +86,8 @@ export interface GameQuestion {
   question: string
   options: string[]
   correctAnswer: string | number
+  audioText?: string
+  pronounceQuestionAndOptions?: boolean
   hint?: string
   // For syllable clap
   syllables?: string[]
@@ -86,6 +115,7 @@ export interface UserProgress {
   studentName: string
   totalStars: number
   lessonsProgress: Record<string, LessonProgress>
+  gameMastery: Record<string, Record<string, number>>
   currentLevel: number
   lastPlayedAt: string
 }

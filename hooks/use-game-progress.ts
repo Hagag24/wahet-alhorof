@@ -1,10 +1,16 @@
 "use client";
 
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import { useLocalStorage } from "./use-local-storage";
 import type { UserProgress, LessonProgress, Badge, GameResult, Character } from "@/types";
 import { badges as allBadges } from "@/data/rewards";
 import { lessons } from "@/data/lessons";
+import { calculateMastery, shouldUnlockNextLevel } from "@/lib/game-rules";
+
+const getVisibleGames = (lessonId: string) => {
+  const lesson = lessons.find((l) => l.id === lessonId);
+  return lesson?.games.filter((game) => !game.hidden) || [];
+};
 
 // Helper to create initial progress for all lessons
 const createInitialLessonsProgress = (): Record<string, LessonProgress> => {
@@ -27,6 +33,7 @@ const initialProgress: UserProgress = {
   studentName: "طالب",
   totalStars: 0,
   lessonsProgress: createInitialLessonsProgress(),
+  gameMastery: {},
   currentLevel: 1,
   lastPlayedAt: "",
 };
@@ -36,6 +43,83 @@ export function useGameProgress() {
     "phonemic-awareness-progress",
     initialProgress
   );
+
+  const getGameMastery = useCallback((lessonId: string, gameId: string): number => {
+    return progress.gameMastery[lessonId]?.[gameId] || 0;
+  }, [progress.gameMastery]);
+
+  const isGameUnlocked = useCallback((lessonId: string, gameIndex: number): boolean => {
+    const visibleGames = getVisibleGames(lessonId);
+    if (gameIndex <= 0) return true;
+    if (gameIndex >= visibleGames.length) return false;
+
+    const previousGameId = visibleGames[gameIndex - 1]?.id;
+    if (!previousGameId) return false;
+    return shouldUnlockNextLevel(getGameMastery(lessonId, previousGameId));
+  }, [getGameMastery]);
+
+  const recordGameAttempt = useCallback((result: GameResult) => {
+    const mastery = calculateMastery(result.correctAnswers, result.totalQuestions);
+
+    setProgress((prev) => {
+      const currentLessonProgress = prev.lessonsProgress[result.lessonId] || {
+        lessonId: result.lessonId,
+        completed: false,
+        stars: 0,
+        gamesCompleted: [],
+        bestScore: 0,
+        lastAttempt: "",
+      };
+
+      const prevMastery = prev.gameMastery[result.lessonId]?.[result.gameId] || 0;
+      const mergedMastery = Math.max(prevMastery, mastery);
+
+      const oldMastered = currentLessonProgress.gamesCompleted.includes(result.gameId);
+      const newMastered = shouldUnlockNextLevel(mergedMastery);
+
+      const updatedGamesCompleted = newMastered && !oldMastered
+        ? [...currentLessonProgress.gamesCompleted, result.gameId]
+        : currentLessonProgress.gamesCompleted;
+
+      const visibleGames = getVisibleGames(result.lessonId);
+      const totalGames = visibleGames.length || 1;
+      const isLessonCompleted = updatedGamesCompleted.length >= totalGames;
+
+      const starsGain = newMastered && !oldMastered ? result.stars : 0;
+      const newStars = currentLessonProgress.stars + starsGain;
+      const newBestScore = Math.max(currentLessonProgress.bestScore, result.score);
+
+      const updatedLessonProgress: LessonProgress = {
+        ...currentLessonProgress,
+        gamesCompleted: updatedGamesCompleted,
+        stars: newStars,
+        bestScore: newBestScore,
+        completed: isLessonCompleted,
+        lastAttempt: new Date().toISOString(),
+      };
+
+      const newTotalStars = prev.totalStars + starsGain;
+      const newLevel = Math.floor(newTotalStars / 10) + 1;
+
+      return {
+        ...prev,
+        gameMastery: {
+          ...prev.gameMastery,
+          [result.lessonId]: {
+            ...(prev.gameMastery[result.lessonId] || {}),
+            [result.gameId]: mergedMastery,
+          },
+        },
+        lessonsProgress: {
+          ...prev.lessonsProgress,
+          [result.lessonId]: updatedLessonProgress,
+        },
+        totalStars: newTotalStars,
+        currentLevel: newLevel,
+        lastPlayedAt: new Date().toISOString(),
+      };
+    });
+  }, [setProgress]);
 
   // Select character
   const selectCharacter = useCallback((character: Character) => {
@@ -96,8 +180,7 @@ export function useGameProgress() {
         : [...currentLessonProgress.gamesCompleted, result.gameId];
 
       // Calculate lesson completion
-      const lesson = lessons.find((l) => l.id === result.lessonId);
-      const totalGames = lesson?.games.length || 1;
+      const totalGames = getVisibleGames(result.lessonId).length || 1;
       const isLessonCompleted = updatedGamesCompleted.length >= totalGames;
 
       const newStars = currentLessonProgress.stars + result.stars;
@@ -219,12 +302,16 @@ export function useGameProgress() {
 
   return {
     progress: progress.lessonsProgress,
+    gameMastery: progress.gameMastery,
     isLoaded,
     selectCharacter,
     updateStudentName,
     completeStory,
     completeGame,
+    recordGameAttempt,
     completeLesson,
+    getGameMastery,
+    isGameUnlocked,
     getLessonProgress,
     getEarnedBadges,
     unlockReward,

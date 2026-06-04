@@ -6,31 +6,39 @@ import { GameRouter } from "@/components/games/game-router";
 import { useApp } from "@/contexts/app-context";
 import { lessons } from "@/data/lessons";
 import { useGameProgress } from "@/hooks/use-game-progress";
+import { calculateMastery, shouldAdvanceToNextInternalLevel } from "@/lib/game-rules";
 import type { GameResult } from "@/types";
 
 export default function GamePage() {
   const { lessonId, gameIndex } = useParams();
   const { finishGame } = useApp();
-  const { completeLesson } = useGameProgress();
+  const { recordGameAttempt, isGameUnlocked } = useGameProgress();
   const router = useRouter();
   
   const lesson = lessons.find(l => l.id === lessonId);
   const idx = parseInt(gameIndex as string) || 0;
+  const visibleGames = lesson?.games.filter((game) => !game.hidden) || [];
 
   useEffect(() => {
     if (!lesson) {
       router.replace("/dashboard");
+      return;
     }
-  }, [lesson, router]);
 
-  if (!lesson) return null;
+    if (!isGameUnlocked(lesson.id, idx)) {
+      router.replace(`/lessons/${lesson.id}`);
+    }
+  }, [idx, isGameUnlocked, lesson, router]);
+
+  if (!lesson || !visibleGames[idx]) return null;
 
   const handleGameComplete = (result: GameResult) => {
-    // Save progress
-    completeLesson(lesson.id, result.stars);
+    recordGameAttempt(result);
     
     const nextIdx = idx + 1;
-    if (nextIdx < lesson.games.length) {
+    const mastery = calculateMastery(result.correctAnswers, result.totalQuestions);
+
+    if (shouldAdvanceToNextInternalLevel(mastery, nextIdx, visibleGames.length)) {
       router.push(`/lessons/${lessonId}/game/${nextIdx}`);
     } else {
       finishGame(result);
@@ -40,7 +48,7 @@ export default function GamePage() {
 
   return (
     <GameRouter 
-      lesson={lesson}
+      lesson={{ ...lesson, games: visibleGames }}
       gameIndex={idx}
       onGameComplete={handleGameComplete}
       onBack={() => router.push(`/lessons/${lessonId}`)}

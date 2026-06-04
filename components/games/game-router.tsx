@@ -11,7 +11,8 @@ import { useTTS } from "@/hooks/use-tts";
 import { useSound } from "@/hooks/use-sound";
 import { AudibleText } from "@/components/common/audible-text";
 import { feedbackAudioConfig } from "@/lib/feedback-config";
-import { ArrowRight, Check, X, Star, ChevronLeft, Volume2, Sparkles } from "lucide-react";
+import { evaluateAnswer } from "@/lib/game-rules";
+import { ArrowRight, Check, X, Star, Volume2, Sparkles } from "lucide-react";
 
 interface GameRouterProps {
   lesson: Lesson;
@@ -72,6 +73,16 @@ export function GameRouter({ lesson, gameIndex, onGameComplete, onBack }: GameRo
   const question = questions[currentQuestion];
   const progress = ((currentQuestion + 1) / totalQuestions) * 100;
 
+  const getQuestionAudioText = (q: GameQuestion) => {
+    if (q.pronounceQuestionAndOptions) {
+      return `${q.question} ${q.options.join("، ")}`;
+    }
+    if (q.audioText) {
+      return q.audioText;
+    }
+    return q.word || q.image || q.question;
+  };
+
 
   const handleAnswer = (answer: string) => {
     // Prevent ultra-fast double taps from firing feedback twice.
@@ -79,7 +90,8 @@ export function GameRouter({ lesson, gameIndex, onGameComplete, onBack }: GameRo
     setIsAnswerLocked(true);
     
     setSelectedAnswer(answer);
-    const correct = answer === question.correctAnswer;
+    const outcome = evaluateAnswer(answer, question.correctAnswer);
+    const correct = outcome.correct;
     setIsCorrect(correct);
     setShowResult(true);
 
@@ -95,6 +107,12 @@ export function GameRouter({ lesson, gameIndex, onGameComplete, onBack }: GameRo
       setWrongAnswers(prev => prev + 1);
       playSound("wrong");
       setTimeout(() => playFeedbackVoice(false), 250);
+      setTimeout(() => {
+        setSelectedAnswer(null);
+        setShowResult(false);
+        setIsAnswerLocked(false);
+      }, 1300);
+      return;
     }
 
     setTimeout(() => {
@@ -226,7 +244,7 @@ export function GameRouter({ lesson, gameIndex, onGameComplete, onBack }: GameRo
                           size="icon"
                           variant="secondary"
                           className="w-12 h-12 rounded-2xl bg-white shadow-md hover:bg-gray-50"
-                          onClick={() => speak(question.word || question.question)}
+                          onClick={() => speak(getQuestionAudioText(question))}
                         >
                           <Volume2 className="w-6 h-6 text-[#6366F1]" />
                         </Button>
@@ -239,7 +257,11 @@ export function GameRouter({ lesson, gameIndex, onGameComplete, onBack }: GameRo
                     {question.options.map((option, idx) => {
                       const isSelected = selectedAnswer === option;
                       const isCorrectOption = option === question.correctAnswer;
-                      const status = !showResult ? 'idle' : isCorrectOption ? 'correct' : isSelected ? 'wrong' : 'muted';
+                      const status = !showResult
+                        ? 'idle'
+                        : isCorrect
+                          ? (isCorrectOption ? 'correct' : 'muted')
+                          : (isSelected ? 'wrong' : 'idle');
 
                       return (
                         <motion.button
@@ -247,7 +269,7 @@ export function GameRouter({ lesson, gameIndex, onGameComplete, onBack }: GameRo
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: idx * 0.1 }}
-                          disabled={showResult}
+                          disabled={isAnswerLocked}
                           onClick={() => handleAnswer(option)}
                           className={`
                             relative p-8 text-2xl font-black rounded-[2rem] border-b-[8px] transition-all duration-200

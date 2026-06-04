@@ -70,7 +70,7 @@ export function ResultScreen({ result, lessonId, onRetry, onNext, onBackToMap }:
   } : null;
 
   return (
-    <div className="min-h-screen bg-[#FFF9F0] flex flex-col items-center justify-center p-4 relative overflow-hidden" dir="rtl">
+    <div className="min-h-screen bg-[#FFF9F0] flex flex-col items-center justify-center p-4 relative" dir="rtl">
       {isPerfect && <Confetti trigger={true} />}
       
       {/* Background decorations from Image 1 style */}

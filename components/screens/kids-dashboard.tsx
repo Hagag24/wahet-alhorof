@@ -84,7 +84,7 @@ export function KidsDashboard({ character, onNavigate, onStartLesson }: KidsDash
   ] as const;
 
   return (
-    <div className="min-h-screen bg-[#FFF9F0] pb-32 relative overflow-hidden" dir="rtl">
+    <div className="min-h-screen bg-[#FFF9F0] pb-32 relative" dir="rtl">
       {/* Decorative stars/dots background */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         {mounted && backgroundDots.map((dot) => (
@@ -168,26 +168,26 @@ export function KidsDashboard({ character, onNavigate, onStartLesson }: KidsDash
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-gradient-to-l from-[#6366F1] to-[#4F46E5] rounded-[2.5rem] p-8 mb-8 text-white relative overflow-hidden shadow-xl"
+          className="bg-gradient-to-l from-[#6366F1] to-[#4F46E5] rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 mb-6 sm:mb-8 text-white relative overflow-hidden shadow-xl"
         >
           <div className="relative z-10">
-            <h2 className="text-3xl font-black mb-3">
+            <h2 className="text-2xl sm:text-3xl font-black mb-2 sm:mb-3">
               <AudibleText text="جاهز للمغامرة اليوم؟" stopPropagation={false} />
             </h2>
-            <p className="text-white/80 text-lg mb-6 max-w-md">
+            <p className="text-white/80 text-base sm:text-lg mb-4 sm:mb-6 max-w-md">
               <AudibleText text="استمر في رحلتك لتعلم الأصوات والحروف واكتشاف المكافآت الرائعة!" stopPropagation={false} />
             </p>
             <Button 
               onClick={() => onStartLesson(nextLesson)}
-              className="bg-[#FACC15] hover:bg-[#EAB308] text-[#854D0E] font-black text-xl px-8 py-7 rounded-2xl shadow-lg border-b-4 border-[#CA8A04] flex items-center gap-2"
+              className="bg-[#FACC15] hover:bg-[#EAB308] text-[#854D0E] font-black text-lg sm:text-xl px-6 sm:px-8 py-5 sm:py-7 rounded-2xl shadow-lg border-b-4 border-[#CA8A04] flex items-center gap-2 text-sm sm:text-base"
             >
-              <Play className="w-6 h-6 fill-current" />
+              <Play className="w-5 h-5 sm:w-6 sm:h-6 fill-current" />
               أكمل الرحلة
             </Button>
           </div>
           
           {/* Large floating mascot part from Image 1 */}
-          <div className="absolute left-[-20px] bottom-[-20px] text-[10rem] opacity-20 rotate-12 select-none pointer-events-none">
+          <div className="absolute left-[-20px] bottom-[-20px] text-[8rem] sm:text-[10rem] opacity-20 rotate-12 select-none pointer-events-none">
             {characterEmojis[character.image] || "🎭"}
           </div>
         </motion.div>
@@ -203,15 +203,15 @@ export function KidsDashboard({ character, onNavigate, onStartLesson }: KidsDash
         {/* Lessons List matching Image 1 premium cards */}
         <div className="space-y-6">
           <div className="flex items-center justify-between px-2">
-            <h3 className="text-2xl font-black text-gray-800">
+            <h3 className="text-xl sm:text-2xl font-black text-gray-800">
               <AudibleText text="رحلة التعلم" />
             </h3>
-            <Button variant="ghost" onClick={() => onNavigate("learning-map")} className="text-[#6366F1] font-bold">
+            <Button variant="ghost" onClick={() => onNavigate("learning-map")} className="text-[#6366F1] font-bold text-sm sm:text-base">
               عرض الخريطة <ChevronLeft className="mr-1 w-4 h-4" />
             </Button>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {lessons.map((lesson, i) => {
               const lessonProgress = progress[lesson.id];
               const isCompleted = lessonProgress?.completed;

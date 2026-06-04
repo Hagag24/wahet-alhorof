@@ -40,7 +40,7 @@ export function LearningMap({ progress, onSelectLesson, onBack }: LearningMapPro
   };
 
   return (
-    <div className="min-h-screen bg-[#FFF9F0] relative overflow-hidden" dir="rtl">
+    <div className="min-h-screen bg-[#FFF9F0] relative" dir="rtl">
       {/* Scenic Background Decorations from Image 4 */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-[10%] text-8xl opacity-10">☁️</div>
@@ -62,17 +62,18 @@ export function LearningMap({ progress, onSelectLesson, onBack }: LearningMapPro
         ))}
       </div>
 
-      <header className="relative z-10 p-6 flex items-center justify-between">
+      <header className="relative z-10 p-4 sm:p-6 flex items-center justify-between">
         <Button
           variant="ghost"
           onClick={onBack}
-          className="bg-white/80 backdrop-blur-sm rounded-2xl gap-2 border-2 border-gray-100"
+          className="bg-white/80 backdrop-blur-sm rounded-2xl gap-2 border-2 border-gray-100 text-sm sm:text-base"
         >
-          <ArrowRight className="w-5 h-5" />
-          <span>العودة للرئيسية</span>
+          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+          <span className="hidden sm:inline">العودة للرئيسية</span>
+          <span className="sm:hidden">عودة</span>
         </Button>
-        <h1 className="text-3xl font-black text-[#5B49D1]">خريطة الرحلة</h1>
-        <div className="w-10" />
+        <h1 className="text-2xl sm:text-3xl font-black text-[#5B49D1]">خريطة الرحلة</h1>
+        <div className="w-8 sm:w-10" />
       </header>
 
       <div className="max-w-4xl mx-auto p-4 relative z-10 pb-32">
@@ -117,7 +118,7 @@ export function LearningMap({ progress, onSelectLesson, onBack }: LearningMapPro
                       whileHover={status !== 'locked' ? { scale: 1.1 } : {}}
                       onClick={() => status !== 'locked' && onSelectLesson(lesson)}
                       className={`
-                        w-24 h-24 rounded-full flex items-center justify-center text-4xl shadow-xl cursor-pointer border-4
+                        w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center text-3xl sm:text-4xl shadow-xl cursor-pointer border-4
                         transition-all duration-300
                         ${status === 'completed' ? 'bg-primary border-white' : ''}
                         ${status === 'active' ? 'bg-white border-primary ring-8 ring-primary/20' : ''}
@@ -145,7 +146,7 @@ export function LearningMap({ progress, onSelectLesson, onBack }: LearningMapPro
                   </div>
 
                   {/* Info Card next to marker */}
-                  <div className={`absolute ${isEven ? 'left-[calc(50%+4rem)]' : 'right-[calc(50%+4rem)]'} w-48 md:w-64`}>
+                  <div className={`absolute ${isEven ? 'left-[calc(50%+4rem)]' : 'right-[calc(50%+4rem)]'} w-40 sm:w-48 md:w-64`}>
                     <motion.div
                       whileHover={status !== 'locked' ? { x: isEven ? 10 : -10 } : {}}
                     >

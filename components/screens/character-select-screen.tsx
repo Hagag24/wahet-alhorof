@@ -46,7 +46,7 @@ export function CharacterSelectScreen({ onSelect }: CharacterSelectScreenProps) 
   };
 
   return (
-    <div className="min-h-screen bg-[#FFF9F0] p-4 md:p-8 relative overflow-hidden" dir="rtl">
+    <div className="min-h-screen bg-[#FFF9F0] p-4 md:p-8 relative" dir="rtl">
       {/* Decorative stars/dots background */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
         {[...Array(15)].map((_, i) => (
@@ -71,10 +71,10 @@ export function CharacterSelectScreen({ onSelect }: CharacterSelectScreenProps) 
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-6xl font-black text-[#5B49D1] mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-black text-[#5B49D1] mb-4">
             اختر صديقك المفضل
           </h1>
-          <p className="text-xl md:text-2xl text-gray-500 font-bold">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-500 font-bold">
             سيرافقك صديقك في رحلة التعلم الممتعة!
           </p>
         </motion.div>
@@ -119,23 +119,23 @@ export function CharacterSelectScreen({ onSelect }: CharacterSelectScreenProps) 
 
                 {/* Character emoji */}
                 <motion.div
-                  animate={isSelected ? { 
+                  animate={isSelected ? {
                     scale: [1, 1.1, 1],
                     rotate: [0, 5, -5, 0]
                   } : {}}
                   transition={{ duration: 0.5, repeat: isSelected ? Infinity : 0 }}
-                  className="text-7xl md:text-[8rem] mb-6 filter drop-shadow-lg"
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-[8rem] mb-4 sm:mb-6 filter drop-shadow-lg"
                 >
                   {characterEmojis[character.image] || "🎭"}
                 </motion.div>
 
                 {/* Character name */}
-                <h3 className={`text-2xl font-black mb-2 transition-colors ${isSelected ? "text-[#6366F1]" : "text-gray-800"}`}>
+                <h3 className={`text-lg sm:text-xl md:text-2xl font-black mb-2 transition-colors ${isSelected ? "text-[#6366F1]" : "text-gray-800"}`}>
                   <AudibleText text={character.name} showIcon={false} stopPropagation={false} />
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm md:text-base text-gray-500 font-medium leading-relaxed">
+                <p className="text-xs sm:text-sm md:text-base text-gray-500 font-medium leading-relaxed">
                   <AudibleText text={character.description} showIcon={false} stopPropagation={false} />
                 </p>
                 
@@ -165,12 +165,12 @@ export function CharacterSelectScreen({ onSelect }: CharacterSelectScreenProps) 
             onClick={handleContinue}
             disabled={!selected}
             size="lg"
-            className="text-3xl py-10 px-16 rounded-[2rem] bg-[#6366F1] hover:bg-[#4F46E5] shadow-[0_10px_0_#4338CA] active:shadow-none active:translate-y-2 transition-all gap-4 font-black disabled:opacity-50 disabled:grayscale"
+            className="text-2xl sm:text-3xl py-8 sm:py-10 px-8 sm:px-16 rounded-[2rem] bg-[#6366F1] hover:bg-[#4F46E5] shadow-[0_10px_0_#4338CA] active:shadow-none active:translate-y-2 transition-all gap-4 font-black disabled:opacity-50 disabled:grayscale"
           >
             {selected ? (
               <>
                 انطلق مع {selected.name}
-                <ArrowLeft className="w-8 h-8" />
+                <ArrowLeft className="w-6 h-6 sm:w-8 sm:h-8" />
               </>
             ) : (
               "اختر صديقك أولاً"

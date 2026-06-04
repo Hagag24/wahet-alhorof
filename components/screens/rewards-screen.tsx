@@ -41,7 +41,7 @@ export function RewardsScreen({ onBack }: RewardsScreenProps) {
   const progressPercentage = (earnedRewardsCount / totalRewards) * 100;
 
   return (
-    <div className="min-h-screen bg-[#FFF9F0] pb-20 relative overflow-hidden" dir="rtl">
+    <div className="min-h-screen bg-[#FFF9F0] pb-20 relative" dir="rtl">
        {/* Decorative stars/dots background */}
        <div className="absolute inset-0 pointer-events-none opacity-20">
         {mounted && backgroundDots.map((dot) => (

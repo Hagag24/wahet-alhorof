@@ -1,0 +1,512 @@
+[
+  {
+    "category": "characters",
+    "fileName": "maryam.png",
+    "path": "public/images/characters/maryam.png",
+    "description": "شخصية مريم الرئيسية في الدرس الأول، طفلة عربية صغيرة محتشمة ومحجبة/بغطاء رأس مناسب لعمرها، تستخدم في القصة والشرح."
+  },
+  {
+    "category": "characters",
+    "fileName": "youssef.png",
+    "path": "public/images/characters/youssef.png",
+    "description": "شخصية يوسف، ولد عربي صغير، مبتسم ومساعد، يظهر في قصة الدرس الأول والألعاب."
+  },
+  {
+    "category": "characters",
+    "fileName": "grandfather.png",
+    "path": "public/images/characters/grandfather.png",
+    "description": "شخصية الجد، رجل كبير السن، ملامح ودودة، يكتب رسالة في تمهيد الدرس الأول."
+  },
+  {
+    "category": "characters",
+    "fileName": "mother.png",
+    "path": "public/images/characters/mother.png",
+    "description": "شخصية الأم، سيدة عربية محتشمة ومحجبة، تستخدم في قصص الأسرة."
+  },
+  {
+    "category": "characters",
+    "fileName": "father.png",
+    "path": "public/images/characters/father.png",
+    "description": "شخصية الأب، رجل عربي محتشم وودود، يستخدم في مشاهد الأسرة."
+  },
+  {
+    "category": "characters",
+    "fileName": "amira.png",
+    "path": "public/images/characters/amira.png",
+    "description": "شخصية أميرة، طفلة عربية صغيرة محتشمة ومحجبة/بغطاء رأس مناسب، تظهر في الدرس الثاني."
+  },
+  {
+    "category": "characters",
+    "fileName": "sami.png",
+    "path": "public/images/characters/sami.png",
+    "description": "شخصية سامي، ولد عربي صغير يحمل كاميرا/ألبوم، يظهر في الدرس الثالث."
+  },
+  {
+    "category": "characters",
+    "fileName": "kareem.png",
+    "path": "public/images/characters/kareem.png",
+    "description": "شخصية كريم، ولد عربي صغير بحقيبة/ألوان، يظهر في الدرس الرابع."
+  },
+  {
+    "category": "characters",
+    "fileName": "tarek.png",
+    "path": "public/images/characters/tarek.png",
+    "description": "شخصية طارق، ولد عربي صغير صديق كريم، يظهر في الدرس الرابع."
+  },
+  {
+    "category": "characters",
+    "fileName": "teacher_female.png",
+    "path": "public/images/characters/teacher_female.png",
+    "description": "المعلمة، سيدة عربية محتشمة ومحجبة، تحمل كتابًا أو تشير للسبورة."
+  },
+  {
+    "category": "characters",
+    "fileName": "cartoon_boy.png",
+    "path": "public/images/characters/cartoon_boy.png",
+    "description": "طفل كرتوني عربي عام للترحيب والمقدمة، ملابس محتشمة."
+  },
+  {
+    "category": "characters",
+    "fileName": "cartoon_girl.png",
+    "path": "public/images/characters/cartoon_girl.png",
+    "description": "طفلة كرتونية عربية عامة للترحيب والمقدمة، محجبة/محتشمة."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "grandfather_missing_letter_message.png",
+    "path": "public/images/lesson-1/grandfather_missing_letter_message.png",
+    "description": "تمهيد رسالة الجد المفقودة: الجد على مكتب قديم يكتب رسالة، وحروف عربية تتطاير من الورقة."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "letter_bubbles_j_d_y.png",
+    "path": "public/images/lesson-1/letter_bubbles_j_d_y.png",
+    "description": "فقاعات حروف واضحة للعبة رسالة الجد: جـ، د، ي. يفضل بدون نصوص مكررة غير الحروف."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "maryam_age_6.png",
+    "path": "public/images/lesson-1/maryam_age_6.png",
+    "description": "مريم وبجانبها رقم 6 في قصة الدرس الأول."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "youssef_age_9.png",
+    "path": "public/images/lesson-1/youssef_age_9.png",
+    "description": "يوسف وبجانبه رقم 9 في قصة الدرس الأول."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "youssef_helping_family.png",
+    "path": "public/images/lesson-1/youssef_helping_family.png",
+    "description": "يوسف يساعد أمه وأباه في حمل الخضروات أو سقاية الأشجار."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "youssef_red_bicycle.png",
+    "path": "public/images/lesson-1/youssef_red_bicycle.png",
+    "description": "يوسف يركب دراجة حمراء بسرعة ومهارة متجهًا للمتجر."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "maryam_sad_garden.png",
+    "path": "public/images/lesson-1/maryam_sad_garden.png",
+    "description": "مريم حزينة في حديقة المنزل وتتمنى مساعدة والديها."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "smart_board_sit_sad.png",
+    "path": "public/images/lesson-1/smart_board_sit_sad.png",
+    "description": "سبورة ذكية تعرض الفرق الصوتي بين سِت وصِت مع تمييز حرف السين والصاد."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "dal_letter_forms_bicycle.png",
+    "path": "public/images/lesson-1/dal_letter_forms_bicycle.png",
+    "description": "توضيح حرف الدال في كلمة دراجة وشكل الحرف وصوته."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "meem_identity_card_store.png",
+    "path": "public/images/lesson-1/meem_identity_card_store.png",
+    "description": "بطاقة هوية لحرف الميم: الاسم ميم، الصوت مَـ، مرتبطة بكلمة المتجر."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "hazina_sound_blocks.png",
+    "path": "public/images/lesson-1/hazina_sound_blocks.png",
+    "description": "كلمة حزينة مقسمة إلى مربعات صوتية مع تمييز حرف الحاء."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "bike_picture.png",
+    "path": "public/images/lesson-1/bike_picture.png",
+    "description": "صورة دراجة واضحة لاستخدام سؤال ما الكلمة الصحيحة للصورة."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "youssef_picture.png",
+    "path": "public/images/lesson-1/youssef_picture.png",
+    "description": "صورة يوسف لاستخدام سؤال ما الكلمة الصحيحة للصورة."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "store_picture.png",
+    "path": "public/images/lesson-1/store_picture.png",
+    "description": "صورة متجر عربي صغير واضح لاستخدام سؤال المتجر."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "sound_hunter_boxes.png",
+    "path": "public/images/lesson-1/sound_hunter_boxes.png",
+    "description": "3 صناديق للعبة صياد الأصوات: يوسف، يوم، بيت مع صور ولد/تقويم/منزل."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "harakat_jump_house.png",
+    "path": "public/images/lesson-1/harakat_jump_house.png",
+    "description": "لعبة قفزة الحركات: كلمة بيت وثلاث بوابات للحركات الفتحة والضمة والكسرة."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "youssef_rain_umbrella.png",
+    "path": "public/images/lesson-1/youssef_rain_umbrella.png",
+    "description": "يوسف تحت المطر بمظلة، وقطرات تحمل يَـ، يِـ، يُـ، يْـ."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "letter_train_stations.png",
+    "path": "public/images/lesson-1/letter_train_stations.png",
+    "description": "قطار الحروف بثلاث عربات: أول الكلمة، وسط الكلمة، آخر الكلمة."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "meem_star_hunt.png",
+    "path": "public/images/lesson-1/meem_star_hunt.png",
+    "description": "سماء ليلية ونجوم كلمات للبحث عن حرف الميم في آخر الكلمة."
+  },
+  {
+    "category": "lesson-1",
+    "fileName": "letter_orchard_trees.png",
+    "path": "public/images/lesson-1/letter_orchard_trees.png",
+    "description": "بستان الحروف بثلاث شجرات: أول، وسط، آخر الكلمة."
+  },
+  {
+    "category": "lesson-2",
+    "fileName": "amira_character.png",
+    "path": "public/images/lesson-2/amira_character.png",
+    "description": "أميرة تقف وتلوح ببطاقة، محجبة/محتشمة، تستخدم في أهداف الدرس الثاني."
+  },
+  {
+    "category": "lesson-2",
+    "fileName": "harakat_balloons_alef.png",
+    "path": "public/images/lesson-2/harakat_balloons_alef.png",
+    "description": "حرف الألف في المنتصف وثلاث بالونات للحركات: فتحة، ضمة، كسرة."
+  },
+  {
+    "category": "lesson-2",
+    "fileName": "magic_pen_father_amira.png",
+    "path": "public/images/lesson-2/magic_pen_father_amira.png",
+    "description": "القلم السحري يكتب أَ لإكمال كلمة أَب مع صورة أب وأميرة."
+  },
+  {
+    "category": "lesson-2",
+    "fileName": "family_surprise_box.png",
+    "path": "public/images/lesson-2/family_surprise_box.png",
+    "description": "صندوق المفاجآت مع صور أفراد الأسرة: أب، أم، جدة، أخ صغير، صديق."
+  },
+  {
+    "category": "lesson-2",
+    "fileName": "family_house_drop_zone.png",
+    "path": "public/images/lesson-2/family_house_drop_zone.png",
+    "description": "بيت الأسرة كمنطقة إسقاط للصور الصحيحة."
+  },
+  {
+    "category": "lesson-2",
+    "fileName": "amira_happy_family_story.png",
+    "path": "public/images/lesson-2/amira_happy_family_story.png",
+    "description": "مشهد قصة أميرة وأسرتها السعيدة."
+  },
+  {
+    "category": "lesson-2",
+    "fileName": "amira_movement_baskets.png",
+    "path": "public/images/lesson-2/amira_movement_baskets.png",
+    "description": "ثلاث سلال للحركات مع أميرة: الفتحة، الضمة، الكسرة."
+  },
+  {
+    "category": "lesson-2",
+    "fileName": "magic_syllable_scissors.png",
+    "path": "public/images/lesson-2/magic_syllable_scissors.png",
+    "description": "محقق المقاطع السحرية: مقص/قطار يقطع كلمة إلى مقاطع."
+  },
+  {
+    "category": "lesson-2",
+    "fileName": "amira_magic_blocks.png",
+    "path": "public/images/lesson-2/amira_magic_blocks.png",
+    "description": "مكعبات أميرة السحرية لترتيب المقاطع."
+  },
+  {
+    "category": "lesson-2",
+    "fileName": "amira_magic_gate_similar_sounds.png",
+    "path": "public/images/lesson-2/amira_magic_gate_similar_sounds.png",
+    "description": "بوابة سحرية لمحطة الأصوات المتشابهة."
+  },
+  {
+    "category": "lesson-2",
+    "fileName": "magic_binocular_word_hunter.png",
+    "path": "public/images/lesson-2/magic_binocular_word_hunter.png",
+    "description": "منظار صائد الكلمات الصحيحة مع أهداف ملونة."
+  },
+  {
+    "category": "lesson-2",
+    "fileName": "amira_sound_train_station.png",
+    "path": "public/images/lesson-2/amira_sound_train_station.png",
+    "description": "محطة قطار الأصوات للتمييز بين الحروف المتشابهة."
+  },
+  {
+    "category": "lesson-2",
+    "fileName": "amira_different_word_balloons.png",
+    "path": "public/images/lesson-2/amira_different_word_balloons.png",
+    "description": "كاشف الكلمة المختلفة: بالونات لكلمات أميرة، أسرة، بيت."
+  },
+  {
+    "category": "lesson-3",
+    "fileName": "sami_animal_album.png",
+    "path": "public/images/lesson-3/sami_animal_album.png",
+    "description": "سامي يمسك كاميرا أو ألبوم حيوانات سحري."
+  },
+  {
+    "category": "lesson-3",
+    "fileName": "living_room_forest_tv.png",
+    "path": "public/images/lesson-3/living_room_forest_tv.png",
+    "description": "غرفة معيشة وسامي ووالده أمام تلفاز يعرض غابة كرتونية."
+  },
+  {
+    "category": "lesson-3",
+    "fileName": "lion_behind_tree_shadow.png",
+    "path": "public/images/lesson-3/lion_behind_tree_shadow.png",
+    "description": "ظل الأسد خلف الشجرة في لعبة من خلف الشجرة."
+  },
+  {
+    "category": "lesson-3",
+    "fileName": "cartoon_lion_tree.png",
+    "path": "public/images/lesson-3/cartoon_lion_tree.png",
+    "description": "أسد كرتوني تحت شجرة في الغابة."
+  },
+  {
+    "category": "lesson-3",
+    "fileName": "bulbul_on_branch.png",
+    "path": "public/images/lesson-3/bulbul_on_branch.png",
+    "description": "بلبل صغير ملون على غصن."
+  },
+  {
+    "category": "lesson-3",
+    "fileName": "rabbit_running_forest.png",
+    "path": "public/images/lesson-3/rabbit_running_forest.png",
+    "description": "أرنب يجري في الغابة."
+  },
+  {
+    "category": "lesson-3",
+    "fileName": "ant_carrying_grain.png",
+    "path": "public/images/lesson-3/ant_carrying_grain.png",
+    "description": "نملة تجر حبة كبيرة."
+  },
+  {
+    "category": "lesson-3",
+    "fileName": "animal_word_cutting_machine.png",
+    "path": "public/images/lesson-3/animal_word_cutting_machine.png",
+    "description": "آلة تقطيع كلمات الغابة لتحليل الكلمات."
+  },
+  {
+    "category": "lesson-3",
+    "fileName": "magic_potion_merge_word.png",
+    "path": "public/images/lesson-3/magic_potion_merge_word.png",
+    "description": "وعاء جرعة سحرية لدمج الأصوات."
+  },
+  {
+    "category": "lesson-3",
+    "fileName": "flying_pen_animal_album.png",
+    "path": "public/images/lesson-3/flying_pen_animal_album.png",
+    "description": "قلم طائر يكتب الكلمات في ألبوم الحيوان."
+  },
+  {
+    "category": "lesson-3",
+    "fileName": "magic_word_train_forest.png",
+    "path": "public/images/lesson-3/magic_word_train_forest.png",
+    "description": "قطار الكلمات في غابة الحيوان."
+  },
+  {
+    "category": "lesson-3",
+    "fileName": "magnetic_word_box_animals.png",
+    "path": "public/images/lesson-3/magnetic_word_box_animals.png",
+    "description": "صندوق زجاجي ومغناطيس الأصوات السحري لمطابقة الكلمات."
+  },
+  {
+    "category": "lesson-4",
+    "fileName": "kareem_school_bag.png",
+    "path": "public/images/lesson-4/kareem_school_bag.png",
+    "description": "كريم يحمل حقيبته ذاهبًا للمدرسة."
+  },
+  {
+    "category": "lesson-4",
+    "fileName": "teacher_welcomes_kareem.png",
+    "path": "public/images/lesson-4/teacher_welcomes_kareem.png",
+    "description": "المعلمة تستقبل كريم عند باب المدرسة، المعلمة محجبة ومحتشمة."
+  },
+  {
+    "category": "lesson-4",
+    "fileName": "drawing_classroom.png",
+    "path": "public/images/lesson-4/drawing_classroom.png",
+    "description": "فصل الرسم وفيه سبورة وأدوات تلوين."
+  },
+  {
+    "category": "lesson-4",
+    "fileName": "kareem_drawing_flower.png",
+    "path": "public/images/lesson-4/kareem_drawing_flower.png",
+    "description": "كريم يرسم زهرة في حصة الرسم."
+  },
+  {
+    "category": "lesson-4",
+    "fileName": "tarek_gives_eraser.png",
+    "path": "public/images/lesson-4/tarek_gives_eraser.png",
+    "description": "طارق يعطي كريم الممحاة."
+  },
+  {
+    "category": "lesson-4",
+    "fileName": "color_smart_board.png",
+    "path": "public/images/lesson-4/color_smart_board.png",
+    "description": "سبورة الألوان والكلمات الذكية."
+  },
+  {
+    "category": "lesson-4",
+    "fileName": "lost_sounds_gift_box.png",
+    "path": "public/images/lesson-4/lost_sounds_gift_box.png",
+    "description": "صندوق الأصوات الضائع مع مفاتيح الأصوات."
+  },
+  {
+    "category": "lesson-4",
+    "fileName": "keys_ka_qa_kha.png",
+    "path": "public/images/lesson-4/keys_ka_qa_kha.png",
+    "description": "مفاتيح كَ، قَ، خَ للصندوق السحري."
+  },
+  {
+    "category": "lesson-4",
+    "fileName": "kareem_fast_words_train.png",
+    "path": "public/images/lesson-4/kareem_fast_words_train.png",
+    "description": "قطار كلمات كريم السريع."
+  },
+  {
+    "category": "lesson-4",
+    "fileName": "sound_twins_balloons.png",
+    "path": "public/images/lesson-4/sound_twins_balloons.png",
+    "description": "توائم الأصوات السحرية: بالونات كلمات متشابهة."
+  },
+  {
+    "category": "lesson-4",
+    "fileName": "magic_bubble_cannon_words.png",
+    "path": "public/images/lesson-4/magic_bubble_cannon_words.png",
+    "description": "مدفع الأصوات السحري وبالونات الكلمات."
+  },
+  {
+    "category": "lesson-4",
+    "fileName": "magic_sentence_magnet.png",
+    "path": "public/images/lesson-4/magic_sentence_magnet.png",
+    "description": "مغناطيس الجمل السحرية لإكمال الجملة."
+  },
+  {
+    "category": "lesson-4",
+    "fileName": "kareem_final_colored_flower.png",
+    "path": "public/images/lesson-4/kareem_final_colored_flower.png",
+    "description": "زهرة كريم النهائية الملونة بعد إكمال النشاط."
+  },
+  {
+    "category": "icons",
+    "fileName": "home.png",
+    "path": "public/images/icons/home.png",
+    "description": "أيقونة الرئيسية."
+  },
+  {
+    "category": "icons",
+    "fileName": "back.png",
+    "path": "public/images/icons/back.png",
+    "description": "أيقونة الرجوع."
+  },
+  {
+    "category": "icons",
+    "fileName": "next.png",
+    "path": "public/images/icons/next.png",
+    "description": "أيقونة التالي."
+  },
+  {
+    "category": "icons",
+    "fileName": "sound_on.png",
+    "path": "public/images/icons/sound_on.png",
+    "description": "أيقونة تشغيل الصوت."
+  },
+  {
+    "category": "icons",
+    "fileName": "sound_off.png",
+    "path": "public/images/icons/sound_off.png",
+    "description": "أيقونة كتم الصوت."
+  },
+  {
+    "category": "icons",
+    "fileName": "star.png",
+    "path": "public/images/icons/star.png",
+    "description": "نجمة المكافأة."
+  },
+  {
+    "category": "icons",
+    "fileName": "trophy.png",
+    "path": "public/images/icons/trophy.png",
+    "description": "كأس/جائزة."
+  },
+  {
+    "category": "icons",
+    "fileName": "medal.png",
+    "path": "public/images/icons/medal.png",
+    "description": "ميدالية."
+  },
+  {
+    "category": "icons",
+    "fileName": "heart.png",
+    "path": "public/images/icons/heart.png",
+    "description": "قلب تشجيع."
+  },
+  {
+    "category": "icons",
+    "fileName": "help.png",
+    "path": "public/images/icons/help.png",
+    "description": "علامة مساعدة."
+  },
+  {
+    "category": "icons",
+    "fileName": "hint.png",
+    "path": "public/images/icons/hint.png",
+    "description": "مصباح تلميح."
+  },
+  {
+    "category": "icons",
+    "fileName": "check.png",
+    "path": "public/images/icons/check.png",
+    "description": "علامة صح."
+  },
+  {
+    "category": "icons",
+    "fileName": "wrong.png",
+    "path": "public/images/icons/wrong.png",
+    "description": "علامة خطأ."
+  },
+  {
+    "category": "icons",
+    "fileName": "play.png",
+    "path": "public/images/icons/play.png",
+    "description": "تشغيل."
+  },
+  {
+    "category": "icons",
+    "fileName": "pause.png",
+    "path": "public/images/icons/pause.png",
+    "description": "إيقاف مؤقت."
+  }
+]
