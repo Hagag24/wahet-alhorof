@@ -42,6 +42,12 @@ export function ResultScreen({ result, lessonId, onRetry, onNext, onBackToMap }:
     if (result.stars > 0) {
       playSound(result.stars === 3 ? "finish" : "reward");
       setTimeout(() => playSound("pop"), 500);
+      setTimeout(() => playSound("applause"), 600);
+      setTimeout(() => playSound("whistle"), 800);
+      if (result.stars === 3) {
+        setTimeout(() => playSound("applause"), 1200);
+        setTimeout(() => playSound("whistle"), 1400);
+      }
     }
     
     // Vocal reinforcement

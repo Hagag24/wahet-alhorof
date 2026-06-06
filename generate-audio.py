@@ -87,6 +87,46 @@ def normalize_waqf_tts(word_text: str, tts_text: str) -> str:
     # Otherwise pause on sukun.
     return f"{tts}ْ"
 
+def normalize_waqf_tts_for_text(text: str) -> str:
+    """Apply waqf normalization to each word in a sentence."""
+    if not text:
+        return text
+    
+    # Split text into words while preserving spaces and punctuation
+    words = text.split()
+    normalized_words = []
+    
+    for i, word in enumerate(words):
+        # Skip if word is just punctuation or very short
+        if len(word) <= 1 or all(c in '،.!?؛:،؟' for c in word):
+            normalized_words.append(word)
+            continue
+        
+        # Extract trailing punctuation
+        trailing_punct = ''
+        clean_word = word
+        while clean_word and clean_word[-1] in '،.!?؛:،؟':
+            trailing_punct = clean_word[-1] + trailing_punct
+            clean_word = clean_word[:-1]
+        
+        if not clean_word:
+            normalized_words.append(word)
+            continue
+        
+        # Check if this is the last word or has trailing punctuation (waqf position)
+        is_last_word = (i == len(words) - 1) or trailing_punct
+        
+        # Apply waqf normalization only at waqf positions
+        if is_last_word:
+            normalized = normalize_waqf_tts(clean_word, clean_word)
+        else:
+            # Keep original for wasl (connected) positions
+            normalized = clean_word
+        
+        normalized_words.append(normalized + trailing_punct)
+    
+    return ' '.join(normalized_words)
+
 def is_feminine_word(word: str) -> bool:
     w = (word or "").strip()
     if not w:
@@ -159,8 +199,8 @@ async def process_file(file_info, settings, semaphore):
 
         text = normalize_name_pronunciation(text)
 
-        if file_info.get("kind") == "word":
-            text = normalize_waqf_tts(file_info.get("text", ""), text)
+        # Apply waqf normalization to all types (words, phrases, story scenes)
+        text = normalize_waqf_tts_for_text(text)
 
         # إنشاء المجلدات إذا لم تكن موجودة
         full_path = Path(output_path)
@@ -187,13 +227,14 @@ async def process_file(file_info, settings, semaphore):
 
 async def main():
     manifest_path = "audio-manifest.json"
+    requested_ids = set(sys.argv[1:])
     
     if not Path(manifest_path).exists():
         print(f"Error: {manifest_path} not found.")
         return
 
     try:
-        with open(manifest_path, "r", encoding="utf-8") as f:
+        with open(manifest_path, "r", encoding="utf-8-sig") as f:
             manifest = json.load(f)
     except Exception as e:
         print(f"Error reading JSON: {e}")
@@ -201,6 +242,13 @@ async def main():
 
     settings = manifest.get("ttsSettings", {})
     files = manifest.get("files", [])
+    if requested_ids:
+        files = [file_info for file_info in files if file_info.get("id") in requested_ids]
+        found_ids = {file_info.get("id") for file_info in files}
+        missing_ids = sorted(requested_ids - found_ids)
+        if missing_ids:
+            print(f"Error: requested IDs not found in manifest: {', '.join(missing_ids)}")
+            return
     
     print(f"Found {len(files)} files to generate.")
     

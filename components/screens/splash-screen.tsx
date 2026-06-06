@@ -1,17 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  BookOpen,
-  ChevronLeft,
-  GraduationCap,
-  Languages,
-  Play,
-  Sparkles,
-  Star,
-  Volume2,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, RotateCcw, Volume2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FloatingLetters } from "@/components/common/floating-letters";
 import { SafeImage } from "@/components/common/safe-image";
@@ -41,7 +32,6 @@ interface IntroScene {
   phase: "official" | "welcome";
   audioKey: string;
   audioPath: string;
-  durationMs: number;
   eyebrow: string;
   sceneTitle: string;
   title: string;
@@ -50,20 +40,18 @@ interface IntroScene {
   blocks: IntroTextBlock[];
 }
 
-const INTRO_SEEN_KEY = "introSeen";
 const INTRO_SCENES: IntroScene[] = [
   {
     id: "official-azhar",
     phase: "official",
     audioKey: "official_intro_scene_1",
     audioPath: "/audio/ui/official_intro_scene_1.mp3",
-    durationMs: 15000,
     eyebrow: "منارة العلم واللغة العربية",
     sceneTitle: "واجهة الأزهر الشريف",
     title: "جامعة الأزهر",
     subtitle: "كلية التربية بنين بالقاهرة - قسم المناهج وطرق التدريس",
     narration:
-      "مرحبًا بكم في هذا التطبيق التعليمي، المُهدي من جامعة الأزهر الشريف، كلية التربية بنين بالقاهرة، قسم المناهج وطرق التدريس.",
+      "مرحبًا بكم في هذا التطبيق التعليمي، المُهدى من جامعة الأزهر الشريف، كلية التربية بنين بالقاهرة، قسم المناهج وطرق التدريس.",
     blocks: [
       {
         lines: [
@@ -88,17 +76,16 @@ const INTRO_SCENES: IntroScene[] = [
     phase: "official",
     audioKey: "official_intro_scene_2",
     audioPath: "/audio/ui/official_intro_scene_2.mp3",
-    durationMs: 10000,
     eyebrow: "كتاب الباحث السحري",
     sceneTitle: "بيانات البحث",
     title: "هذا التطبيق مقدم استكمالًا لمتطلبات الحصول على درجة الماجستير",
     subtitle: "تخصص: مناهج وطرق تدريس اللغة العربية",
     narration:
-      "هذا العمل مقدم استكمالًا لمتطلبات الحصول على درجة الماجستير في التربية، تخصص مناهج وطرق تدريس اللغة العربية. من إعداد الباحث: مصطفى أحمد محمد حسن حسان، معلم اللغة العربية بوزارة التربية والتعليم.",
+      "هذا العمل مقدم استكمالًا لمتطلبات الحصول على درجة الماجستير في التربية، تخصص مناهج وطرق تدريس اللغة العربية. إعداد الباحث: مصطفى أحمد محمد حسن حسان.",
     blocks: [
       {
         lines: [
-          "هذا التطبيق مقدم استكمالًا لمتطلبات الحصول على درجة المَاجِسْتِر في التربية",
+          "هذا التطبيق مقدم استكمالًا لمتطلبات الحصول على درجة الماجستير في التربية",
           "تخصص: مناهج وطرق تدريس اللغة العربية",
         ],
         emphasis: true,
@@ -108,7 +95,7 @@ const INTRO_SCENES: IntroScene[] = [
         lines: [
           "مصطفى أحمد محمد حسن حسان",
           "معلم لغة عربية",
-          "معلم لغة عربية بمدرسة نوي التعليمية، إدارة شبين القناطر، محافظة القليوبية، بوزارة التربية والتعليم بجمهورية مصر العربية.",
+          "بوزارة التربية والتعليم بجمهورية مصر العربية",
         ],
       },
     ],
@@ -118,7 +105,6 @@ const INTRO_SCENES: IntroScene[] = [
     phase: "official",
     audioKey: "official_intro_scene_3",
     audioPath: "/audio/ui/official_intro_scene_3.mp3",
-    durationMs: 15000,
     eyebrow: "لوحة الشرف والإشراف",
     sceneTitle: "تحت إشراف",
     title: "نخبة من العلماء الأجلاء",
@@ -154,7 +140,6 @@ const INTRO_SCENES: IntroScene[] = [
     phase: "welcome",
     audioKey: "welcome_intro_scene_1",
     audioPath: "/audio/ui/welcome_intro_scene_1.mp3",
-    durationMs: 20000,
     eyebrow: "واحة الحروف والأصوات السحرية",
     sceneTitle: "بوابة الترحيب",
     title: "مرحبًا بك!",
@@ -176,13 +161,12 @@ const INTRO_SCENES: IntroScene[] = [
     phase: "welcome",
     audioKey: "welcome_intro_scene_2",
     audioPath: "/audio/ui/welcome_intro_scene_2.mp3",
-    durationMs: 12500,
     eyebrow: "واحة الحروف والأصوات السحرية",
     sceneTitle: "جزيرة المهارات",
     title: "نسمع، نتعرف، نحلل، ندمج",
     subtitle: "مهارات الأصوات والحروف خطوة بخطوة",
     narration:
-      "عزيزي التلميذ، في هذا التطبيق سوف تتعلم كيف تسمع الأصوات، وتتعرف على الحروف والكلمات، وتحليلها ودمجها بطريقة سهلة ومرحة.",
+      "عزيزي التلميذ، في هذا التطبيق سوف تتعلم كيف تسمع الأصوات، وتتعرف على الحروف والكلمات، وتحللها وتدمجها بطريقة سهلة ومرحة.",
     blocks: [
       {
         lines: [
@@ -199,13 +183,12 @@ const INTRO_SCENES: IntroScene[] = [
     phase: "welcome",
     audioKey: "welcome_intro_scene_3",
     audioPath: "/audio/ui/welcome_intro_scene_3.mp3",
-    durationMs: 10000,
     eyebrow: "واحة الحروف والأصوات السحرية",
     sceneTitle: "قطار المغامرة والانطلاق",
-    title: "هيا بنا ننطلق!",
+    title: "هَيَّا بنا ننطلق!",
     subtitle: "نلعب ونتعلم الأصوات والحروف في مغامرات ممتعة",
     narration:
-      "هيا بنا عزيزي التلميذ ننطلق! نلعب ونتعلم الأصوات والحروف في مغامرات ممتعة تساعدك على التمييز بين الأصوات، والتعرف على الحروف، وبناء مهاراتك خطوة بخطوة.",
+      "هَيَّا بنا ننطلق! عزيزي التلميذ، نلعب ونتعلم الأصوات والحروف في مغامرات ممتعة تساعدك على التمييز بين الأصوات، والتعرف على الحروف، وبناء مهاراتك خطوة بخطوة.",
     blocks: [
       {
         lines: [
@@ -218,112 +201,117 @@ const INTRO_SCENES: IntroScene[] = [
   },
 ];
 
-function hasSeenIntro() {
-  if (typeof window === "undefined") return false;
-  try {
-    return window.localStorage.getItem(INTRO_SEEN_KEY) === "true";
-  } catch {
-    return false;
-  }
-}
-
-function markIntroSeen() {
-  try {
-    window.localStorage.setItem(INTRO_SEEN_KEY, "true");
-  } catch {
-    // Storage can be unavailable in restricted browser modes; the intro still completes.
-  }
-}
-
-function shouldForceReplayIntro() {
-  if (typeof window === "undefined") return false;
-  const params = new URLSearchParams(window.location.search);
-  const introMode = params.get("intro")?.toLowerCase();
-
-  return (
-    introMode === "replay" ||
-    introMode === "reset" ||
-    introMode === "true" ||
-    params.get("replayIntro") === "true"
-  );
-}
-
 export function SplashScreen({ onComplete }: SplashScreenProps) {
   const [ready, setReady] = useState(false);
-  const [showIntro, setShowIntro] = useState(true);
   const [sceneIndex, setSceneIndex] = useState(0);
   const [leaving, setLeaving] = useState(false);
   const [audioReady, setAudioReady] = useState(false);
-  const [narratedSceneIndex, setNarratedSceneIndex] = useState<number | null>(null);
-  const { speak, stop } = useTTS();
+  const [audioStatus, setAudioStatus] = useState<"idle" | "playing" | "ended" | "error">("idle");
+  const [audioError, setAudioError] = useState<string | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const autoAdvanceTimerRef = useRef<number | null>(null);
+  const completionStartedRef = useRef(false);
+  const { stop } = useTTS();
+
+  const clearAutoAdvanceTimer = useCallback(() => {
+    if (autoAdvanceTimerRef.current !== null) {
+      window.clearTimeout(autoAdvanceTimerRef.current);
+      autoAdvanceTimerRef.current = null;
+    }
+  }, []);
+
+  const stopSceneAudio = useCallback(() => {
+    clearAutoAdvanceTimer();
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      audioRef.current = null;
+    }
+    stop();
+    setAudioStatus("idle");
+  }, [clearAutoAdvanceTimer, stop]);
+
+  const unlockAudio = useCallback(() => {
+    try {
+      window.localStorage.setItem("kids_audio_unlocked", "true");
+    } catch {
+      // The direct click is still enough for media unlock even if storage is blocked.
+    }
+    setAudioReady(true);
+    window.dispatchEvent(new Event("kids-audio-unlocked"));
+  }, []);
 
   useEffect(() => {
-    const forceReplay = shouldForceReplayIntro();
-    if (forceReplay) {
-      try {
-        window.localStorage.removeItem(INTRO_SEEN_KEY);
-      } catch {
-        // Ignore storage errors; replay still happens for the current visit.
-      }
+    try {
+      setAudioReady(window.localStorage.getItem("kids_audio_unlocked") === "true");
+    } catch {
+      setAudioReady(false);
     }
 
-    // Always show intro - never skip based on localStorage
     setReady(true);
-  }, [onComplete]);
-
-  useEffect(() => {
-    const syncAudioReady = () => {
-      try {
-        setAudioReady(window.localStorage.getItem("kids_audio_unlocked") === "true");
-      } catch {
-        setAudioReady(false);
-      }
-    };
-
-    syncAudioReady();
-    window.addEventListener("kids-audio-unlocked", syncAudioReady);
-    return () => window.removeEventListener("kids-audio-unlocked", syncAudioReady);
   }, []);
 
   const completeIntro = useCallback(() => {
-    if (leaving) return;
-
-    markIntroSeen();
-    stop();
+    if (leaving || completionStartedRef.current) return;
+    completionStartedRef.current = true;
+    stopSceneAudio();
     setLeaving(true);
     window.setTimeout(onComplete, 620);
-  }, [leaving, onComplete, stop]);
+  }, [leaving, onComplete, stopSceneAudio]);
 
-  const goToNextScene = useCallback(() => {
-    stop();
-    setNarratedSceneIndex(null);
-
+  const goToNextScene = useCallback((manual = true) => {
+    stopSceneAudio();
+    setAudioError(null);
     if (sceneIndex >= INTRO_SCENES.length - 1) {
       completeIntro();
       return;
     }
-
     setSceneIndex((current) => Math.min(current + 1, INTRO_SCENES.length - 1));
-  }, [completeIntro, sceneIndex, stop]);
+  }, [completeIntro, sceneIndex, stopSceneAudio]);
 
-  useEffect(() => {
-    if (!ready || !showIntro || leaving) return;
+  const goToPreviousScene = useCallback(() => {
+    stopSceneAudio();
+    setAudioError(null);
+    setSceneIndex((current) => Math.max(current - 1, 0));
+  }, [stopSceneAudio]);
+
+  const playSceneAudio = useCallback(() => {
+    if (!ready || leaving) return;
+    unlockAudio();
+    stopSceneAudio();
 
     const scene = INTRO_SCENES[sceneIndex];
-    const timer = window.setTimeout(goToNextScene, scene.durationMs);
-    return () => window.clearTimeout(timer);
-  }, [goToNextScene, leaving, ready, sceneIndex, showIntro]);
+    const audio = new Audio(`${scene.audioPath}?v=3`);
+    audioRef.current = audio;
+    setAudioError(null);
+    setAudioStatus("idle");
+
+    audio.onplay = () => setAudioStatus("playing");
+    audio.onended = () => {
+      setAudioStatus("ended");
+      audioRef.current = null;
+      clearAutoAdvanceTimer();
+      autoAdvanceTimerRef.current = window.setTimeout(() => goToNextScene(false), 850);
+    };
+    audio.onerror = () => {
+      setAudioStatus("error");
+      setAudioError("تعذر تشغيل صوت هذا المشهد. يمكنك إعادة المحاولة أو الانتقال يدويًا.");
+      audioRef.current = null;
+    };
+
+    void audio.play().catch(() => {
+      setAudioStatus("error");
+      audioRef.current = null;
+    });
+  }, [clearAutoAdvanceTimer, goToNextScene, leaving, ready, sceneIndex, stopSceneAudio, unlockAudio]);
 
   useEffect(() => {
-    if (!ready || !showIntro || leaving || !audioReady) return;
-    if (narratedSceneIndex === sceneIndex) return;
+    if (!ready || leaving || !audioReady) return;
+    playSceneAudio();
+    return () => stopSceneAudio();
+  }, [audioReady, leaving, playSceneAudio, ready, sceneIndex, stopSceneAudio]);
 
-    const scene = INTRO_SCENES[sceneIndex];
-    speak(scene.narration, scene.audioPath);
-    setNarratedSceneIndex(sceneIndex);
-  }, [audioReady, leaving, narratedSceneIndex, ready, sceneIndex, showIntro, speak]);
-
-  if (!ready || !showIntro) return null;
+  if (!ready) return null;
 
   const scene = INTRO_SCENES[sceneIndex];
 
@@ -342,7 +330,12 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
         scene={scene}
         sceneIndex={sceneIndex}
         sceneCount={INTRO_SCENES.length}
-        onNext={goToNextScene}
+        audioReady={audioReady}
+        audioStatus={audioStatus}
+        audioError={audioError}
+        onNext={() => goToNextScene(true)}
+        onPrevious={goToPreviousScene}
+        onReplay={playSceneAudio}
         onSkip={completeIntro}
       />
     </div>
@@ -353,15 +346,26 @@ function CinematicScenePlayer({
   scene,
   sceneIndex,
   sceneCount,
+  audioReady,
+  audioStatus,
+  audioError,
   onNext,
+  onPrevious,
+  onReplay,
   onSkip,
 }: {
   scene: IntroScene;
   sceneIndex: number;
   sceneCount: number;
+  audioReady: boolean;
+  audioStatus: "idle" | "playing" | "ended" | "error";
+  audioError: string | null;
   onNext: () => void;
+  onPrevious: () => void;
+  onReplay: () => void;
   onSkip: () => void;
 }) {
+  const isFirstScene = sceneIndex === 0;
   const isLastScene = sceneIndex === sceneCount - 1;
   const progress = ((sceneIndex + 1) / sceneCount) * 100;
 
@@ -402,10 +406,20 @@ function CinematicScenePlayer({
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -14, scale: 0.98 }}
           transition={{ duration: 0.65, ease: "easeOut" }}
-          className="flex flex-col flex-1 items-center gap-4 py-4 lg:flex-row lg:gap-8"
+          className="flex flex-1 flex-col items-center gap-4 py-4 lg:flex-row lg:gap-8"
         >
           <SceneVisual scene={scene} />
-          <SceneCopy scene={scene} isLastScene={isLastScene} onNext={onNext} />
+          <SceneCopy
+            scene={scene}
+            isFirstScene={isFirstScene}
+            isLastScene={isLastScene}
+            audioReady={audioReady}
+            audioStatus={audioStatus}
+            audioError={audioError}
+            onNext={onNext}
+            onPrevious={onPrevious}
+            onReplay={onReplay}
+          />
         </motion.section>
       </AnimatePresence>
     </main>
@@ -414,47 +428,60 @@ function CinematicScenePlayer({
 
 function SceneCopy({
   scene,
+  isFirstScene,
   isLastScene,
+  audioReady,
+  audioStatus,
+  audioError,
   onNext,
+  onPrevious,
+  onReplay,
 }: {
   scene: IntroScene;
+  isFirstScene: boolean;
   isLastScene: boolean;
+  audioReady: boolean;
+  audioStatus: "idle" | "playing" | "ended" | "error";
+  audioError: string | null;
   onNext: () => void;
+  onPrevious: () => void;
+  onReplay: () => void;
 }) {
+  const statusLabel =
+    audioStatus === "playing"
+      ? null
+      : audioStatus === "error"
+        ? "الصوت يحتاج إعادة محاولة"
+        : "جاهز للتشغيل";
+
   return (
     <div className="w-full max-w-2xl space-y-3">
-      {/* Header Section */}
-      <div className="text-center space-y-2">
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="inline-block"
-        >
-          <span className="px-3 py-1 rounded-full bg-gradient-to-r from-[#6366F1]/10 to-[#10B981]/10 text-xs font-black text-[#6366F1] border-2 border-[#6366F1]/20">
+      <div className="space-y-2 text-center">
+        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="inline-block">
+          <span className="rounded-full border-2 border-[#6366F1]/20 bg-gradient-to-r from-[#6366F1]/10 to-[#10B981]/10 px-3 py-1 text-xs font-black text-[#6366F1]">
             {scene.eyebrow}
           </span>
         </motion.div>
-        
+
         <motion.h1
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 leading-tight"
+          className="text-2xl font-black leading-tight text-gray-900 sm:text-3xl lg:text-4xl"
         >
           {scene.title}
         </motion.h1>
-        
+
         <motion.p
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-base sm:text-lg text-[#6366F1] font-bold"
+          className="text-base font-bold text-[#6366F1] sm:text-lg"
         >
           {scene.subtitle}
         </motion.p>
       </div>
 
-      {/* Content Blocks */}
       <div className="space-y-2">
         {scene.blocks.map((block, blockIndex) => (
           <motion.div
@@ -469,7 +496,7 @@ function SceneCopy({
             }`}
           >
             {block.title && (
-              <h3 className="mb-2 text-xs font-black text-[#6366F1] uppercase tracking-wider">
+              <h3 className="mb-2 text-xs font-black uppercase tracking-wider text-[#6366F1]">
                 {block.title}
               </h3>
             )}
@@ -479,8 +506,8 @@ function SceneCopy({
                   key={line}
                   className={`leading-relaxed ${
                     block.emphasis
-                      ? "text-sm sm:text-base font-bold text-gray-800"
-                      : "text-xs sm:text-sm font-medium text-gray-600"
+                      ? "text-sm font-bold text-gray-800 sm:text-base"
+                      : "text-xs font-medium text-gray-600 sm:text-sm"
                   }`}
                 >
                   {line}
@@ -491,27 +518,61 @@ function SceneCopy({
         ))}
       </div>
 
-      {/* Action Button */}
+      {audioError && (
+        <div className="rounded-2xl border-2 border-amber-200 bg-amber-50 px-4 py-3 text-sm font-bold text-amber-800">
+          {audioError}
+        </div>
+      )}
+
+      {statusLabel && (
+        <div className="flex justify-center">
+          <span className="rounded-full bg-white px-3 py-1 text-sm font-bold text-gray-500 shadow-sm ring-1 ring-gray-100">
+            {statusLabel}
+          </span>
+        </div>
+      )}
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="pt-2"
+        className="grid grid-cols-1 gap-3 pt-2 sm:grid-cols-3"
       >
         <Button
           type="button"
+          onClick={onPrevious}
+          disabled={isFirstScene}
+          variant="outline"
+          className="h-12 rounded-2xl bg-white font-black text-gray-700 disabled:opacity-60"
+        >
+          <ChevronRight className="ml-2 h-5 w-5" />
+          عودة
+        </Button>
+
+        <Button
+          type="button"
+          onClick={onReplay}
+          variant="outline"
+          className="h-12 rounded-2xl bg-white font-black text-[#6366F1]"
+        >
+          {audioReady ? <RotateCcw className="ml-2 h-5 w-5" /> : <Volume2 className="ml-2 h-5 w-5" />}
+          {audioReady ? "إعادة المشهد" : "تشغيل الصوت"}
+        </Button>
+
+        <Button
+          type="button"
           onClick={onNext}
-          className="w-full h-14 rounded-2xl bg-gradient-to-r from-[#6366F1] to-[#4F46E5] hover:from-[#5558E3] hover:to-[#4338CA] text-white font-black text-lg shadow-[0_6px_0_#4338CA] active:shadow-none active:translate-y-2 transition-all"
+          className="h-12 rounded-2xl bg-gradient-to-r from-[#6366F1] to-[#4F46E5] font-black text-white shadow-[0_5px_0_#4338CA] transition-all hover:from-[#5558E3] hover:to-[#4338CA] active:translate-y-1 active:shadow-none"
         >
           {isLastScene ? (
             <>
-              <Play className="w-5 h-5 fill-current ml-2" />
+              <Play className="ml-2 h-5 w-5 fill-current" />
               ابدأ الرحلة
             </>
           ) : (
             <>
               التالي
-              <ChevronLeft className="w-5 h-5 ml-2" />
+              <ChevronLeft className="mr-2 h-5 w-5" />
             </>
           )}
         </Button>
@@ -535,7 +596,7 @@ function OfficialIntroScene() {
       <SafeImage
         src={imageAssets.intro.alazhar_minarets_faculty.path}
         alt={imageAssets.intro.alazhar_minarets_faculty.alt}
-        className="w-full h-auto rounded-2xl shadow-xl border-4 border-white/50"
+        className="h-auto w-full rounded-2xl border-4 border-white/50 shadow-xl"
         priority
       />
     </div>
@@ -548,7 +609,7 @@ function ResearcherBookScene() {
       <SafeImage
         src={imageAssets.intro.magical_research_book.path}
         alt={imageAssets.intro.magical_research_book.alt}
-        className="w-full h-auto rounded-2xl shadow-xl border-4 border-white/50"
+        className="h-auto w-full rounded-2xl border-4 border-white/50 shadow-xl"
         priority
       />
     </div>
@@ -561,7 +622,7 @@ function HonorBoardScene() {
       <SafeImage
         src={imageAssets.intro.golden_honor_board.path}
         alt={imageAssets.intro.golden_honor_board.alt}
-        className="w-full h-auto rounded-2xl shadow-xl border-4 border-white/50"
+        className="h-auto w-full rounded-2xl border-4 border-white/50 shadow-xl"
         priority
       />
     </div>
@@ -574,7 +635,7 @@ function WelcomeIntroScene() {
       <SafeImage
         src={imageAssets.intro.welcome_magic_gate.path}
         alt={imageAssets.intro.welcome_magic_gate.alt}
-        className="w-full h-auto rounded-2xl shadow-xl border-4 border-white/50"
+        className="h-auto w-full rounded-2xl border-4 border-white/50 shadow-xl"
         priority
       />
     </div>
@@ -587,7 +648,7 @@ function SkillsIslandScene() {
       <SafeImage
         src={imageAssets.intro.skills_floating_island.path}
         alt={imageAssets.intro.skills_floating_island.alt}
-        className="w-full h-auto rounded-2xl shadow-xl border-4 border-white/50"
+        className="h-auto w-full rounded-2xl border-4 border-white/50 shadow-xl"
         priority
       />
     </div>
@@ -600,28 +661,9 @@ function AdventureTrainScene() {
       <SafeImage
         src={imageAssets.intro.flying_adventure_train.path}
         alt={imageAssets.intro.flying_adventure_train.alt}
-        className="w-full h-auto rounded-2xl shadow-xl border-4 border-white/50"
+        className="h-auto w-full rounded-2xl border-4 border-white/50 shadow-xl"
         priority
       />
     </div>
-  );
-}
-
-function StudentAvatar({ label, color, delay }: { label: string; color: string; delay: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: [0, -8, 0] }}
-      transition={{ opacity: { delay }, y: { duration: 2.2, repeat: Infinity, ease: "easeInOut" } }}
-      className="flex flex-col items-center gap-2"
-      aria-hidden="true"
-    >
-      <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-xl ring-8 ring-white/50">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full text-3xl font-black text-white" style={{ backgroundColor: color }}>
-          {label}
-        </div>
-      </div>
-      <div className="h-16 w-24 rounded-t-[2rem] shadow-lg" style={{ backgroundColor: color }} />
-    </motion.div>
   );
 }

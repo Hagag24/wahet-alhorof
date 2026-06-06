@@ -98,15 +98,13 @@ export function GameRouter({ lesson, gameIndex, onGameComplete, onBack }: GameRo
     if (correct) {
       setScore(prev => prev + 1);
       playSound("correct");
-      setTimeout(() => {
-        playFeedbackVoice(true);
-        playSound("applause");
-        setTimeout(() => playSound("whistle"), 160);
-      }, 250);
+      playFeedbackVoice(true);
+      playSound("applause");
+      setTimeout(() => playSound("whistle"), 160);
     } else {
       setWrongAnswers(prev => prev + 1);
       playSound("wrong");
-      setTimeout(() => playFeedbackVoice(false), 250);
+      playFeedbackVoice(false);
       setTimeout(() => {
         setSelectedAnswer(null);
         setShowResult(false);
@@ -270,7 +268,14 @@ export function GameRouter({ lesson, gameIndex, onGameComplete, onBack }: GameRo
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: idx * 0.1 }}
                           disabled={isAnswerLocked}
-                          onClick={() => handleAnswer(option)}
+                          onClick={() => {
+                            stop();
+                            speak(option, undefined, () => {
+                              setTimeout(() => {
+                                handleAnswer(option);
+                              }, 150);
+                            });
+                          }}
                           className={`
                             relative p-8 text-2xl font-black rounded-[2rem] border-b-[8px] transition-all duration-200
                             flex items-center justify-center gap-4 group

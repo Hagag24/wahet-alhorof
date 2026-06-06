@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { ProgressBar } from '@/components/common/progress-bar'
 import { SoundButton } from '@/components/common/sound-button'
+import { AudibleText } from '@/components/common/audible-text'
 import { ArrowRight, Volume2 } from 'lucide-react'
 
 interface GameWrapperProps {
@@ -41,11 +42,13 @@ export function GameWrapper({
         >
           <Button variant="ghost" onClick={onBack} className="gap-2">
             <ArrowRight className="w-5 h-5" />
-            خروج
+            عودة
           </Button>
           <div className="flex items-center gap-2">
             <span className="text-2xl">{icon}</span>
-            <h1 className="text-lg font-bold text-primary">{title}</h1>
+            <h1 className="text-lg font-bold text-primary">
+              <AudibleText text={title} stopPropagation={false} />
+            </h1>
           </div>
         </motion.div>
 
@@ -86,7 +89,7 @@ export function GameWrapper({
             </div>
           )}
           <p className="text-xl md:text-2xl text-foreground font-medium">
-            {question}
+            <AudibleText text={question} stopPropagation={false} />
           </p>
         </motion.div>
 

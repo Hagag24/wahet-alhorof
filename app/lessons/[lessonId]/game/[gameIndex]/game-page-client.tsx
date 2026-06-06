@@ -11,7 +11,7 @@ import type { GameResult } from "@/types";
 
 export function GamePageClient({ lessonId, gameIndex }: { lessonId: string; gameIndex: string }) {
   const { finishGame } = useApp();
-  const { recordGameAttempt, isGameUnlocked } = useGameProgress();
+  const { recordGameAttempt, isGameUnlocked, isLoaded } = useGameProgress();
   const router = useRouter();
   
   const lesson = lessons.find(l => l.id === lessonId);
@@ -24,12 +24,16 @@ export function GamePageClient({ lessonId, gameIndex }: { lessonId: string; game
       return;
     }
 
+    if (!isLoaded) {
+      return;
+    }
+
     if (!isGameUnlocked(lesson.id, idx)) {
       router.replace(`/lessons/${lesson.id}`);
     }
-  }, [idx, isGameUnlocked, lesson, router]);
+  }, [idx, isGameUnlocked, isLoaded, lesson, router]);
 
-  if (!lesson || !visibleGames[idx]) return null;
+  if (!lesson || !visibleGames[idx] || !isLoaded) return null;
 
   const handleGameComplete = (result: GameResult) => {
     recordGameAttempt(result);

@@ -5,7 +5,7 @@ import { stripArabicDiacritics } from '@/lib/arabic-tts'
 import { audioMapping } from '@/lib/audio-mapping'
 
 interface UseTTSReturn {
-  speak: (text: string, audioPath?: string) => void
+  speak: (text: string, audioPath?: string, onEnd?: () => void) => void
   stop: () => void
   isSpeaking: boolean
   isSupported: boolean
@@ -27,8 +27,16 @@ export function useTTS(): UseTTSReturn {
     return () => window.removeEventListener('kids-audio-unlocked', onAudioUnlocked)
   }, [])
 
-  const speak = useCallback((text: string, audioPath?: string) => {
+  const speak = useCallback((text: string, audioPath?: string, onEnd?: () => void) => {
     if (!isSupported || !audioUnlocked) return
+
+    // Stop ALL audio globally before playing new audio
+    window.speechSynthesis.cancel()
+    // Stop all audio elements globally
+    document.querySelectorAll('audio').forEach(audio => {
+      audio.pause()
+      audio.currentTime = 0
+    })
 
     const cleanedText = text
       .replace(/[؛;]/g, "،")
@@ -108,8 +116,14 @@ export function useTTS(): UseTTSReturn {
         utterance.rate = 0.72
         utterance.pitch = 0.98
         utterance.onstart = () => setIsSpeaking(true)
-        utterance.onend = () => setIsSpeaking(false)
-        utterance.onerror = () => setIsSpeaking(false)
+        utterance.onend = () => {
+          setIsSpeaking(false)
+          if (onEnd) onEnd()
+        }
+        utterance.onerror = () => {
+          setIsSpeaking(false)
+          if (onEnd) onEnd()
+        }
         window.speechSynthesis.speak(utterance)
         return
       }
@@ -129,6 +143,7 @@ export function useTTS(): UseTTSReturn {
       audio.onended = () => {
         setIsSpeaking(false)
         audioRef.current = null
+        if (onEnd) onEnd()
       }
       audio.onerror = () => {
         moveNextOnce()

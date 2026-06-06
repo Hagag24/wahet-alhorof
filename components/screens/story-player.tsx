@@ -1,20 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { ProgressBar } from "@/components/common/progress-bar";
-import { AudibleText } from "@/components/common/audible-text";
 import type { StoryScene } from "@/types";
 import { useTTS } from "@/hooks/use-tts";
-import { ArrowRight, Play, Pause, RotateCcw, ChevronLeft, ChevronRight, Volume2, Sparkles, BookOpen } from "lucide-react";
+import { ArrowRight, Play, Pause, RotateCcw, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Story {
+  id?: string;
   title?: string;
   icon?: string;
   color?: string;
+  story?: string;
   scenes?: StoryScene[];
   storyScenes?: StoryScene[];
 }
@@ -27,18 +27,35 @@ interface StoryPlayerProps {
 
 export function StoryPlayer({ story, onComplete, onSkip }: StoryPlayerProps) {
   const [currentScene, setCurrentScene] = useState(0);
-  const { speak, stop, isSpeaking, isSupported } = useTTS();
+  const { speak, stop, isSpeaking } = useTTS();
 
-  // Handle both string and object story formats
-  const scenes: StoryScene[] = typeof story === "string"
-    ? story
+  const scenes: StoryScene[] = useMemo(() => {
+    if (typeof story === "string") {
+      return story
         .split(". ")
         .filter((s) => s.trim())
         .map((text, i) => ({
           id: `scene-${i}`,
           text: text.trim() + (text.endsWith(".") ? "" : "."),
-        }))
-    : (story.storyScenes || story.scenes || []);
+        }));
+    }
+
+    if (story.id === "lesson-1" && story.story) {
+      const firstVisual = story.storyScenes?.[0]?.image || story.scenes?.[0]?.image;
+      return [
+        {
+          id: "lesson-1-full-story",
+          text: story.story,
+          image: firstVisual,
+        },
+      ];
+    }
+
+    return story.storyScenes || story.scenes || [];
+  }, [story]);
+
+  const shouldUseFullLessonOneAudio =
+    typeof story !== "string" && story.id === "lesson-1" && scenes[currentScene]?.id === "lesson-1-full-story";
   
   const totalScenes = scenes.length;
   const progress = totalScenes > 0 ? ((currentScene + 1) / totalScenes) * 100 : 0;
@@ -56,7 +73,11 @@ export function StoryPlayer({ story, onComplete, onSkip }: StoryPlayerProps) {
       stop();
     } else if (scenes[currentScene]) {
       const sceneId = scenes[currentScene].id;
-      const audioPath = sceneId?.startsWith("scene-") ? `/audio/stories/${sceneId}.mp3` : undefined;
+      const audioPath = shouldUseFullLessonOneAudio
+        ? "/audio/stories/lesson-1-full.mp3"
+        : sceneId?.startsWith("scene-")
+          ? `/audio/stories/${sceneId}.mp3`
+          : undefined;
       speak(scenes[currentScene].text, audioPath);
     }
   };
@@ -143,7 +164,7 @@ export function StoryPlayer({ story, onComplete, onSkip }: StoryPlayerProps) {
             className="bg-black/20 backdrop-blur-md text-white rounded-2xl gap-2 hover:bg-black/40 border-0"
           >
             <ArrowRight className="w-5 h-5" />
-            تخطي
+            تخطي القصة
           </Button>
           
           <div className="flex items-center gap-4">
@@ -219,6 +240,16 @@ export function StoryPlayer({ story, onComplete, onSkip }: StoryPlayerProps) {
               />
             ))}
           </div>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={handleRestart}
+            className="text-gray-400 hover:text-[#6366F1]"
+            aria-label="إعادة القصة"
+          >
+            <RotateCcw className="w-5 h-5 sm:w-6 sm:h-6" />
+          </Button>
 
           <Button
             variant="ghost"

@@ -21,12 +21,13 @@ export function AudibleText({
   variant = "inline",
   stopPropagation = true
 }: AudibleTextProps) {
-  const { speak, isSpeaking } = useTTS();
+  const { speak, stop, isSpeaking } = useTTS();
 
   const handleSpeak = (e: React.MouseEvent) => {
     if (stopPropagation) {
       e.stopPropagation();
     }
+    stop();
     speak(text, audioPath);
   };
 

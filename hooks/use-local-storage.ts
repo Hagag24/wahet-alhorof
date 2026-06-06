@@ -23,14 +23,15 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
   // Return a wrapped version of useState's setter function
   const setValue = useCallback((value: T | ((val: T) => T)) => {
     try {
-      // Allow value to be a function
-      const valueToStore = value instanceof Function ? value(storedValue) : value
-      setStoredValue(valueToStore)
-      window.localStorage.setItem(key, JSON.stringify(valueToStore))
+      setStoredValue((currentValue) => {
+        const valueToStore = value instanceof Function ? value(currentValue) : value
+        window.localStorage.setItem(key, JSON.stringify(valueToStore))
+        return valueToStore
+      })
     } catch (error) {
       console.warn(`Error setting localStorage key "${key}":`, error)
     }
-  }, [key, storedValue])
+  }, [key])
 
   // Remove from localStorage
   const removeValue = useCallback(() => {

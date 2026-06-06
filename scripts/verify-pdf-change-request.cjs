@@ -37,6 +37,7 @@ function loadTs(relativePath) {
 
 const { lessons } = loadTs("data/lessons.ts");
 const rules = loadTs("lib/game-rules.ts");
+const { audioMapping } = loadTs("lib/audio-mapping.ts");
 
 function lesson(id) {
   const found = lessons.find((item) => item.id === id);
@@ -54,6 +55,24 @@ function question(gameConfig, questionId) {
   const found = gameConfig.questions.find((item) => item.id === questionId);
   assert.ok(found, `Missing question ${questionId} in ${gameConfig.id}`);
   return found;
+}
+
+function normalizeAudioLookupKey(text) {
+  return String(text)
+    .replace(/[\u064B-\u065F\u0670]/g, "")
+    .replace(/[!؟?.:,،؛]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function getQuestionAudioTextForTest(q) {
+  if (q.pronounceQuestionAndOptions) {
+    return `${q.question} ${q.options.join("، ")}`;
+  }
+  if (q.audioText) {
+    return q.audioText;
+  }
+  return q.word || q.image || q.question;
 }
 
 {
@@ -118,19 +137,144 @@ function question(gameConfig, questionId) {
 
 {
   const splashSource = fs.readFileSync(path.join(root, "components/screens/splash-screen.tsx"), "utf8");
-  assert.match(splashSource, /INTRO_SEEN_KEY = "introSeen"/, "Splash should persist the introSeen flag");
-  assert.match(splashSource, /localStorage\.getItem\(INTRO_SEEN_KEY\)/, "Splash should read introSeen from localStorage after mount");
-  assert.match(splashSource, /localStorage\.setItem\(INTRO_SEEN_KEY, "true"\)/, "Splash should mark the intro as seen after completion");
-  assert.match(splashSource, /shouldForceReplayIntro/, "Splash should support developer replay/reset of the intro");
+  assert.doesNotMatch(splashSource, /INTRO_SEEN_KEY|introSeen/, "Splash should not skip the intro from an introSeen flag");
+  assert.doesNotMatch(splashSource, /localStorage\.getItem\(["']introSeen["']\)/, "Splash should always show the intro when visiting /");
+  assert.doesNotMatch(splashSource, /localStorage\.setItem\(["']introSeen["']\s*,/, "Splash should not persist intro completion as a skip flag");
+  assert.match(splashSource, /goToPreviousScene/, "Splash should support previous-scene navigation");
+  assert.match(splashSource, /playSceneAudio/, "Splash should play each intro scene through its own audio controller");
+  assert.match(splashSource, /audio\.onended/, "Splash should advance only after the current audio ends");
+  assert.match(splashSource, /completionStartedRef/, "Splash should guard onComplete from repeated navigation");
+  assert.doesNotMatch(splashSource, /durationMs/, "Splash must not advance intro scenes by fixed timers");
   assert.match(splashSource, /official_intro_scene_1/, "Splash should include official intro scene 1 audio key");
   assert.match(splashSource, /official_intro_scene_2/, "Splash should include official intro scene 2 audio key");
   assert.match(splashSource, /official_intro_scene_3/, "Splash should include official intro scene 3 audio key");
   assert.match(splashSource, /welcome_intro_scene_1/, "Splash should include welcome intro scene 1 audio key");
   assert.match(splashSource, /welcome_intro_scene_2/, "Splash should include welcome intro scene 2 audio key");
   assert.match(splashSource, /welcome_intro_scene_3/, "Splash should include welcome intro scene 3 audio key");
-  assert.match(splashSource, /CinematicScenePlayer/, "Splash should render through the cinematic scene player");
+  assert.match(splashSource, /تشغيل الصوت/, "Splash should expose an explicit play-audio button");
+  assert.match(splashSource, /إعادة المشهد/, "Splash should expose replay for the current scene");
+  assert.match(splashSource, /عودة/, "Splash should expose previous navigation");
   assert.match(splashSource, /تخطي المقدمة/, "Splash should expose a skip-intro button");
   assert.doesNotMatch(splashSource, /useState\(\s*hasSeenIntro/, "Splash must not read localStorage in a state initializer");
+}
+
+{
+  const lessonHubSource = fs.readFileSync(path.join(root, "components/screens/lesson-hub.tsx"), "utf8");
+  const sectionOrder = [
+    '<SectionShell id="objectives"',
+    '<SectionShell id="warmup"',
+    '<SectionShell id="story"',
+    '<SectionShell id="words"',
+    '<SectionShell id="explanation"',
+    '<SectionShell id="games"',
+  ].map((marker) => lessonHubSource.indexOf(marker));
+
+  for (const index of sectionOrder) {
+    assert.ok(index >= 0, "Lesson hub should render all requested Lesson 1 sections");
+  }
+  for (let i = 1; i < sectionOrder.length; i += 1) {
+    assert.ok(sectionOrder[i] > sectionOrder[i - 1], "Lesson hub sections should follow the requested internal order");
+  }
+
+  assert.match(lessonHubSource, /رسالة الجد المفقودة/, "Lesson 1 warmup should be the missing grandfather message");
+  assert.match(lessonHubSource, /choice === "د"/, "Warmup correct choice should be د");
+  assert.match(lessonHubSource, /ج _ ي/, "Warmup should show the missing-letter word without revealing the answer first");
+  assert.match(lessonHubSource, /setCompleted\(true\)/, "Warmup should unlock the story only after a correct choice");
+  assert.match(lessonHubSource, /الانتقال إلى القصة/, "Warmup should provide the next step after completion");
+  assert.match(lessonHubSource, /lesson-1-full\.mp3/, "Lesson 1 story playback should target one full story audio clip");
+  assert.match(lessonHubSource, /lesson-1-objectives\.mp3/, "Lesson 1 objectives should use the generated objectives MP3");
+  assert.match(lessonHubSource, /lesson-1-warmup-jaddi\.mp3/, "Lesson 1 warmup should use the generated warmup MP3");
+  assert.match(lessonHubSource, /lesson-1-explanation\.mp3/, "Lesson 1 explanation should use the generated explanation MP3");
+  assert.match(lessonHubSource, /phrase-036\.mp3/, "Warmup missing-sound button should use a generated MP3");
+  assert.match(lessonHubSource, /phrase-037\.mp3/, "Warmup success narration should use a generated MP3");
+  assert.match(lessonHubSource, /phrase-038\.mp3/, "Warmup retry narration should use a generated MP3");
+}
+
+{
+  const storySource = fs.readFileSync(path.join(root, "components/screens/story-player.tsx"), "utf8");
+  assert.match(storySource, /lesson-1-full-story/, "Lesson 1 story player should collapse the story into one scene");
+  assert.match(storySource, /story\.id === "lesson-1" && story\.story/, "Lesson 1 story player should use the continuous story text");
+  assert.match(storySource, /lesson-1-full\.mp3/, "Lesson 1 story player should request the unified story audio");
+}
+
+{
+  const l1 = lesson("lesson-1");
+  assert.equal(
+    l1.story,
+    "مريم عمرها ست سنوات. يوسف عمره تسع سنوات. يوسف يساعد أمه وأباه. مثل شراء الأكل من المتجر. يوسف يركب الدراجة إلى المتجر. مريم تشعر بالحزن لأنها تريد مساعدة والديها.",
+    "Lesson 1 source story should be the requested continuous text"
+  );
+}
+
+{
+  const progressSource = fs.readFileSync(path.join(root, "hooks/use-local-storage.ts"), "utf8");
+  assert.match(progressSource, /setStoredValue\(\(currentValue\)/, "Local storage setter should use the latest stored state for functional updates");
+
+  const gamePageSource = fs.readFileSync(path.join(root, "app/lessons/[lessonId]/game/[gameIndex]/game-page-client.tsx"), "utf8");
+  assert.match(gamePageSource, /isLoaded/, "Game page should wait for progress to load before unlock checks");
+  assert.match(gamePageSource, /if \(!isLoaded\) \{\s*return;\s*\}/s, "Game page should not redirect locked pages before localStorage progress loads");
+}
+
+{
+  const manifest = JSON.parse(fs.readFileSync(path.join(root, "audio-manifest.json"), "utf8"));
+  const ids = new Set(manifest.files.map((file) => file.id));
+  for (const id of [
+    "welcome_intro_scene_2",
+    "welcome_intro_scene_3",
+    "lesson_1_story_full",
+    "lesson_1_warmup_jaddi",
+    "lesson_1_objectives_audio_pack",
+    "lesson_1_explanation_audio_pack",
+    "phrase-036",
+    "phrase-037",
+    "phrase-038",
+  ]) {
+    assert.ok(ids.has(id), `Audio manifest should include ${id}`);
+  }
+  for (const id of [
+    "lesson_1_story_full",
+    "lesson_1_warmup_jaddi",
+    "lesson_1_objectives_audio_pack",
+    "lesson_1_explanation_audio_pack",
+  ]) {
+    const entry = manifest.files.find((file) => file.id === id);
+    assert.equal(entry.missing, undefined, `${id} should not be marked missing after MP3 generation`);
+    const audioPath = path.join(root, entry.path);
+    assert.ok(fs.existsSync(audioPath), `${entry.path} should physically exist`);
+    assert.ok(fs.statSync(audioPath).size > 0, `${entry.path} should not be zero bytes`);
+  }
+  for (const id of ["phrase-036", "phrase-037", "phrase-038"]) {
+    const entry = manifest.files.find((file) => file.id === id);
+    assert.ok(entry, `Audio manifest should include ${id}`);
+    const audioPath = path.join(root, entry.path);
+    assert.ok(fs.existsSync(audioPath), `${entry.path} should physically exist`);
+    assert.ok(fs.statSync(audioPath).size > 0, `${entry.path} should not be zero bytes`);
+  }
+}
+
+{
+  for (const l of lessons) {
+    for (const g of l.games.filter((item) => !item.hidden)) {
+      for (const q of g.questions) {
+        const text = getQuestionAudioTextForTest(q);
+        const id = audioMapping[normalizeAudioLookupKey(text)] || audioMapping[text];
+        assert.ok(id, `Missing audio mapping for ${l.id}/${g.id}/${q.id}: ${text}`);
+      }
+    }
+  }
+}
+
+{
+  const manifest = JSON.parse(fs.readFileSync(path.join(root, "audio-manifest.json"), "utf8"));
+  const manifestById = new Map(manifest.files.map((file) => [file.id, file]));
+  for (const [text, id] of Object.entries(audioMapping)) {
+    assert.ok(text.trim(), `Audio mapping for ${id} should have non-empty text`);
+    const entry = manifestById.get(id);
+    assert.ok(entry, `Audio mapping "${text}" points to missing manifest id ${id}`);
+    const audioPath = path.join(root, entry.path);
+    assert.ok(fs.existsSync(audioPath), `Audio mapping "${text}" points to missing file ${entry.path}`);
+    assert.ok(fs.statSync(audioPath).size > 0, `Audio mapping "${text}" points to zero-byte file ${entry.path}`);
+  }
 }
 
 console.log("PDF change request checks passed.");
