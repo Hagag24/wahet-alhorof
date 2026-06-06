@@ -30,14 +30,6 @@ export function useTTS(): UseTTSReturn {
   const speak = useCallback((text: string, audioPath?: string, onEnd?: () => void) => {
     if (!isSupported || !audioUnlocked) return
 
-    // Stop ALL audio globally before playing new audio
-    window.speechSynthesis.cancel()
-    // Stop all audio elements globally
-    document.querySelectorAll('audio').forEach(audio => {
-      audio.pause()
-      audio.currentTime = 0
-    })
-
     const cleanedText = text
       .replace(/[؛;]/g, "،")
       .replace(/\s+/g, " ")
@@ -59,8 +51,6 @@ export function useTTS(): UseTTSReturn {
       }
       setIsSpeaking(false)
     }
-
-    stopAll()
 
     // Our real word clips are saved using English IDs (word-XXX.mp3) for stability.
     const wordId = audioMapping[lookupKey] || audioMapping[spokenText]
@@ -97,6 +87,9 @@ export function useTTS(): UseTTSReturn {
           return
         }
 
+        // Only stop audio when we're about to play TTS fallback
+        stopAll()
+
         const utterance = new SpeechSynthesisUtterance(spokenText)
         utteranceRef.current = utterance
 
@@ -127,6 +120,9 @@ export function useTTS(): UseTTSReturn {
         window.speechSynthesis.speak(utterance)
         return
       }
+
+      // Stop audio only when playing an MP3 file (to switch between clips)
+      stopAll()
 
       // Bust cache to avoid stale audio when regenerating clips locally.
       const baseSrc = uniqueClipCandidates[index]
