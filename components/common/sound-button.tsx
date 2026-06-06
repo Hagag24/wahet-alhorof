@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useTTS } from '@/hooks/use-tts'
 import { useSound } from '@/hooks/use-sound'
+import { hasAudioCoverage } from '@/lib/audio-coverage'
 import { Volume2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -27,6 +28,9 @@ export function SoundButton({
 }: SoundButtonProps) {
   const { speak, isSpeaking } = useTTS()
   const { playSound } = useSound()
+  
+  // Audio coverage check - hide button if no MP3 exists
+  const hasAudio = hasAudioCoverage(audioText || text)
 
   const sizeClasses = {
     sm: 'w-8 h-8',
@@ -54,6 +58,11 @@ export function SoundButton({
     if (onClick) {
       onClick()
     }
+  }
+
+  // Don't render button if audio doesn't exist (per audio coverage audit)
+  if (!hasAudio) {
+    return null
   }
 
   return (

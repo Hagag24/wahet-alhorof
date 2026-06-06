@@ -1,6 +1,7 @@
 "use client";
 
 import { useTTS } from "@/hooks/use-tts";
+import { hasAudioCoverage } from "@/lib/audio-coverage";
 import { Volume2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -22,6 +23,11 @@ export function AudibleText({
   stopPropagation = true
 }: AudibleTextProps) {
   const { speak, stop, isSpeaking } = useTTS();
+  
+  // Audio coverage check - don't show icon if no MP3 exists
+  // (unless an explicit audioPath is provided, which means the MP3 exists)
+  const hasAudio = audioPath ? true : hasAudioCoverage(text);
+  const shouldShowIcon = showIcon && hasAudio;
 
   const handleSpeak = (e: React.MouseEvent) => {
     if (stopPropagation) {
@@ -43,7 +49,7 @@ export function AudibleText({
       title="انقر للاستماع"
     >
       {text}
-      {showIcon && (
+      {shouldShowIcon && (
         <Volume2 
           className={cn(
             "w-4 h-4 opacity-50",
