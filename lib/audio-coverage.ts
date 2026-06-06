@@ -1,50 +1,40 @@
 /**
  * Hook to check if audio coverage is available
  * 
- * AUDIO GAP ISSUE:
- * Project displays 69+ speaker icons but only has 2-3 MP3 files.
- * This hook prevents showing speaker buttons for audio that doesn't exist.
+ * AUDIO COVERAGE STATUS:
+ * This system now has REAL MP3 coverage for critical items.
+ * Only items with actual MP3 files should be marked as true.
  * 
- * Reference: docs/audio-audit/AUDIO_GAPS_LESSON_1_DETAILED.md
+ * Reference: docs/audio-audit/final-audio-coverage-report.md
  */
 
 export const AUDIO_COVERAGE: Record<string, boolean> = {
-  // Lesson 1 - Vocabulary (ONLY الجد HAS AUDIO)
-  'الجد': true, // word-069 - /public/audio/words/word-069.mp3 ✅ 12KB
+  // CRITICAL WORDS WITH REAL AUDIO ✅
+  'جدي': true, // word-048 - /public/audio/words/word-048.mp3 ✅ 12.2 KB
+  'الجد': true, // word-069 - /public/audio/words/word-069.mp3 ✅ 11.2 KB
+  'جد': true, // word-070 - /public/audio/words/word-070.mp3 ✅ 8.9 KB
   
-  // These have NO MP3 files (speaker button should be hidden)
-  'مريم': false, // word-022 - NO MANIFEST, NO MP3
-  'يوسف': false, // word-026 - NO MANIFEST, NO MP3
-  'جدي': false, // word-048 - NO MANIFEST, NO MP3
-  'بيت': false, // word-008 - NO MANIFEST, NO MP3
-  'متجر': false, // word-020 - NO MANIFEST, NO MP3
-  'دراجة': false, // word-012 - NO MANIFEST, NO MP3
-  'حديقة': false, // word-009 - NO MANIFEST, NO MP3
-  'أمي': false, // word-005 - NO MANIFEST, NO MP3
-  'أبي': false, // word-001 - NO MANIFEST, NO MP3
-  'كريم': false, // word-019 - NO MANIFEST, NO MP3
+  // LETTER SOUNDS WITH REAL AUDIO ✅
+  'ب': true, // word-049 - /public/audio/words/word-049.mp3 ✅ 7.9 KB
+  'د': true, // word-050 - /public/audio/words/word-050.mp3 ✅ 8.2 KB
+  'ر': true, // word-051 - /public/audio/words/word-051.mp3 ✅ 8.7 KB
   
-  // Story sections - NO INDIVIDUAL AUDIO IDs
-  'مريم عمرها ست سنوات': false,
-  'يوسف عمره تسع سنوات': false,
+  // PHRASES WITH REAL AUDIO ✅
+  'رحلة التعلم': true, // phrase-053 - /public/audio/ui/phrase-053.mp3 ✅ 15.7 KB
   
-  // Game questions - NO AUDIO IDs
-  'ما الكلمة الصحيحة للصورة؟': false,
-  'ما الكلمة المختلفة في الصوت الأول؟': false,
+  // FULL STORY INTRO WITH REAL AUDIO ✅
+  'مريم عمرها ست سنوات': true, // has dedicated story audio
   
-  // Harakat/vowel marks - NO MP3 FILES
-  'مِ': false,
-  'مُ': false,
-  'مَ': false,
-  'مْ': false,
-  'بَ': false,
-  'بِ': false,
-  'بُ': false,
-  'بْ': false,
-  'يَـ': false,
-  'يِـ': false,
-  'يُـ': false,
-  'يْـ': false,
+  // Words without audio (TTS fallback only)
+  'مريم': false,
+  'يوسف': false,
+  'بيت': false,
+  'متجر': false,
+  'دراجة': false,
+  'حديقة': false,
+  'أمي': false,
+  'أبي': false,
+  'كريم': false,
 }
 
 /**
@@ -55,6 +45,7 @@ export const AUDIO_COVERAGE: Record<string, boolean> = {
  */
 export function hasAudioCoverage(text: string | undefined): boolean {
   if (!text) return false
+  // Return true if explicitly marked, undefined defaults to false
   return AUDIO_COVERAGE[text] === true
 }
 
