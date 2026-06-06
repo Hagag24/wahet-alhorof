@@ -23,6 +23,7 @@ export const lessons: Lesson[] = [
       { word: 'مريم', image: '🧕' },
       { word: 'يوسف', image: '👦' },
       { word: 'جدي', image: '👴' },
+      { word: 'الجد', image: '👴' },
       { word: 'بيت', image: '🏠' },
       { word: 'متجر', image: '🏪' },
       { word: 'دراجة', image: '🚲' },
@@ -458,7 +459,7 @@ export const lessons: Lesson[] = [
           { id: 'q1', image: 'معلمة', question: 'ما الكلمة المناسبة للصورة؟', options: ['معلمة', 'قلم', 'زهرة', 'ممحاة'], correctAnswer: 'معلمة' },
           { id: 'q2', image: 'قلم', question: 'ما الكلمة المناسبة للصورة؟', options: ['معلمة', 'قلم', 'زهرة', 'ممحاة'], correctAnswer: 'قلم' },
           { id: 'q3', image: 'زهرة', question: 'ما الكلمة المناسبة للصورة؟', options: ['معلمة', 'قلم', 'زهرة', 'ممحاة'], correctAnswer: 'زهرة' },
-          { id: 'q4', image: 'ممحاة', question: 'ما الكلمة المناسبة للصورة؟', options: ['معلمة', 'قلم', 'زهرة', 'ممحاة'], correctAnswer: 'ممحاة' },
+          { id: 'q4', image: 'ممحاة', question: 'ما الكلمة المناسبة للصو��ة؟', options: ['معلمة', 'قلم', 'زهرة', 'ممحاة'], correctAnswer: 'ممحاة' },
         ],
       },
       {
