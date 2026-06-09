@@ -1,0 +1,10 @@
+{
+  "batchName": "Batch 1 - Intro Audio",
+  "totalRequired": 10,
+  "foundInManifest": 10,
+  "missingFromManifest": [],
+  "existingFiles": 10,
+  "missingFiles": [],
+  "zeroByteFiles": [],
+  "passed": true
+}

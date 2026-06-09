@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منارة العلم واللغة العربية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #FFD700;
+    --dark-gold: #B8860B;
+    --sky: #87CEEB;
+    --deep-blue: #1a1a5e;
+    --green: #2ECC71;
+    --red: #E74C3C;
+    --orange: #FF8C00;
+    --purple: #8E44AD;
+    --teal: #1ABC9C;
+    --bg-grad: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    --card-bg: rgba(255,255,255,0.07);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+    background: var(--bg-grad);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: white;
+  }
+
+  /* ===== SCREENS ===== */
+  .screen {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  .screen.active { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+  /* ===== STARS BG ===== */
+  .stars {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0;
+    background: radial-gradient(ellipse at center, #1a1a5e 0%, #0a0a1e 100%);
+  }
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite alternate;
+  }
+  @keyframes twinkle { from { opacity: 0.2; transform: scale(1); } to { opacity: 1; transform: scale(1.5); } }
+
+  /* ===== FLOATING LETTERS ===== */
+  .floating-letter {
+    position: absolute;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--gold);
+    text-shadow: 0 0 20px var(--gold);
+    animation: floatLetter 6s ease-in-out infinite;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  @keyframes floatLetter {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-30px) rotate(15deg); }
+    66% { transform: translateY(15px) rotate(-10deg); }
+  }
+
+  /* ===== CONTENT ===== */
+  .content { position: relative; z-index: 1; text-align: center; padding: 20px; width: 100%; max-width: 900px; }
+
+  /* ===== INTRO SCREEN ===== */
+  #screen-intro .azhar-logo {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
+
+  .university-header {
+    background: rgba(0,0,0,0.4);
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    padding: 25px 40px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 0 30px rgba(255,215,0,0.3);
+    animation: fadeInDown 1s ease-out;
+  }
+  @keyframes fadeInDown { from{opacity:0;transform:translateY(-30px)} to{opacity:1;transform:translateY(0)} }
+
+  .university-header h1 {
+    font-size: 1.8rem;
+    color: var(--gold);
+    font-weight: 900;
+    text-shadow: 0 0 15px var(--gold);
+    line-height: 1.6;
+  }
+  .university-header p {
+    font-size: 1rem;
+    color: #e0d0a0;
+    margin-top: 8px;
+    line-height: 1.8;
+  }
+
+  .researcher-card {
+    background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,140,0,0.1));
+    border: 1px solid var(--gold);
+    border-radius: 15px;
+    padding: 20px 30px;
+    margin: 15px auto;
+    max-width: 550px;
+    animation: fadeInUp 1.5s ease-out;
+  }
+  @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+  .researcher-card h3 { color: var(--gold); font-size: 1.1rem; margin-bottom: 5px; }
+  .researcher-card p { color: #ddd; font-size: 0.9rem; line-height: 1.7; }
+
+  .supervisors-section {
+    margin: 20px auto;
+    max-width: 650px;
+    animation: fadeIn 2s ease-out;
+  }
+  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+  .supervisors-section h3 { color: var(--gold); font-size: 1.2rem; margin-bottom: 15px; }
+  .supervisor-item {
+    background: rgba(255,255,255,0.05);
+    border-right: 4px solid var(--gold);
+    padding: 12px 18px;
+    margin: 8px 0;
+    border-radius: 10px;
+    text-align: right;
+    font-size: 0.95rem;
+    color: #e8e0c0;
+    transition: all 0.3s;
+  }
+  .supervisor-item:hover { background: rgba(255,215,0,0.1); transform: translateX(-5px); }
+
+  /* ===== BTN ===== */
+  .btn-start {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 18px 60px;
+    background: linear-gradient(135deg, var(--gold), var(--orange));
+    color: #1a0a00;
+    font-size: 1.4rem;
+    font-weight: 900;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(255,165,0,0.5);
+    transition: all 0.3s;
+    font-family: 'Cairo', sans-serif;
+    animation: btnPulse 2s ease-in-out infinite;
+  }
+  @keyframes btnPulse { 0%,100%{box-shadow:0 8px 30px rgba(255,165,0,0.5)} 50%{box-shadow:0 12px 50px rgba(255,165,0,0.8)} }
+  .btn-start:hover { transform: translateY(-4px) scale(1.05); }
+
+  /* ===== WELCOME SCREEN ===== */
+  #screen-welcome {
+    background: linear-gradient(135deg, #0a1628, #0d2b4e, #1a0a2e);
+  }
+
+  .welcome-gate {
+    position: relative;
+    background: linear-gradient(135deg, rgba(0,100,200,0.2), rgba(100,0,200,0.2));
+    border: 3px solid var(--teal);
+    border-radius: 30px;
+    padding: 40px;
+    max-width: 750px;
+    width: 90%;
+    box-shadow: 0 0 50px rgba(0,200,200,0.2);
+    animation: gateAppear 1s ease-out;
+  }
+  @keyframes gateAppear { from{opacity:0;transform:scale(0.8)} to{opacity:1;transform:scale(1)} }
+
+  .character-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 25px;
+  }
+
+  .char-boy, .char-girl {
+    font-size: 4rem;
+    animation: charBounce 2s ease-in-out infinite;
+    cursor: default;
+  }
+  .char-girl { animation-delay: 0.5s; }
+  @keyframes charBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
+
+  .welcome-title {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--teal);
+    text-shadow: 0 0 20px var(--teal);
+    margin-bottom: 20px;
+  }
+  .welcome-text {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: #c8e8ff;
+    margin-bottom: 20px;
+  }
+
+  .skills-islands {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+  }
+
+  .skill-island {
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(100,200,255,0.3);
+    border-radius: 15px;
+    padding: 18px 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    animation: islandFloat 3s ease-in-out infinite;
+  }
+  .skill-island:nth-child(2){animation-delay:0.5s}
+  .skill-island:nth-child(3){animation-delay:1s}
+  @keyframes islandFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  .skill-island:hover { background: rgba(100,200,255,0.2); border-color: var(--teal); transform: translateY(-5px) scale(1.02); }
+  .skill-island .icon { font-size: 2rem; margin-bottom: 8px; }
+  .skill-island .label { font-size: 0.85rem; color: #aae; }
+
+  .train-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0;
+    font-size: 2rem;
+    animation: trainMove 4s linear infinite;
+  }
+  @keyframes trainMove { 0%{transform:translateX(30px)} 100%{transform:translateX(-30px)} }
+
+  /* ===== LESSON SCREEN ===== */
+  #screen-lesson {
+    background: linear-gradient(135deg, #0a1a0a, #0d2b1a, #0a0a2e);
+  }
+
+  .lesson-container {
+    width: 90%;
+    max-width: 850px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .lesson-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .lesson-tab {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 2px solid rgba(255,215,0,0.3);
+    background: rgba(255,255,255,0.05);
+    color: #aaa;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Cairo', sans-serif;
+  }
+  .lesson-tab.active { background: var(--gold); color: #1a0a00; border-color: var(--gold); font-weight: 700; }
+  .lesson-tab.locked { opacity: 0.4; cursor: not-allowed; }
+
+  /* Map section */
+  .hero-map {
+    background: rgba(0,0,0,0.3);
+    border: 2px solid var(--gold);
+    border-radius: 25px;
+    padding: 30px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-map::before {
+    content: '';
+    position: absolute;
+    top: -50%;left:-50%;width:200%;height:200%;
+    background: radial-gradient(ellipse, rgba(255,215,0,0.05) 0%, transparent 70%);
+    animation: mapGlow 4s ease-in-out infinite alternate;
+  }
+  @keyframes mapGlow { from{opacity:0.5} to{opacity:1} }
+
+  .map-title { font-size: 1.5rem; color: var(--gold); font-weight: 900; margin-bottom: 20px; }
+
+  .map-stations {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .station {
+    background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,140,0,0.1));
+    border: 2px solid var(--gold);
+    border-radius: 15px;
+    padding: 15px 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    min-width: 110px;
+    animation: stationPulse 3s ease-in-out infinite;
+  }
+  .station:nth-child(2){animation-delay:0.5s}
+  .station:nth-child(3){animation-delay:1s}
+  .station:nth-child(4){animation-delay:1.5s}
+  .station:nth-child(5){animation-delay:2s}
+  @keyframes stationPulse { 0%,100%{box-shadow:0 0 10px rgba(255,215,0,0.2)} 50%{box-shadow:0 0 25px rgba(255,215,0,0.5)} }
+  .station:hover { transform: scale(1.08); background: rgba(255,215,0,0.3); }
+  .station .station-icon { font-size: 1.8rem; margin-bottom: 5px; }
+  .station .station-name { font-size: 0.75rem; color: #ffe; line-height: 1.4; }
+  .connector { color: var(--gold); font-size: 1.2rem; opacity: 0.5; }
+
+  /* Games section */
+  .game-area {
+    background: rgba(0,0,0,0.4);
+    border: 2px solid rgba(100,255,100,0.3);
+    border-radius: 25px;
+    padding: 30px;
+    min-height: 350px;
+    position: relative;
+  }
+  .game-area h3 { color: var(--green); font-size: 1.3rem; margin-bottom: 20px; }
+
+  /* Level 1 - letters & pictures */
+  .level-game { display: none; }
+  .level-game.active { display: block; }
+
+  .picture-question {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .picture-emoji {
+    font-size: 5rem;
+    margin: 10px 0;
+    animation: pictureBounce 2s ease-in-out infinite;
+  }
+  @keyframes pictureBounce { 0%,100%{transform:scale(1)} 50%{transform:scale(1.1)} }
+
+  .answer-choices {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+  }
+  .choice-btn {
+    padding: 15px 25px;
+    border: 3px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    background: rgba(255,255,255,0.07);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 100px;
+  }
+  .choice-btn:hover { background: rgba(100,200,255,0.2); border-color: var(--teal); transform: translateY(-3px); }
+  .choice-btn.correct { background: rgba(46,204,113,0.4); border-color: var(--green); animation: correctAnim 0.5s ease; }
+  .choice-btn.wrong { background: rgba(231,76,60,0.3); border-color: var(--red); animation: wrongAnim 0.5s ease; }
+  @keyframes correctAnim { 0%{transform:scale(1)} 50%{transform:scale(1.2)} 100%{transform:scale(1)} }
+  @keyframes wrongAnim { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+
+  /* Level 2 - catch different word */
+  .words-row {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .word-ball {
+    padding: 18px 22px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    animation: ballFloat 3s ease-in-out infinite;
+  }
+  .word-ball:nth-child(2){animation-delay:0.7s}
+  .word-ball:nth-child(3){animation-delay:1.4s}
+  @keyframes ballFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .word-ball.blue { background: linear-gradient(135deg, #1a7fad, #0a4f6e); border: 2px solid #4ab8e8; color:white; }
+  .word-ball.red-ball { background: linear-gradient(135deg, #8e0000, #c0392b); border: 2px solid #e74c3c; color:white; }
+  .word-ball.green-ball { background: linear-gradient(135deg, #1a6e1a, #27ae60); border: 2px solid #2ecc71; color:white; }
+
+  /* Level 3 - sound position */
+  .sound-position-game { text-align: center; }
+  .big-word-display {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--gold);
+    text-shadow: 0 0 20px var(--gold);
+    margin: 20px 0;
+    letter-spacing: 4px;
+  }
+  .position-gates {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  .gate-btn {
+    padding: 20px 25px;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    cursor: pointer;
+    border: 3px solid;
+    transition: all 0.4s;
+    color: white;
+    min-width: 100px;
+  }
+  .gate-green { background: rgba(46,204,113,0.2); border-color: var(--green); }
+  .gate-blue { background: rgba(52,152,219,0.2); border-color: #3498db; }
+  .gate-red { background: rgba(231,76,60,0.2); border-color: var(--red); }
+  .gate-btn:hover { transform: scale(1.1); filter: brightness(1.3); }
+
+  /* Level 4 - train game */
+  .train-game {
+    text-align: center;
+  }
+  .train-cars {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 1.5rem;
+  }
+  .train-car {
+    background: rgba(255,255,255,0.08);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    padding: 15px 20px;
+    min-width: 80px;
+    min-height: 60px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  .train-car.filled { background: rgba(255,215,0,0.25); animation: carPop 0.4s ease; }
+  @keyframes carPop { 0%{transform:scale(1)} 50%{transform:scale(1.2)} 100%{transform:scale(1)} }
+  .syllables-pool {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 15px 0;
+  }
+  .syllable-chip {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, rgba(142,68,173,0.4), rgba(100,0,200,0.3));
+    border: 2px solid rgba(142,68,173,0.8);
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: grab;
+    transition: all 0.3s;
+    color: white;
+  }
+  .syllable-chip:hover { transform: scale(1.1) translateY(-3px); box-shadow: 0 8px 20px rgba(142,68,173,0.4); }
+  .syllable-chip.used { opacity: 0.3; cursor: not-allowed; }
+
+  /* Level 5 - garden */
+  .garden-game {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .tree-btn {
+    padding: 20px 15px;
+    background: linear-gradient(135deg, rgba(0,100,0,0.3), rgba(0,60,0,0.2));
+    border: 3px solid #27ae60;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    min-width: 120px;
+    color: white;
+  }
+  .tree-btn:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(39,174,96,0.4); }
+  .tree-btn .tree-icon { font-size: 2.5rem; margin-bottom: 8px; }
+  .tree-btn .tree-label { font-size: 0.85rem; color: #afd; }
+
+  /* Progress & Score */
+  .progress-bar-container {
+    background: rgba(255,255,255,0.1);
+    border-radius: 25px;
+    height: 12px;
+    overflow: hidden;
+    margin: 15px 0;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--teal), var(--green));
+    border-radius: 25px;
+    transition: width 0.5s ease;
+  }
+
+  .score-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,215,0,0.15);
+    border: 2px solid var(--gold);
+    border-radius: 25px;
+    padding: 8px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 15px;
+  }
+
+  /* Feedback overlay */
+  .feedback-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background: rgba(0,0,0,0.85);
+    border-radius: 25px;
+    padding: 30px 50px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    display: none;
+    animation: overlayPop 0.5s ease;
+    border: 3px solid;
+  }
+  @keyframes overlayPop { from{transform:translate(-50%,-50%) scale(0.5)} to{transform:translate(-50%,-50%) scale(1)} }
+  .feedback-overlay.correct-fb { border-color: var(--green); color: var(--green); }
+  .feedback-overlay.wrong-fb { border-color: var(--red); color: var(--red); }
+
+  /* Stars celebration */
+  .celebration { position: fixed; top:0;left:0;width:100%;height:100%; pointer-events:none; z-index: 999; }
+  .confetti-star {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: starFall 1.5s ease-out forwards;
+  }
+  @keyframes starFall { from{opacity:1;transform:translateY(0) rotate(0deg)} to{opacity:0;transform:translateY(200px) rotate(720deg)} }
+
+  /* Navigation */
+  .nav-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .nav-btn {
+    padding: 12px 28px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    cursor: pointer;
+    border: 2px solid;
+    transition: all 0.3s;
+  }
+  .nav-btn.primary { background: linear-gradient(135deg, var(--teal), var(--green)); color: white; border-color: transparent; }
+  .nav-btn.secondary { background: transparent; color: var(--gold); border-color: var(--gold); }
+  .nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+
+  /* Story display */
+  .story-card {
+    background: linear-gradient(135deg, rgba(139,69,19,0.2), rgba(160,82,45,0.15));
+    border: 2px solid rgba(205,133,63,0.5);
+    border-radius: 20px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+  }
+  .story-card::before {
+    content: '📖';
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    font-size: 3rem;
+    opacity: 0.3;
+  }
+  .story-text {
+    font-size: 1.05rem;
+    line-height: 2.2;
+    color: #f0e6c8;
+    text-align: right;
+  }
+  .story-text .highlight { color: var(--gold); font-weight: 700; font-size: 1.15rem; }
+
+  /* Explanation scenes */
+  .scene-card {
+    background: rgba(0,0,0,0.3);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 15px;
+    border-right: 4px solid var(--teal);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    text-align: right;
+  }
+  .scene-icon { font-size: 3rem; flex-shrink: 0; }
+  .scene-content h4 { color: var(--teal); font-size: 1.1rem; margin-bottom: 10px; }
+  .scene-content p { color: #ccc; font-size: 0.95rem; line-height: 1.8; }
+  .scene-words {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .word-chip {
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .chip-green { background: rgba(46,204,113,0.2); border: 2px solid var(--green); color: #afd; }
+  .chip-red { background: rgba(231,76,60,0.2); border: 2px solid var(--red); color: #faa; }
+
+  /* Level header */
+  .level-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  .level-badge {
+    background: linear-gradient(135deg, var(--gold), var(--orange));
+    color: #1a0a00;
+    font-weight: 900;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+  .level-title { font-size: 1.1rem; color: white; font-weight: 700; }
+
+  /* Lock icon on levels */
+  .lock-msg {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+    font-size: 1.1rem;
+  }
+  .lock-msg .lock-icon { font-size: 3rem; margin-bottom: 10px; display: block; }
+
+  /* Section header */
+  .section-title {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(255,215,0,0.4);
+  }
+
+  /* Responsive */
+  @media(max-width:600px) {
+    .university-header h1 { font-size: 1.3rem; }
+    .skills-islands { grid-template-columns: 1fr 1fr; }
+    .map-stations { gap: 6px; }
+    .station { min-width: 85px; padding: 12px 8px; }
+    .answer-choices { flex-direction: column; align-items: center; }
+    .choice-btn { width: 200px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Stars Background -->
+<div class="stars" id="starsBg"></div>
+
+<!-- ===================== SCREEN 1: INTRO ===================== -->
+<div class="screen active" id="screen-intro">
+  <div class="content" style="padding-top:30px; padding-bottom:30px;">
+
+    <div style="font-size:3.5rem; margin-bottom:5px; animation: pulse 2s infinite;">🕌</div>
+
+    <div class="university-header">
+      <h1>جامعة الأزهر</h1>
+      <p>كلية التربية بنين بالقاهرة<br>قسم المناهج وطرق التدريس</p>
+    </div>
+
+    <div class="researcher-card">
+      <h3>📚 هذا التطبيق مقدم استكمالاً لمتطلبات الحصول على درجة الماجستير</h3>
+      <p>تخصص: مناهج وطرق تدريس (اللغة العربية)</p>
+      <p style="margin-top:10px; color:var(--gold); font-size:1rem; font-weight:700;">إعداد الباحث: مصطفى أحمد محمد حسن حسان</p>
+      <p>معلم لغة عربية بمدرسة نوي التعليمية - إدارة شبين القناطر - محافظة القليوبية</p>
+    </div>
+
+    <div class="supervisors-section">
+      <h3>🎓 تحت إشراف</h3>
+      <div class="supervisor-item">
+        <strong style="color:var(--gold);">أ.د. خالد فاروق الهواري</strong><br>
+        أستاذ المناهج وطرق التدريس - كلية التربية - جامعة الأزهر
+      </div>
+      <div class="supervisor-item">
+        <strong style="color:var(--gold);">د. باسم محمد عبده الجندي</strong><br>
+        أستاذ المناهج وطرق التدريس - كلية التربية - جامعة الأزهر
+      </div>
+      <div class="supervisor-item">
+        <strong style="color:var(--gold);">د. أشرف محمد سعد</strong><br>
+        أستاذ المناهج وطرق التدريس - كلية التربية - جامعة الأزهر
+      </div>
+    </div>
+
+    <button class="btn-start" onclick="goToWelcome()">✨ ابدأ الرحلة ✨</button>
+  </div>
+</div>
+
+<!-- ===================== SCREEN 2: WELCOME ===================== -->
+<div class="screen" id="screen-welcome">
+  <div class="content">
+    <div class="welcome-gate">
+      <div class="welcome-title">🌟 واحة الحروف والأصوات السحرية 🌟</div>
+
+      <div class="character-row">
+        <div class="char-boy">🧒</div>
+        <div style="font-size:1.5rem; color:var(--teal);">مرحباً بك يا بطل!</div>
+        <div class="char-girl">👧</div>
+      </div>
+
+      <p class="welcome-text">
+        عزيزي تلميذ الصف الأول الابتدائي..
+        أهلاً ومرحباً بك في رحلة ممتعة وشيقة
+        مليئة بالألعاب اللغوية الإلكترونية المرتبطة بالأصوات والحروف الجميلة!
+      </p>
+
+      <p class="welcome-text" style="font-size:0.95rem; color:#aae;">
+        في هذا التطبيق ستتعلم كيف تسمع الأصوات وتتعرف على الحروف والكلمات وتحليلها ودمجها بطريقة سهلة ومرحة
+      </p>
+
+      <div class="skills-islands">
+        <div class="skill-island">
+          <div class="icon">👂</div>
+          <div class="label">سماع الأصوات</div>
+        </div>
+        <div class="skill-island">
+          <div class="icon">🔤</div>
+          <div class="label">تعرف الحروف</div>
+        </div>
+        <div class="skill-island">
+          <div class="icon">🎯</div>
+          <div class="label">تحليل الكلمات</div>
+        </div>
+      </div>
+
+      <div class="train-row">🚂🚃🚃🚃🌟</div>
+
+      <button class="btn-start" onclick="goToLesson()">🚀 هيا بنا نلعب ونتعلم!</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SCREEN 3: LESSON ===================== -->
+<div class="screen" id="screen-lesson">
+  <div class="lesson-container" style="padding: 20px 0;">
+
+    <div class="score-badge" style="margin:15px auto; display:flex; width:fit-content;">
+      ⭐ النجوم: <span id="starCount">0</span> / 10
+    </div>
+
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progressBar" style="width:0%"></div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="lesson-tabs">
+      <div class="lesson-tab active" id="tab-goals" onclick="switchTab('goals')">🗺️ الأهداف</div>
+      <div class="lesson-tab" id="tab-warm" onclick="switchTab('warm')">🔑 التمهيد</div>
+      <div class="lesson-tab" id="tab-story" onclick="switchTab('story')">📖 القصة</div>
+      <div class="lesson-tab" id="tab-explain" onclick="switchTab('explain')">🎓 الشرح</div>
+      <div class="lesson-tab" id="tab-games" onclick="switchTab('games')">🎮 الألعاب</div>
+    </div>
+
+    <!-- ===== TAB: GOALS (Hero Map) ===== -->
+    <div id="tab-goals-content">
+      <div class="hero-map">
+        <div class="map-title">🗺️ خريطة الأبطال السحرية</div>
+        <p style="color:#aae; margin-bottom:20px; font-size:0.95rem;">اضغط على كل محطة لتعرف ما ستتعلمه!</p>
+        <div class="map-stations">
+          <div class="station" onclick="showGoal(1)">
+            <div class="station-icon">📡</div>
+            <div class="station-name">رادار الأذن الخارقة</div>
+          </div>
+          <div class="connector">←</div>
+          <div class="station" onclick="showGoal(2)">
+            <div class="station-icon">🏭</div>
+            <div class="station-name">مصنع الأشكال</div>
+          </div>
+          <div class="connector">←</div>
+          <div class="station" onclick="showGoal(3)">
+            <div class="station-icon">🔑</div>
+            <div class="station-name">شفرة الأسماء</div>
+          </div>
+          <div class="connector">←</div>
+          <div class="station" onclick="showGoal(4)">
+            <div class="station-icon">🎙️</div>
+            <div class="station-name">صائد الأصوات</div>
+          </div>
+          <div class="connector">←</div>
+          <div class="station" onclick="showGoal(5)">
+            <div class="station-icon">🏆</div>
+            <div class="station-name">نادي التحدي</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="goal-display" style="display:none; background:rgba(255,215,0,0.1); border:2px solid var(--gold); border-radius:20px; padding:25px; text-align:center; animation:fadeIn 0.5s ease;">
+        <div id="goal-icon" style="font-size:3rem; margin-bottom:10px;"></div>
+        <div id="goal-title" style="font-size:1.2rem; color:var(--gold); font-weight:700; margin-bottom:10px;"></div>
+        <div id="goal-desc" style="color:#ddd; font-size:1rem; line-height:1.8;"></div>
+      </div>
+
+      <div class="nav-row">
+        <button class="nav-btn primary" onclick="switchTab('warm')">التمهيد ←</button>
+      </div>
+    </div>
+
+    <!-- ===== TAB: WARM-UP ===== -->
+    <div id="tab-warm-content" style="display:none;">
+      <div class="game-area">
+        <h3>🔑 لعبة التمهيد: رسالة الجد المفقودة</h3>
+        <p style="color:#aae; margin-bottom:20px;">ساعد الجد في استعادة الحروف الناقصة!</p>
+
+        <div style="text-align:center; margin-bottom:25px;">
+          <div style="font-size:4rem; margin-bottom:10px;">👴</div>
+          <p style="color:#ffd; font-size:1.05rem; line-height:1.9;">
+            الجد يريد كتابة رسالة لحفيده، لكن الحروف <span style="color:var(--red);">تطايرت</span> من الورقة!
+          </p>
+        </div>
+
+        <div id="warmup-game">
+          <div class="picture-question">
+            <div id="warmup-word" style="font-size:2.5rem; font-weight:900; color:var(--gold); letter-spacing:8px; margin:15px 0;">ج _ ي</div>
+            <p style="color:#aae; margin-bottom:15px;">اسمع الحرف واضغط عليه:</p>
+            <div class="answer-choices" id="warmup-choices">
+              <button class="choice-btn" onclick="checkWarmup(this,'ب','جدي')">ب</button>
+              <button class="choice-btn" onclick="checkWarmup(this,'د','جدي','correct')">د</button>
+              <button class="choice-btn" onclick="checkWarmup(this,'ر','جدي')">ر</button>
+            </div>
+            <div id="warmup-result" style="display:none; margin-top:15px; font-size:1.2rem; color:var(--green);">🎉 أحسنت! الكلمة هي: <span style="color:var(--gold);">جَدِي</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button class="nav-btn secondary" onclick="switchTab('goals')">→ الأهداف</button>
+        <button class="nav-btn primary" onclick="switchTab('story')">القصة ←</button>
+      </div>
+    </div>
+
+    <!-- ===== TAB: STORY ===== -->
+    <div id="tab-story-content" style="display:none;">
+      <div class="story-card">
+        <div class="section-title" style="font-size:1.3rem; margin-bottom:15px;">📖 كتاب مريم ويوسف المتحرك</div>
+
+        <div style="display:flex; gap:15px; align-items:center; justify-content:center; margin-bottom:20px;">
+          <div style="text-align:center;">
+            <div style="font-size:3.5rem;">👧</div>
+            <div style="color:var(--teal);">مريم (٦ سنوات)</div>
+          </div>
+          <div style="font-size:2rem;">💞</div>
+          <div style="text-align:center;">
+            <div style="font-size:3.5rem;">👦</div>
+            <div style="color:var(--teal);">يوسف (٩ سنوات)</div>
+          </div>
+        </div>
+
+        <div id="story-paragraphs">
+          <div class="story-scene" id="scene1">
+            <p class="story-text">
+              اسمي <span class="highlight">مريم</span> وعمري <span class="highlight">ستُّ</span> سنوات،
+              وأخي <span class="highlight">يوسف</span> عمره <span class="highlight">تِسْع</span> سنوات.
+              كان يوسف دائماً يساعد أمي وأبي في أشياء عديدة بالبيت،
+              <span class="highlight">مثل شراء</span> الأكل من <span class="highlight">المَتْجَر</span>
+              والاعتناء بأشجار <span class="highlight">الحَدِيقَة</span>.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top:25px; text-align:center;">
+          <div style="font-size:3rem; margin-bottom:10px; animation: pulse 2s infinite;">🚲</div>
+          <p class="story-text">
+            كنتُ دائماً أفكر في أن أتعلم أشياء لأساعد بها أمي وأبي في البيت أيضاً.
+            وفي يوم من الأيام رأيتُ يوسف وهو يركب دراجته بسرعة ومهارة
+            وهو ذاهب إلى المتجر ليشتري طلبات البيت.
+          </p>
+          <div style="margin-top:20px; font-size:3rem; margin-bottom:10px; animation:pulse 2s infinite; animation-delay:1s;">😢</div>
+          <p class="story-text" style="color:var(--gold);">
+            "شعرتُ بالحزن؛ فأنا أيضاً أريد أن أُساعد أمي وأبي."
+          </p>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button class="nav-btn secondary" onclick="switchTab('warm')">→ التمهيد</button>
+        <button class="nav-btn primary" onclick="switchTab('explain')">الشرح ←</button>
+      </div>
+    </div>
+
+    <!-- ===== TAB: EXPLAIN ===== -->
+    <div id="tab-explain-content" style="display:none;">
+      <div class="section-title">🎬 سينما الأصوات مع مريم ويوسف</div>
+
+      <div class="scene-card">
+        <div class="scene-icon">📡</div>
+        <div class="scene-content">
+          <h4>المشهد ١: رادار الأصوات</h4>
+          <p>مريم عمرها <strong>سِتُّ</strong> سنوات..  اسمع جيداً: بدأت بحرف (السين) الرقيق الناعم: سِـ.. سِـ، وليست بالصاد المفخمة صِـ.</p>
+          <div class="scene-words">
+            <div class="word-chip chip-green">سِتُّ ✓</div>
+            <div class="word-chip chip-red">صِتُّ ✗</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <div class="scene-icon">🏭</div>
+        <div class="scene-content">
+          <h4>المشهد ٢: مصنع الأشكال</h4>
+          <p>انظر إلى كلمة <strong>دَرَاجَة</strong>.. حرف الدال جاء في أول الكلمة، وصوته بالفتحة هو: دَ.. دَ.. دَرَاجَة.</p>
+          <p style="color:#aae; margin-top:8px;">صوت الحرف يتغير حسب حركته، وشكله يتغير حسب مكانه في الكلمة!</p>
+          <div class="scene-words">
+            <div class="word-chip chip-green">دَ (أول الكلمة)</div>
+            <div class="word-chip chip-green">ـدَ (وسط الكلمة)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <div class="scene-icon">🔑</div>
+        <div class="scene-content">
+          <h4>المشهد ٣: بطاقة الهوية</h4>
+          <p>لكل حرف اسم وصوت! هذا الحرف اسمه: <strong>مِيم</strong>.. ولكن عندما نطقناه في كلمة <strong>مَتْجَر</strong>، كان صوته قصيراً ومفتوحاً: مَـ..</p>
+          <div class="scene-words">
+            <div class="word-chip chip-green">اسمه: مِيم</div>
+            <div class="word-chip chip-green">صوته: مَـ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <div class="scene-icon">🎙️</div>
+        <div class="scene-content">
+          <h4>المشهد ٤: صائد الأصوات</h4>
+          <p>شعرت مريم بالـحُزْن.. أين يقع صوت حرف الحاء في كلمة <strong>حَزِينَة</strong>؟ إنه في أول الكلمة تماماً!</p>
+          <div class="scene-words">
+            <div class="word-chip chip-green">حَـ (أول الكلمة)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-row">
+        <button class="nav-btn secondary" onclick="switchTab('story')">→ القصة</button>
+        <button class="nav-btn primary" onclick="switchTab('games')">الألعاب ←</button>
+      </div>
+    </div>
+
+    <!-- ===== TAB: GAMES ===== -->
+    <div id="tab-games-content" style="display:none;">
+      <div class="section-title">🎮 ألعاب الدرس</div>
+
+      <!-- Game Level Tabs -->
+      <div class="lesson-tabs" style="margin-bottom:15px;">
+        <div class="lesson-tab active" id="gtab-1" onclick="switchGameLevel(1)">المستوى ١</div>
+        <div class="lesson-tab locked" id="gtab-2" onclick="switchGameLevel(2)">المستوى ٢ 🔒</div>
+        <div class="lesson-tab locked" id="gtab-3" onclick="switchGameLevel(3)">المستوى ٣ 🔒</div>
+        <div class="lesson-tab locked" id="gtab-4" onclick="switchGameLevel(4)">المستوى ٤ 🔒</div>
+        <div class="lesson-tab locked" id="gtab-5" onclick="switchGameLevel(5)">المستوى ٥ 🔒</div>
+      </div>
+
+      <!-- LEVEL 1 -->
+      <div class="level-game active game-area" id="game-level-1">
+        <div class="level-header">
+          <div class="level-badge">المستوى ١</div>
+          <div class="level-title">الحروف المتشابهة صوتياً</div>
+        </div>
+        <p style="color:#aae; margin-bottom:15px;">انظر إلى الصورة واختر الكلمة الصحيحة!</p>
+
+        <div id="level1-q" class="picture-question"></div>
+        <div class="progress-bar-container" style="margin:10px 0;">
+          <div class="progress-bar" id="l1-prog" style="width:0%"></div>
+        </div>
+        <p style="color:#888; font-size:0.85rem; text-align:center;" id="l1-count">السؤال 1 من 3</p>
+      </div>
+
+      <!-- LEVEL 2 -->
+      <div class="level-game game-area" id="game-level-2">
+        <div class="level-header">
+          <div class="level-badge">المستوى ٢</div>
+          <div class="level-title">اصطد الكلمة المختلفة</div>
+        </div>
+        <p style="color:#aae; margin-bottom:15px;">ما الكلمة المختلفة في الصوت الأول؟</p>
+        <div id="level2-q"></div>
+      </div>
+
+      <!-- LEVEL 3 -->
+      <div class="level-game game-area" id="game-level-3">
+        <div class="level-header">
+          <div class="level-badge">المستوى ٣</div>
+          <div class="level-title">قفزة الحركات الذكية</div>
+        </div>
+        <div id="level3-q"></div>
+      </div>
+
+      <!-- LEVEL 4 -->
+      <div class="level-game game-area" id="game-level-4">
+        <div class="level-header">
+          <div class="level-badge">المستوى ٤</div>
+          <div class="level-title">قطار الحروف والمحطات</div>
+        </div>
+        <div id="level4-q"></div>
+      </div>
+
+      <!-- LEVEL 5 -->
+      <div class="level-game game-area" id="game-level-5">
+        <div class="level-header">
+          <div class="level-badge">المستوى ٥</div>
+          <div class="level-title">بستان الحروف</div>
+        </div>
+        <div id="level5-q"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Feedback Overlay -->
+<div class="feedback-overlay" id="feedbackOverlay"></div>
+
+<!-- Celebration -->
+<div class="celebration" id="celebrationLayer"></div>
+
+<script>
+// ============= STARS BACKGROUND =============
+const starsBg = document.getElementById('starsBg');
+for (let i = 0; i < 80; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  const size = Math.random() * 3 + 1;
+  s.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s`;
+  starsBg.appendChild(s);
+}
+
+// Floating letters
+const arabicLetters = ['أ','ب','ت','ج','د','ر','س','م','ن','ه','و','ي','ل','ك','ع'];
+arabicLetters.forEach((l, i) => {
+  const el = document.createElement('div');
+  el.className = 'floating-letter';
+  el.textContent = l;
+  el.style.cssText = `top:${Math.random()*85}%;left:${Math.random()*90}%;animation-delay:${i*0.4}s;`;
+  document.body.appendChild(el);
+});
+
+// ============= NAVIGATION =============
+function goToWelcome() {
+  document.getElementById('screen-intro').classList.remove('active');
+  document.getElementById('screen-welcome').classList.add('active');
+}
+
+function goToLesson() {
+  document.getElementById('screen-welcome').classList.remove('active');
+  document.getElementById('screen-lesson').classList.add('active');
+  initLevel1();
+  initLevel2();
+  initLevel3();
+  initLevel4();
+  initLevel5();
+}
+
+// ============= GOALS =============
+const goals = {
+  1: { icon: '📡', title: 'رادار الأذن الخارقة', desc: 'ستُدرِّب أذنيك لتصبح مثل الرادار، وتكشف الفرق بين الحروف التي تتشابه في الصوت مثل (س) و(ص)!' },
+  2: { icon: '🏭', title: 'مصنع الأشكال', desc: 'ستتعلم كيف نربط بين شكل الحرف وصوته الصحيح حتى لا تفوتنا أي كلمة!' },
+  3: { icon: '🔑', title: 'شفرة الأسماء السرية', desc: 'لكل حرف اسم سري وله صوت داخل الكلمات.. هنا ستتعلم شفرة تحويل اسم الحرف إلى صوته الحقيقي!' },
+  4: { icon: '🎙️', title: 'صائد الأصوات', desc: 'حان وقت التحدث مثل المذيعين المحترفين! سنستمع جيداً للكلمات ثم ننطقها بأصواتنا القوية والصحيحة!' },
+  5: { icon: '🏆', title: 'نادي التحدي والمرح', desc: 'هنا ملعبك الخاص! العب، اجمع النجوم، واهزم ساحر الحروف لتصبح ملك جزيرة الأصوات!' }
+};
+
+function showGoal(n) {
+  const g = goals[n];
+  const d = document.getElementById('goal-display');
+  document.getElementById('goal-icon').textContent = g.icon;
+  document.getElementById('goal-title').textContent = g.title;
+  document.getElementById('goal-desc').textContent = g.desc;
+  d.style.display = 'block';
+}
+
+// ============= TABS =============
+function switchTab(name) {
+  const tabs = ['goals','warm','story','explain','games'];
+  tabs.forEach(t => {
+    document.getElementById(`tab-${t}`).classList.remove('active');
+    document.getElementById(`tab-${t}-content`).style.display = 'none';
+  });
+  document.getElementById(`tab-${name}`).classList.add('active');
+  document.getElementById(`tab-${name}-content`).style.display = 'block';
+}
+
+// ============= SCORE =============
+let score = 0;
+let maxScore = 10;
+function addStar(n = 1) {
+  score = Math.min(score + n, maxScore);
+  document.getElementById('starCount').textContent = score;
+  const pct = (score / maxScore) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+}
+
+// ============= FEEDBACK =============
+function showFeedback(correct, msg) {
+  const el = document.getElementById('feedbackOverlay');
+  el.className = `feedback-overlay ${correct ? 'correct-fb' : 'wrong-fb'}`;
+  el.textContent = msg;
+  el.style.display = 'block';
+  setTimeout(() => { el.style.display = 'none'; }, 1800);
+  if (correct) celebrate();
+}
+
+function celebrate() {
+  const layer = document.getElementById('celebrationLayer');
+  layer.innerHTML = '';
+  for (let i = 0; i < 15; i++) {
+    const s = document.createElement('div');
+    s.className = 'confetti-star';
+    s.textContent = ['⭐','🌟','✨','🎉','💫'][Math.floor(Math.random()*5)];
+    s.style.cssText = `top:${Math.random()*60}%;left:${Math.random()*100}%;animation-delay:${Math.random()*0.5}s`;
+    layer.appendChild(s);
+  }
+  setTimeout(() => { layer.innerHTML = ''; }, 2000);
+}
+
+// ============= WARMUP GAME =============
+function checkWarmup(btn, val, word, correct) {
+  const choices = document.querySelectorAll('#warmup-choices .choice-btn');
+  choices.forEach(c => c.disabled = true);
+  if (correct === 'correct') {
+    btn.classList.add('correct');
+    document.getElementById('warmup-result').style.display = 'block';
+    showFeedback(true, '🎉 أحسنت يا بطل!');
+    addStar(1);
+  } else {
+    btn.classList.add('wrong');
+    setTimeout(() => {
+      btn.classList.remove('wrong');
+      choices.forEach(c => c.disabled = false);
+    }, 800);
+    showFeedback(false, '❌ حاول مرة أخرى!');
+  }
+}
+
+// ============= LEVEL 1 GAME =============
+const l1Questions = [
+  { emoji: '🚲', word: 'دَرَاجَة', choices: ['مَتْجَر', 'يوسف', 'دَرَاجَة'], correct: 2, correctIndex: 2 },
+  { emoji: '👦', word: 'يوسف', choices: ['مريم', 'يوسف', 'الحديقة', 'سِتُّ'], correct: 1, correctIndex: 1 },
+  { emoji: '🏪', word: 'مَتْجَر', choices: ['دراجة', 'يوسف', 'مريم', 'مَتْجَر'], correct: 3, correctIndex: 3 },
+];
+let l1Current = 0;
+let l1Correct = 0;
+
+function initLevel1() {
+  l1Current = 0; l1Correct = 0;
+  renderL1();
+}
+
+function renderL1() {
+  if (l1Current >= l1Questions.length) {
+    document.getElementById('level1-q').innerHTML = `
+      <div style="text-align:center; padding:20px;">
+        <div style="font-size:3rem; margin-bottom:10px;">🏆</div>
+        <p style="color:var(--green); font-size:1.3rem; font-weight:700;">أحسنت! أنهيت المستوى الأول!</p>
+        <p style="color:#aaa; margin:10px 0;">(أجبت صحيحاً على ${l1Correct} من ${l1Questions.length})</p>
+        <button class="btn-start" style="font-size:1rem; padding:12px 30px; margin-top:15px;" onclick="unlockLevel(2)">المستوى الثاني 🎮</button>
+      </div>`;
+    return;
+  }
+  const q = l1Questions[l1Current];
+  const pct = ((l1Current) / l1Questions.length) * 100;
+  document.getElementById('l1-prog').style.width = pct + '%';
+  document.getElementById('l1-count').textContent = `السؤال ${l1Current + 1} من ${l1Questions.length}`;
+
+  let choicesHTML = q.choices.map((c, i) =>
+    `<button class="choice-btn" onclick="answerL1(${i}, ${q.correctIndex})">${c}</button>`
+  ).join('');
+
+  document.getElementById('level1-q').innerHTML = `
+    <div class="picture-question">
+      <div class="picture-emoji">${q.emoji}</div>
+      <p style="color:#aae; margin-bottom:15px; font-size:1.05rem;">ما الكلمة الصحيحة للصورة؟</p>
+      <div class="answer-choices">${choicesHTML}</div>
+    </div>`;
+}
+
+function answerL1(chosen, correct) {
+  const btns = document.querySelectorAll('#level1-q .choice-btn');
+  btns.forEach(b => b.disabled = true);
+  if (chosen === correct) {
+    btns[chosen].classList.add('correct');
+    l1Correct++;
+    addStar(1);
+    showFeedback(true, '🌟 ممتاز!');
+    setTimeout(() => { l1Current++; renderL1(); }, 1500);
+  } else {
+    btns[chosen].classList.add('wrong');
+    showFeedback(false, '❌ حاول مرة أخرى!');
+    setTimeout(() => {
+      btns[chosen].classList.remove('wrong');
+      btns.forEach(b => b.disabled = false);
+    }, 900);
+  }
+}
+
+// ============= LEVEL 2 GAME =============
+function initLevel2() {
+  document.getElementById('level2-q').innerHTML = `
+    <p style="margin-bottom:15px; font-size:1rem; color:#ddd;">اسمع الكلمات الثلاث، ثم اضغط على الكلمة <span style="color:var(--red);">المختلفة</span> في الصوت الأول:</p>
+    <p style="color:#aae; font-size:0.9rem; margin-bottom:15px;">(باب - حديقة - بيت)</p>
+    <div class="words-row">
+      <div class="word-ball blue" onclick="answerL2(this,false)">باب</div>
+      <div class="word-ball red-ball" onclick="answerL2(this,true)">حديقة</div>
+      <div class="word-ball green-ball" onclick="answerL2(this,false)">بيت</div>
+    </div>
+    <div id="l2-result" style="display:none; text-align:center; margin-top:15px; color:var(--green); font-size:1.1rem;"></div>`;
+}
+
+function answerL2(el, correct) {
+  document.querySelectorAll('#level2-q .word-ball').forEach(b => b.style.pointerEvents = 'none');
+  if (correct) {
+    el.style.border = '3px solid var(--green)';
+    el.style.boxShadow = '0 0 20px var(--green)';
+    document.getElementById('l2-result').style.display = 'block';
+    document.getElementById('l2-result').innerHTML = '🎉 صحيح! "حديقة" تبدأ بحرف الحاء، بينما "باب" و"بيت" تبدآن بحرف الباء!';
+    addStar(1);
+    showFeedback(true, '🌟 رائع جداً!');
+    setTimeout(() => unlockLevel(3), 2000);
+  } else {
+    el.style.border = '3px solid var(--red)';
+    setTimeout(() => {
+      document.querySelectorAll('#level2-q .word-ball').forEach(b => { b.style.border = ''; b.style.pointerEvents = ''; });
+      showFeedback(false, '❌ ابحث عن الصوت المختلف!');
+    }, 800);
+  }
+}
+
+// ============= LEVEL 3 GAME =============
+function initLevel3() {
+  document.getElementById('level3-q').innerHTML = `
+    <div class="sound-position-game">
+      <p style="color:#ddd; margin-bottom:10px;">استمع وحدِّد <span style="color:var(--gold);">حركة الحرف الأول</span> في كلمة:</p>
+      <div class="big-word-display">بَيْت</div>
+      <p style="color:#aae; font-size:0.9rem; margin-bottom:20px;">الحرف الأول هو (بـ)، ما حركته؟</p>
+      <div class="position-gates">
+        <button class="gate-btn gate-green" onclick="answerL3(this,true)">الفتحة (بَ) ✓</button>
+        <button class="gate-btn gate-blue" onclick="answerL3(this,false)">الضمة (بُ)</button>
+        <button class="gate-btn gate-red" onclick="answerL3(this,false)">الكسرة (بِ)</button>
+      </div>
+      <div id="l3-result" style="display:none; margin-top:15px; color:var(--green); font-size:1.1rem; text-align:center;"></div>
+    </div>`;
+}
+
+function answerL3(btn, correct) {
+  document.querySelectorAll('#level3-q .gate-btn').forEach(b => b.disabled = true);
+  if (correct) {
+    btn.style.background = 'rgba(46,204,113,0.5)';
+    btn.style.boxShadow = '0 0 20px var(--green)';
+    document.getElementById('l3-result').style.display = 'block';
+    document.getElementById('l3-result').innerHTML = '🎉 ممتاز! حرف الباء في "بَيْت" عليه فتحة: بَ';
+    addStar(1);
+    showFeedback(true, '🌟 أحسنت!');
+    setTimeout(() => unlockLevel(4), 2000);
+  } else {
+    btn.style.background = 'rgba(231,76,60,0.3)';
+    setTimeout(() => {
+      document.querySelectorAll('#level3-q .gate-btn').forEach(b => { b.style.background = ''; b.disabled = false; });
+      showFeedback(false, '❌ حاول مجدداً!');
+    }, 900);
+  }
+}
+
+// ============= LEVEL 4 GAME =============
+let trainAnswers = [];
+const trainWord = ['أ', 'مِي', 'رَ', 'ة'];
+const trainShuffled = ['رَ', 'أ', 'ةٌ', 'مِي'];
+
+function initLevel4() {
+  trainAnswers = [];
+  document.getElementById('level4-q').innerHTML = `
+    <div class="train-game">
+      <p style="color:#ddd; margin-bottom:15px;">رتِّب مقاطع الكلمة في عربات القطار الصحيحة!</p>
+      <p style="color:var(--gold); font-size:1.1rem; margin-bottom:15px;">الكلمة: أَمِيرَة</p>
+      <div style="display:flex; align-items:center; justify-content:center; gap:5px; margin-bottom:15px; font-size:1.3rem;">
+        🚂
+        <div class="train-car" id="car-0" onclick="placeSyllable(0)"></div>
+        <div class="train-car" id="car-1" onclick="placeSyllable(1)"></div>
+        <div class="train-car" id="car-2" onclick="placeSyllable(2)"></div>
+        <div class="train-car" id="car-3" onclick="placeSyllable(3)"></div>
+      </div>
+      <div class="syllables-pool" id="syllables-pool">
+        ${trainShuffled.map((s,i) => `<div class="syllable-chip" id="chip-${i}" onclick="selectSyllable(${i},'${s}')">${s}</div>`).join('')}
+      </div>
+      <div id="l4-result" style="display:none; margin-top:15px; color:var(--green); font-size:1.2rem; text-align:center;"></div>
+    </div>`;
+}
+
+let selectedSyllable = null;
+let selectedChipId = null;
+
+function selectSyllable(i, val) {
+  document.querySelectorAll('.syllable-chip').forEach(c => c.style.outline = '');
+  const chip = document.getElementById(`chip-${i}`);
+  if (chip.classList.contains('used')) return;
+  chip.style.outline = '3px solid var(--gold)';
+  selectedSyllable = val;
+  selectedChipId = i;
+}
+
+function placeSyllable(carIdx) {
+  if (!selectedSyllable) { showFeedback(false, 'اختر مقطعاً أولاً!'); return; }
+  const car = document.getElementById(`car-${carIdx}`);
+  if (car.textContent.trim()) return;
+
+  const correct = ['أ','مِي','رَ','ةٌ'];
+  if (selectedSyllable === correct[carIdx] || (carIdx === 3 && selectedSyllable === 'ة')) {
+    car.textContent = selectedSyllable;
+    car.classList.add('filled');
+    document.getElementById(`chip-${selectedChipId}`).classList.add('used');
+    trainAnswers.push(carIdx);
+    addStar(0.5);
+
+    if (trainAnswers.length === 4) {
+      setTimeout(() => {
+        document.getElementById('l4-result').style.display = 'block';
+        document.getElementById('l4-result').innerHTML = '🎉 رائع! ركّبت اسم "أَمِيرَة" بنجاح! 🚂💨';
+        showFeedback(true, '🌟 مذهل!');
+        addStar(1);
+        setTimeout(() => unlockLevel(5), 2000);
+      }, 500);
+    }
+  } else {
+    showFeedback(false, '❌ هذا المقطع لا يناسب هذا المكان!');
+  }
+  selectedSyllable = null;
+  selectedChipId = null;
+  document.querySelectorAll('.syllable-chip').forEach(c => c.style.outline = '');
+}
+
+// ============= LEVEL 5 GAME =============
+const l5Words = [
+  { word: 'متجر', position: 'أول الكلمة', treeIdx: 0 },
+  { word: 'أمي', position: 'وسط الكلمة', treeIdx: 1 },
+  { word: 'كريم', position: 'آخر الكلمة', treeIdx: 2 },
+];
+let l5Current = 0;
+
+function initLevel5() {
+  l5Current = 0;
+  renderL5();
+}
+
+function renderL5() {
+  if (l5Current >= l5Words.length) {
+    document.getElementById('level5-q').innerHTML = `
+      <div style="text-align:center; padding:20px;">
+        <div style="font-size:3rem; margin-bottom:10px;">🌳🏆🌳</div>
+        <p style="color:var(--green); font-size:1.3rem; font-weight:700;">أحسنت! أكملت جميع مستويات الدرس الأول! 🎊</p>
+        <p style="color:var(--gold); margin-top:10px; font-size:1.1rem;">نجومك: ${score} / ${maxScore} ⭐</p>
+      </div>`;
+    celebrate();
+    return;
+  }
+
+  const q = l5Words[l5Current];
+  document.getElementById('level5-q').innerHTML = `
+    <div style="text-align:center;">
+      <p style="color:#ddd; margin-bottom:10px;">في كلمة <span style="color:var(--gold); font-size:1.3rem; font-weight:700;">${q.word}</span>، أين يقع حرف الميم (م)؟</p>
+      <p style="color:#aae; font-size:0.9rem; margin-bottom:20px;">اسحب الثمرة إلى الشجرة الصحيحة!</p>
+      <div class="garden-game">
+        <div class="tree-btn" onclick="answerL5(0)">
+          <div class="tree-icon">🌱</div>
+          <div class="tree-label">أول الكلمة</div>
+        </div>
+        <div class="tree-btn" onclick="answerL5(1)">
+          <div class="tree-icon">🌿</div>
+          <div class="tree-label">وسط الكلمة</div>
+        </div>
+        <div class="tree-btn" onclick="answerL5(2)">
+          <div class="tree-icon">🌳</div>
+          <div class="tree-label">آخر الكلمة</div>
+        </div>
+      </div>
+      <p style="color:#888; font-size:0.85rem; margin-top:10px;">السؤال ${l5Current+1} من ${l5Words.length}</p>
+    </div>`;
+}
+
+function answerL5(treeIdx) {
+  const q = l5Words[l5Current];
+  const btns = document.querySelectorAll('#level5-q .tree-btn');
+  btns.forEach(b => b.style.pointerEvents = 'none');
+
+  if (treeIdx === q.treeIdx) {
+    btns[treeIdx].style.borderColor = 'var(--green)';
+    btns[treeIdx].style.boxShadow = '0 0 20px var(--green)';
+    addStar(1);
+    showFeedback(true, `✅ صحيح! الميم في "${q.word}" في ${q.position}`);
+    l5Current++;
+    setTimeout(() => renderL5(), 2000);
+  } else {
+    btns[treeIdx].style.borderColor = 'var(--red)';
+    showFeedback(false, '❌ حاول مجدداً! ابحث عن موقع حرف الميم.');
+    setTimeout(() => {
+      btns.forEach(b => { b.style.borderColor = ''; b.style.pointerEvents = ''; });
+    }, 900);
+  }
+}
+
+// ============= LEVEL UNLOCK =============
+const levelUnlocked = [true, false, false, false, false];
+
+function unlockLevel(n) {
+  if (n > 5) return;
+  levelUnlocked[n-1] = true;
+  const tab = document.getElementById(`gtab-${n}`);
+  tab.classList.remove('locked');
+  const names = ['','المستوى ١','المستوى ٢','المستوى ٣','المستوى ٤','المستوى ٥'];
+  tab.textContent = names[n] + ' 🔓';
+  showFeedback(true, `🔓 تم فتح ${names[n]}!`);
+  switchGameLevel(n);
+}
+
+function switchGameLevel(n) {
+  if (!levelUnlocked[n-1]) {
+    showFeedback(false, '🔒 أكمل المستوى السابق أولاً!');
+    return;
+  }
+  for (let i = 1; i <= 5; i++) {
+    document.getElementById(`game-level-${i}`).classList.remove('active');
+    document.getElementById(`gtab-${i}`).classList.remove('active');
+  }
+  document.getElementById(`game-level-${n}`).classList.add('active');
+  document.getElementById(`gtab-${n}`).classList.add('active');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "verificationDate": "2026-06-09T11:16:20.269Z",
+  "status": "PASS",
+  "totalChecks": 6,
+  "passed": 6,
+  "failed": 0,
+  "warnings": 0,
+  "checks": {
+    "no_visible_text_changed": {
+      "passed": true,
+      "message": "No visible text modified - pacing fixes only changed ttsText/pronunciationNotes/linguisticReviewStatus",
+      "severity": "info"
+    },
+    "punctuation_pauses_present": {
+      "passed": true,
+      "message": "All corrected items have proper punctuation pauses",
+      "severity": "info"
+    },
+    "pacing_items_in_regen_list": {
+      "passed": true,
+      "message": "All pacing items are in regeneration list",
+      "severity": "info"
+    },
+    "no_low_confidence_auto_applied": {
+      "passed": true,
+      "message": "No low-confidence items were auto-applied",
+      "severity": "info"
+    },
+    "meaning_preserved": {
+      "passed": true,
+      "message": "All fixes preserve original meaning",
+      "severity": "info"
+    },
+    "sentence_count_increased": {
+      "passed": true,
+      "message": "Sentence breaks increased in all fixes",
+      "severity": "info"
+    }
+  },
+  "errors": [],
+  "note": "Spoken Pacing Gate verification passed. All pacing corrections meet requirements."
+}

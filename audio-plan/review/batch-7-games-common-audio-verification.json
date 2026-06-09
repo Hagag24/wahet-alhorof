@@ -1,0 +1,10 @@
+{
+  "batchName": "Batch 7 - Games Common Audio",
+  "totalRequired": 23,
+  "foundInManifest": 23,
+  "missingFromManifest": [],
+  "existingFiles": 23,
+  "missingFiles": [],
+  "zeroByteFiles": [],
+  "passed": true
+}

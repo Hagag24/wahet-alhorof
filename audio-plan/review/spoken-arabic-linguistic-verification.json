@@ -1,0 +1,72 @@
+{
+  "verificationDate": "2026-06-09T11:16:24.553Z",
+  "totalFiles": 188,
+  "totalChecks": 12,
+  "passed": 11,
+  "failed": 0,
+  "warnings": 1,
+  "checks": {
+    "visible_text_integrity": {
+      "passed": true,
+      "message": "No visible text fields were changed",
+      "severity": "info"
+    },
+    "corrections_in_manifest": {
+      "passed": true,
+      "message": "76 items have linguisticReviewStatus set to 'corrected'",
+      "severity": "info"
+    },
+    "ta_marbuta_variant_a": {
+      "passed": true,
+      "message": "All corrected ta-marbuta words in ttsText use Variant A (ending with هْ). 10 corrected items have tashkeel in visible text (acceptable per rules). Checked 76 corrected items.",
+      "severity": "info"
+    },
+    "no_fake_normal_ta": {
+      "passed": true,
+      "message": "No fake normal ت replacements found in corrected items",
+      "severity": "info"
+    },
+    "word_052_preservation": {
+      "passed": true,
+      "message": "word-052: text=\"م\", ttsText=\"مِيم\" (expected: \"م\")",
+      "severity": "info"
+    },
+    "word-053_preservation": {
+      "passed": true,
+      "message": "word-053: text=\"مِ\", ttsText=\"مِ\"",
+      "severity": "info"
+    },
+    "word-054_preservation": {
+      "passed": true,
+      "message": "word-054: text=\"مُ\", ttsText=\"مُ\"",
+      "severity": "info"
+    },
+    "word-056_preservation": {
+      "passed": true,
+      "message": "word-056: text=\"مَ\", ttsText=\"مَ\"",
+      "severity": "info"
+    },
+    "no_empty_tts": {
+      "passed": true,
+      "message": "No items have empty ttsText",
+      "severity": "info"
+    },
+    "regeneration_list_complete": {
+      "passed": false,
+      "message": "Items missing from regeneration list: word-004, word-006, word-009, word-010, word-012, word-015, word-017, word-021, word-023, word-024, word-025, word-027, word-028, word-029, word-038, word-039, word-042, word-043, word-052, word-066, word-067, word-068, phrase-005, phrase-011, phrase-014, phrase-020, phrase-039, phrase-040, phrase-049, phrase-055, phrase-057, phrase-059, phrase-062, phrase-066, phrase-067, lesson-1-objectives, lesson-2-description, lesson-4-description, lesson-3-full, official_intro_scene_1, official_intro_scene_1-2, official_intro_scene_1-3",
+      "severity": "warning"
+    },
+    "no_low_confidence_auto_applied": {
+      "passed": true,
+      "message": "No low-confidence items were auto-applied",
+      "severity": "info"
+    },
+    "human_review_listed": {
+      "passed": true,
+      "message": "No items require human review",
+      "severity": "info"
+    }
+  },
+  "errors": [],
+  "status": "PASS"
+}

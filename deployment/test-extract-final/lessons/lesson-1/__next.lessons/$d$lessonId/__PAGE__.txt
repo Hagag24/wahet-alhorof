@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[59046,["/_next/static/chunks/0vjq2f58l6od9.js","/_next/static/chunks/0f3.mp6d3zyfo.js","/_next/static/chunks/0dbhjjzl8qfwv.js","/_next/static/chunks/0l22e~apz85ft.js","/_next/static/chunks/05xvxcit22a.n.js"],"LessonHubPageClient"]
+3:I[97367,["/_next/static/chunks/0vjq2f58l6od9.js","/_next/static/chunks/0f3.mp6d3zyfo.js","/_next/static/chunks/0dbhjjzl8qfwv.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"lessonId":"lesson-1"}],[["$","script","script-0",{"src":"/_next/static/chunks/0l22e~apz85ft.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/05xvxcit22a.n.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"9l9N04QfucVUcKMDhFEEs"}
+5:null

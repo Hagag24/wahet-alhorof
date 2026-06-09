@@ -1,0 +1,31 @@
+{
+  "reportDate": "2026-06-09",
+  "status": "READY_FOR_DEPLOYMENT",
+  "zipFile": {
+    "path": "deployment/kids-monsterasp-static-upload.zip",
+    "size": 24700980,
+    "sizeReadable": "24.7 MB",
+    "totalFiles": 610
+  },
+  "rootStructure": {
+    "indexHtml": { "exists": true, "size": 9379 },
+    "webConfig": { "exists": true, "size": 1369 },
+    "nextFolder": { "exists": true },
+    "audioFolder": { "exists": true, "fileCount": 192 },
+    "imagesFolder": { "exists": true },
+    "lessonsFolder": { "exists": true }
+  },
+  "forbiddenItems": {
+    "nodeModules": false,
+    "nextFolder": false,
+    "appFolder": false,
+    "componentsFolder": false,
+    "packageJson": false,
+    "tsconfigJson": false
+  },
+  "buildInfo": {
+    "staticPages": "38/38",
+    "status": "SUCCESS"
+  },
+  "conclusion": "ZIP structure is correct and ready for MonsterASP upload"
+}

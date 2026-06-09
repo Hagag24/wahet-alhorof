@@ -1,0 +1,21 @@
+# v0 runtime files
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
+
+# Common ignores
+node_modules
+.next/
+.env*.local
+.DS_Store
+
+# Static export output
+out/
+tsconfig.tsbuildinfo
+
+# Deployment folders and archives
+deployment/monsterasp-upload/
+deployment/monsterasp-static-upload/
+deployment/wwwroot/
+deployment/*.zip
+*.zip

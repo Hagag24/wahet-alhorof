@@ -1,0 +1,948 @@
+{
+  "totalFiles": 188,
+  "existingFiles": 188,
+  "missingFiles": [],
+  "zeroByteFiles": [],
+  "validFiles": [
+    {
+      "id": "word-001",
+      "path": "public/audio/words/word-001.mp3",
+      "size": 11232
+    },
+    {
+      "id": "word-002",
+      "path": "public/audio/words/word-002.mp3",
+      "size": 10944
+    },
+    {
+      "id": "word-003",
+      "path": "public/audio/words/word-003.mp3",
+      "size": 11376
+    },
+    {
+      "id": "word-004",
+      "path": "public/audio/words/word-004.mp3",
+      "size": 11376
+    },
+    {
+      "id": "word-005",
+      "path": "public/audio/words/word-005.mp3",
+      "size": 10080
+    },
+    {
+      "id": "word-006",
+      "path": "public/audio/words/word-006.mp3",
+      "size": 11952
+    },
+    {
+      "id": "word-007",
+      "path": "public/audio/words/word-007.mp3",
+      "size": 12528
+    },
+    {
+      "id": "word-008",
+      "path": "public/audio/words/word-008.mp3",
+      "size": 10080
+    },
+    {
+      "id": "word-009",
+      "path": "public/audio/words/word-009.mp3",
+      "size": 13104
+    },
+    {
+      "id": "word-010",
+      "path": "public/audio/words/word-010.mp3",
+      "size": 12960
+    },
+    {
+      "id": "word-011",
+      "path": "public/audio/words/word-011.mp3",
+      "size": 13824
+    },
+    {
+      "id": "word-012",
+      "path": "public/audio/words/word-012.mp3",
+      "size": 13104
+    },
+    {
+      "id": "word-013",
+      "path": "public/audio/words/word-013.mp3",
+      "size": 12240
+    },
+    {
+      "id": "word-014",
+      "path": "public/audio/words/word-014.mp3",
+      "size": 12816
+    },
+    {
+      "id": "word-015",
+      "path": "public/audio/words/word-015.mp3",
+      "size": 12384
+    },
+    {
+      "id": "word-016",
+      "path": "public/audio/words/word-016.mp3",
+      "size": 11664
+    },
+    {
+      "id": "word-017",
+      "path": "public/audio/words/word-017.mp3",
+      "size": 11376
+    },
+    {
+      "id": "word-018",
+      "path": "public/audio/words/word-018.mp3",
+      "size": 11520
+    },
+    {
+      "id": "word-019",
+      "path": "public/audio/words/word-019.mp3",
+      "size": 11952
+    },
+    {
+      "id": "word-020",
+      "path": "public/audio/words/word-020.mp3",
+      "size": 12672
+    },
+    {
+      "id": "word-021",
+      "path": "public/audio/words/word-021.mp3",
+      "size": 12816
+    },
+    {
+      "id": "word-022",
+      "path": "public/audio/words/word-022.mp3",
+      "size": 12384
+    },
+    {
+      "id": "word-023",
+      "path": "public/audio/words/word-023.mp3",
+      "size": 13968
+    },
+    {
+      "id": "word-024",
+      "path": "public/audio/words/word-024.mp3",
+      "size": 12096
+    },
+    {
+      "id": "word-025",
+      "path": "public/audio/words/word-025.mp3",
+      "size": 11664
+    },
+    {
+      "id": "word-026",
+      "path": "public/audio/words/word-026.mp3",
+      "size": 12960
+    },
+    {
+      "id": "word-027",
+      "path": "public/audio/words/word-027.mp3",
+      "size": 12384
+    },
+    {
+      "id": "word-028",
+      "path": "public/audio/words/word-028.mp3",
+      "size": 12384
+    },
+    {
+      "id": "word-029",
+      "path": "public/audio/words/word-029.mp3",
+      "size": 11952
+    },
+    {
+      "id": "word-030",
+      "path": "public/audio/words/word-030.mp3",
+      "size": 13680
+    },
+    {
+      "id": "word-031",
+      "path": "public/audio/words/word-031.mp3",
+      "size": 13824
+    },
+    {
+      "id": "word-032",
+      "path": "public/audio/words/word-032.mp3",
+      "size": 13536
+    },
+    {
+      "id": "word-033",
+      "path": "public/audio/words/word-033.mp3",
+      "size": 12672
+    },
+    {
+      "id": "word-034",
+      "path": "public/audio/words/word-034.mp3",
+      "size": 12816
+    },
+    {
+      "id": "word-035",
+      "path": "public/audio/words/word-035.mp3",
+      "size": 12672
+    },
+    {
+      "id": "word-036",
+      "path": "public/audio/words/word-036.mp3",
+      "size": 9504
+    },
+    {
+      "id": "word-037",
+      "path": "public/audio/words/word-037.mp3",
+      "size": 11664
+    },
+    {
+      "id": "word-038",
+      "path": "public/audio/words/word-038.mp3",
+      "size": 13536
+    },
+    {
+      "id": "word-039",
+      "path": "public/audio/words/word-039.mp3",
+      "size": 12672
+    },
+    {
+      "id": "word-040",
+      "path": "public/audio/words/word-040.mp3",
+      "size": 23040
+    },
+    {
+      "id": "word-041",
+      "path": "public/audio/words/word-041.mp3",
+      "size": 12384
+    },
+    {
+      "id": "word-042",
+      "path": "public/audio/words/word-042.mp3",
+      "size": 11376
+    },
+    {
+      "id": "word-043",
+      "path": "public/audio/words/word-043.mp3",
+      "size": 12672
+    },
+    {
+      "id": "word-044",
+      "path": "public/audio/words/word-044.mp3",
+      "size": 12816
+    },
+    {
+      "id": "word-045",
+      "path": "public/audio/words/word-045.mp3",
+      "size": 13968
+    },
+    {
+      "id": "word-046",
+      "path": "public/audio/words/word-046.mp3",
+      "size": 16416
+    },
+    {
+      "id": "word-047",
+      "path": "public/audio/words/word-047.mp3",
+      "size": 17568
+    },
+    {
+      "id": "word-048",
+      "path": "public/audio/words/word-048.mp3",
+      "size": 12528
+    },
+    {
+      "id": "word-049",
+      "path": "public/audio/words/word-049.mp3",
+      "size": 8064
+    },
+    {
+      "id": "word-050",
+      "path": "public/audio/words/word-050.mp3",
+      "size": 8352
+    },
+    {
+      "id": "word-051",
+      "path": "public/audio/words/word-051.mp3",
+      "size": 8928
+    },
+    {
+      "id": "word-052",
+      "path": "public/audio/words/word-052.mp3",
+      "size": 8352
+    },
+    {
+      "id": "word-053",
+      "path": "public/audio/words/word-053.mp3",
+      "size": 8352
+    },
+    {
+      "id": "word-054",
+      "path": "public/audio/words/word-054.mp3",
+      "size": 8352
+    },
+    {
+      "id": "word-055",
+      "path": "public/audio/words/word-055.mp3",
+      "size": 8352
+    },
+    {
+      "id": "word-056",
+      "path": "public/audio/words/word-056.mp3",
+      "size": 8352
+    },
+    {
+      "id": "word-058",
+      "path": "public/audio/words/word-058.mp3",
+      "size": 8064
+    },
+    {
+      "id": "word-059",
+      "path": "public/audio/words/word-059.mp3",
+      "size": 8064
+    },
+    {
+      "id": "word-060",
+      "path": "public/audio/words/word-060.mp3",
+      "size": 8064
+    },
+    {
+      "id": "word-061",
+      "path": "public/audio/words/word-061.mp3",
+      "size": 8064
+    },
+    {
+      "id": "word-062",
+      "path": "public/audio/words/word-062.mp3",
+      "size": 11088
+    },
+    {
+      "id": "word-063",
+      "path": "public/audio/words/word-063.mp3",
+      "size": 11088
+    },
+    {
+      "id": "word-064",
+      "path": "public/audio/words/word-064.mp3",
+      "size": 11088
+    },
+    {
+      "id": "word-065",
+      "path": "public/audio/words/word-065.mp3",
+      "size": 11088
+    },
+    {
+      "id": "word-066",
+      "path": "public/audio/words/word-066.mp3",
+      "size": 15552
+    },
+    {
+      "id": "word-067",
+      "path": "public/audio/words/word-067.mp3",
+      "size": 15984
+    },
+    {
+      "id": "word-068",
+      "path": "public/audio/words/word-068.mp3",
+      "size": 16128
+    },
+    {
+      "id": "word-069",
+      "path": "public/audio/words/word-069.mp3",
+      "size": 11520
+    },
+    {
+      "id": "story-01-scene-01",
+      "path": "public/audio/stories/scene-1-1.mp3",
+      "size": 51696
+    },
+    {
+      "id": "story-01-scene-02",
+      "path": "public/audio/stories/scene-1-2.mp3",
+      "size": 35136
+    },
+    {
+      "id": "story-01-scene-03",
+      "path": "public/audio/stories/scene-1-3.mp3",
+      "size": 44496
+    },
+    {
+      "id": "story-01-scene-04",
+      "path": "public/audio/stories/scene-1-4.mp3",
+      "size": 51696
+    },
+    {
+      "id": "story-01-scene-05",
+      "path": "public/audio/stories/scene-1-5.mp3",
+      "size": 67248
+    },
+    {
+      "id": "story-01-scene-06",
+      "path": "public/audio/stories/scene-1-6.mp3",
+      "size": 39312
+    },
+    {
+      "id": "story-02-scene-01",
+      "path": "public/audio/stories/scene-2-1.mp3",
+      "size": 40320
+    },
+    {
+      "id": "story-02-scene-02",
+      "path": "public/audio/stories/scene-2-2.mp3",
+      "size": 47664
+    },
+    {
+      "id": "story-02-scene-03",
+      "path": "public/audio/stories/scene-2-3.mp3",
+      "size": 26352
+    },
+    {
+      "id": "story-02-scene-04",
+      "path": "public/audio/stories/scene-2-4.mp3",
+      "size": 53424
+    },
+    {
+      "id": "story-02-scene-05",
+      "path": "public/audio/stories/scene-2-5.mp3",
+      "size": 38016
+    },
+    {
+      "id": "story-02-scene-06",
+      "path": "public/audio/stories/scene-2-6.mp3",
+      "size": 50688
+    },
+    {
+      "id": "story-03-scene-01",
+      "path": "public/audio/stories/scene-3-1.mp3",
+      "size": 34848
+    },
+    {
+      "id": "story-03-scene-02",
+      "path": "public/audio/stories/scene-3-2.mp3",
+      "size": 38304
+    },
+    {
+      "id": "story-03-scene-03",
+      "path": "public/audio/stories/scene-3-3.mp3",
+      "size": 62928
+    },
+    {
+      "id": "story-03-scene-04",
+      "path": "public/audio/stories/scene-3-4.mp3",
+      "size": 41184
+    },
+    {
+      "id": "story-03-scene-05",
+      "path": "public/audio/stories/scene-3-5.mp3",
+      "size": 52272
+    },
+    {
+      "id": "story-03-scene-06",
+      "path": "public/audio/stories/scene-3-6.mp3",
+      "size": 58464
+    },
+    {
+      "id": "story-03-scene-07",
+      "path": "public/audio/stories/scene-3-7.mp3",
+      "size": 45216
+    },
+    {
+      "id": "story-04-scene-01",
+      "path": "public/audio/stories/scene-4-1.mp3",
+      "size": 46080
+    },
+    {
+      "id": "story-04-scene-02",
+      "path": "public/audio/stories/scene-4-2.mp3",
+      "size": 41040
+    },
+    {
+      "id": "story-04-scene-03",
+      "path": "public/audio/stories/scene-4-3.mp3",
+      "size": 40320
+    },
+    {
+      "id": "story-04-scene-04",
+      "path": "public/audio/stories/scene-4-4.mp3",
+      "size": 32400
+    },
+    {
+      "id": "story-04-scene-05",
+      "path": "public/audio/stories/scene-4-5.mp3",
+      "size": 59760
+    },
+    {
+      "id": "story-04-scene-06",
+      "path": "public/audio/stories/scene-4-6.mp3",
+      "size": 64368
+    },
+    {
+      "id": "story-04-scene-07",
+      "path": "public/audio/stories/scene-4-7.mp3",
+      "size": 60768
+    },
+    {
+      "id": "story-04-scene-08",
+      "path": "public/audio/stories/scene-4-8.mp3",
+      "size": 38016
+    },
+    {
+      "id": "phrase-001",
+      "path": "public/audio/ui/phrase-001.mp3",
+      "size": 43632
+    },
+    {
+      "id": "phrase-002",
+      "path": "public/audio/ui/phrase-002.mp3",
+      "size": 21600
+    },
+    {
+      "id": "phrase-003",
+      "path": "public/audio/ui/phrase-003.mp3",
+      "size": 40176
+    },
+    {
+      "id": "phrase-004",
+      "path": "public/audio/ui/phrase-004.mp3",
+      "size": 31824
+    },
+    {
+      "id": "phrase-005",
+      "path": "public/audio/ui/phrase-005.mp3",
+      "size": 15984
+    },
+    {
+      "id": "phrase-006",
+      "path": "public/audio/ui/phrase-006.mp3",
+      "size": 16128
+    },
+    {
+      "id": "phrase-007",
+      "path": "public/audio/ui/phrase-007.mp3",
+      "size": 16704
+    },
+    {
+      "id": "phrase-008",
+      "path": "public/audio/ui/phrase-008.mp3",
+      "size": 13104
+    },
+    {
+      "id": "phrase-009",
+      "path": "public/audio/ui/phrase-009.mp3",
+      "size": 13104
+    },
+    {
+      "id": "phrase-010",
+      "path": "public/audio/ui/phrase-010.mp3",
+      "size": 11664
+    },
+    {
+      "id": "phrase-011",
+      "path": "public/audio/ui/phrase-011.mp3",
+      "size": 18432
+    },
+    {
+      "id": "phrase-012",
+      "path": "public/audio/ui/phrase-012.mp3",
+      "size": 17856
+    },
+    {
+      "id": "phrase-013",
+      "path": "public/audio/ui/phrase-013.mp3",
+      "size": 18000
+    },
+    {
+      "id": "phrase-014",
+      "path": "public/audio/ui/phrase-014.mp3",
+      "size": 17568
+    },
+    {
+      "id": "phrase-015",
+      "path": "public/audio/ui/phrase-015.mp3",
+      "size": 16848
+    },
+    {
+      "id": "phrase-016",
+      "path": "public/audio/ui/phrase-016.mp3",
+      "size": 16560
+    },
+    {
+      "id": "phrase-017",
+      "path": "public/audio/ui/phrase-017.mp3",
+      "size": 16992
+    },
+    {
+      "id": "phrase-018",
+      "path": "public/audio/ui/phrase-018.mp3",
+      "size": 16128
+    },
+    {
+      "id": "phrase-019",
+      "path": "public/audio/ui/phrase-019.mp3",
+      "size": 16992
+    },
+    {
+      "id": "phrase-020",
+      "path": "public/audio/ui/phrase-020.mp3",
+      "size": 15840
+    },
+    {
+      "id": "phrase-021",
+      "path": "public/audio/ui/phrase-021.mp3",
+      "size": 15696
+    },
+    {
+      "id": "phrase-022",
+      "path": "public/audio/ui/phrase-022.mp3",
+      "size": 15696
+    },
+    {
+      "id": "phrase-023",
+      "path": "public/audio/ui/phrase-023.mp3",
+      "size": 15408
+    },
+    {
+      "id": "phrase-024",
+      "path": "public/audio/ui/phrase-024.mp3",
+      "size": 17568
+    },
+    {
+      "id": "phrase-025",
+      "path": "public/audio/ui/phrase-025.mp3",
+      "size": 22032
+    },
+    {
+      "id": "phrase-025-2",
+      "path": "public/audio/ui/phrase-025-2.mp3",
+      "size": 29232
+    },
+    {
+      "id": "phrase-026",
+      "path": "public/audio/ui/phrase-026.mp3",
+      "size": 16416
+    },
+    {
+      "id": "phrase-027",
+      "path": "public/audio/ui/phrase-027.mp3",
+      "size": 16272
+    },
+    {
+      "id": "phrase-028",
+      "path": "public/audio/ui/phrase-028.mp3",
+      "size": 15120
+    },
+    {
+      "id": "phrase-029",
+      "path": "public/audio/ui/phrase-029.mp3",
+      "size": 12240
+    },
+    {
+      "id": "phrase-030",
+      "path": "public/audio/ui/phrase-030.mp3",
+      "size": 19008
+    },
+    {
+      "id": "phrase-031",
+      "path": "public/audio/ui/phrase-031.mp3",
+      "size": 22896
+    },
+    {
+      "id": "phrase-032",
+      "path": "public/audio/ui/phrase-032.mp3",
+      "size": 16848
+    },
+    {
+      "id": "phrase-033",
+      "path": "public/audio/ui/phrase-033.mp3",
+      "size": 17136
+    },
+    {
+      "id": "phrase-034",
+      "path": "public/audio/ui/phrase-034.mp3",
+      "size": 113616
+    },
+    {
+      "id": "phrase-035",
+      "path": "public/audio/ui/phrase-035.mp3",
+      "size": 18432
+    },
+    {
+      "id": "phrase-036",
+      "path": "public/audio/ui/phrase-036.mp3",
+      "size": 37584
+    },
+    {
+      "id": "phrase-037",
+      "path": "public/audio/ui/phrase-037.mp3",
+      "size": 39600
+    },
+    {
+      "id": "phrase-038",
+      "path": "public/audio/ui/phrase-038.mp3",
+      "size": 24480
+    },
+    {
+      "id": "phrase-039",
+      "path": "public/audio/ui/phrase-039.mp3",
+      "size": 21024
+    },
+    {
+      "id": "phrase-040",
+      "path": "public/audio/ui/phrase-040.mp3",
+      "size": 29952
+    },
+    {
+      "id": "phrase-041",
+      "path": "public/audio/ui/phrase-041.mp3",
+      "size": 26928
+    },
+    {
+      "id": "phrase-042",
+      "path": "public/audio/ui/phrase-042.mp3",
+      "size": 16560
+    },
+    {
+      "id": "phrase-053",
+      "path": "public/audio/ui/phrase-053.mp3",
+      "size": 16272
+    },
+    {
+      "id": "phrase-043",
+      "path": "public/audio/ui/phrase-043.mp3",
+      "size": 25344
+    },
+    {
+      "id": "phrase-044",
+      "path": "public/audio/ui/phrase-044.mp3",
+      "size": 20736
+    },
+    {
+      "id": "phrase-045",
+      "path": "public/audio/ui/phrase-045.mp3",
+      "size": 41760
+    },
+    {
+      "id": "phrase-046",
+      "path": "public/audio/ui/phrase-046.mp3",
+      "size": 24480
+    },
+    {
+      "id": "phrase-047",
+      "path": "public/audio/ui/phrase-047.mp3",
+      "size": 24336
+    },
+    {
+      "id": "phrase-048",
+      "path": "public/audio/ui/phrase-048.mp3",
+      "size": 24768
+    },
+    {
+      "id": "phrase-049",
+      "path": "public/audio/ui/phrase-049.mp3",
+      "size": 43056
+    },
+    {
+      "id": "phrase-050",
+      "path": "public/audio/ui/phrase-050.mp3",
+      "size": 25344
+    },
+    {
+      "id": "phrase-051",
+      "path": "public/audio/ui/phrase-051.mp3",
+      "size": 25200
+    },
+    {
+      "id": "phrase-052",
+      "path": "public/audio/ui/phrase-052.mp3",
+      "size": 27216
+    },
+    {
+      "id": "phrase-054",
+      "path": "public/audio/ui/phrase-054.mp3",
+      "size": 11376
+    },
+    {
+      "id": "phrase-055",
+      "path": "public/audio/ui/phrase-055.mp3",
+      "size": 13248
+    },
+    {
+      "id": "phrase-056",
+      "path": "public/audio/ui/phrase-056.mp3",
+      "size": 13248
+    },
+    {
+      "id": "phrase-057",
+      "path": "public/audio/ui/phrase-057.mp3",
+      "size": 22464
+    },
+    {
+      "id": "phrase-058",
+      "path": "public/audio/ui/phrase-058.mp3",
+      "size": 22896
+    },
+    {
+      "id": "phrase-059",
+      "path": "public/audio/ui/phrase-059.mp3",
+      "size": 22320
+    },
+    {
+      "id": "phrase-060",
+      "path": "public/audio/ui/phrase-060.mp3",
+      "size": 21456
+    },
+    {
+      "id": "phrase-061",
+      "path": "public/audio/ui/phrase-061.mp3",
+      "size": 19152
+    },
+    {
+      "id": "phrase-062",
+      "path": "public/audio/ui/phrase-062.mp3",
+      "size": 18864
+    },
+    {
+      "id": "phrase-063",
+      "path": "public/audio/ui/phrase-063.mp3",
+      "size": 22896
+    },
+    {
+      "id": "phrase-064",
+      "path": "public/audio/ui/phrase-064.mp3",
+      "size": 31536
+    },
+    {
+      "id": "phrase-065",
+      "path": "public/audio/ui/phrase-065.mp3",
+      "size": 27504
+    },
+    {
+      "id": "phrase-066",
+      "path": "public/audio/ui/phrase-066.mp3",
+      "size": 39888
+    },
+    {
+      "id": "phrase-067",
+      "path": "public/audio/ui/phrase-067.mp3",
+      "size": 35568
+    },
+    {
+      "id": "lesson-1-full",
+      "path": "public/audio/stories/lesson-1-full.mp3",
+      "size": 159552
+    },
+    {
+      "id": "lesson-1-objectives",
+      "path": "public/audio/ui/lesson-1-objectives.mp3",
+      "size": 40896
+    },
+    {
+      "id": "lesson-1-objectives-2",
+      "path": "public/audio/ui/lesson-1-objectives-2.mp3",
+      "size": 54000
+    },
+    {
+      "id": "lesson-1-objectives-3",
+      "path": "public/audio/ui/lesson-1-objectives-3.mp3",
+      "size": 45072
+    },
+    {
+      "id": "lesson-1-objectives-4",
+      "path": "public/audio/ui/lesson-1-objectives-4.mp3",
+      "size": 50832
+    },
+    {
+      "id": "lesson-1-objectives-5",
+      "path": "public/audio/ui/lesson-1-objectives-5.mp3",
+      "size": 55296
+    },
+    {
+      "id": "lesson-1-objectives-6",
+      "path": "public/audio/ui/lesson-1-objectives-6.mp3",
+      "size": 54864
+    },
+    {
+      "id": "lesson-1-objectives-7",
+      "path": "public/audio/ui/lesson-1-objectives-7.mp3",
+      "size": 146160
+    },
+    {
+      "id": "lesson-2-description",
+      "path": "public/audio/ui/lesson-2-description.mp3",
+      "size": 30528
+    },
+    {
+      "id": "lesson-3-description",
+      "path": "public/audio/ui/lesson-3-description.mp3",
+      "size": 27504
+    },
+    {
+      "id": "lesson-4-description",
+      "path": "public/audio/ui/lesson-4-description.mp3",
+      "size": 29088
+    },
+    {
+      "id": "lesson-1-explanation",
+      "path": "public/audio/ui/lesson-1-explanation.mp3",
+      "size": 142272
+    },
+    {
+      "id": "lesson-2-full",
+      "path": "public/audio/stories/lesson-2-full.mp3",
+      "size": 250560
+    },
+    {
+      "id": "lesson-3-full",
+      "path": "public/audio/stories/lesson-3-full.mp3",
+      "size": 391536
+    },
+    {
+      "id": "lesson-4-full",
+      "path": "public/audio/stories/lesson-4-full.mp3",
+      "size": 362304
+    },
+    {
+      "id": "official_intro_scene_1",
+      "path": "public/audio/ui/official_intro_scene_1.mp3",
+      "size": 54864
+    },
+    {
+      "id": "official_intro_scene_1-2",
+      "path": "public/audio/ui/official_intro_scene_1-2.mp3",
+      "size": 73584
+    },
+    {
+      "id": "official_intro_scene_1-3",
+      "path": "public/audio/ui/official_intro_scene_1-3.mp3",
+      "size": 82368
+    },
+    {
+      "id": "official_intro_scene_1-4",
+      "path": "public/audio/ui/official_intro_scene_1-4.mp3",
+      "size": 89424
+    },
+    {
+      "id": "official_intro_scene_2",
+      "path": "public/audio/ui/official_intro_scene_2.mp3",
+      "size": 142272
+    },
+    {
+      "id": "official_intro_scene_3",
+      "path": "public/audio/ui/official_intro_scene_3.mp3",
+      "size": 145728
+    },
+    {
+      "id": "welcome_intro_scene_1",
+      "path": "public/audio/ui/welcome_intro_scene_1.mp3",
+      "size": 111024
+    },
+    {
+      "id": "welcome_intro_scene_1-2",
+      "path": "public/audio/ui/welcome_intro_scene_1-2.mp3",
+      "size": 86832
+    },
+    {
+      "id": "welcome_intro_scene_2",
+      "path": "public/audio/ui/welcome_intro_scene_2.mp3",
+      "size": 106704
+    },
+    {
+      "id": "welcome_intro_scene_3",
+      "path": "public/audio/ui/welcome_intro_scene_3.mp3",
+      "size": 136656
+    }
+  ]
+}

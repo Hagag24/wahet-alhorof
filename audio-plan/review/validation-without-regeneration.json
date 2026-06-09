@@ -1,0 +1,42 @@
+{
+  "validationDate": "2026-06-09T10:32:15.241Z",
+  "status": "PASS",
+  "totalChecks": 6,
+  "passedChecks": 6,
+  "failedChecks": 0,
+  "correctionsApplied": 28,
+  "filesNeedingRegeneration": 28,
+  "checks": [
+    {
+      "name": "ttsText_changes_in_manifest",
+      "passed": true,
+      "details": "All match"
+    },
+    {
+      "name": "linguisticReviewStatus_set",
+      "passed": true,
+      "details": "All have status"
+    },
+    {
+      "name": "regeneration_list_completeness",
+      "passed": true,
+      "details": "All regeneration items have corrections"
+    },
+    {
+      "name": "no_duplicate_corrections",
+      "passed": true,
+      "details": "No duplicates"
+    },
+    {
+      "name": "verification_report_status",
+      "passed": true,
+      "details": "Verification passed"
+    },
+    {
+      "name": "metadata_only_changes",
+      "passed": true,
+      "details": "Only ttsText metadata was modified, no audio files changed"
+    }
+  ],
+  "note": "This validation confirms all linguistic corrections were properly recorded. Audio files still need regeneration."
+}

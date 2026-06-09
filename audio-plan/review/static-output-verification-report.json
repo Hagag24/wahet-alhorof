@@ -1,0 +1,32 @@
+{
+  "verificationDate": "2026-06-09",
+  "status": "PASSED",
+  "checks": {
+    "indexHtmlExists": true,
+    "nextFolderExists": true,
+    "audioFolderExists": true,
+    "imagesFolderExists": true,
+    "lessonsFolderExists": true,
+    "zeroByteFiles": 0
+  },
+  "metrics": {
+    "totalAudioFiles": 192,
+    "staticPagesGenerated": "38/38",
+    "indexHtmlSize": 9379,
+    "buildStatus": "SUCCESS"
+  },
+  "folders": [
+    "404",
+    "audio",
+    "audio-preview",
+    "character-select",
+    "dashboard",
+    "images",
+    "learning-map",
+    "lessons",
+    "rewards",
+    "_next",
+    "_not-found"
+  ],
+  "conclusion": "Static export output is ready for deployment"
+}

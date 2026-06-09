@@ -1,0 +1,58 @@
+{
+  "gateDate": "2026-06-09T10:45:55.830Z",
+  "status": "COMPLETE",
+  "totalLongSpokenEntries": 64,
+  "entriesAcceptable": 57,
+  "entriesNeedingPacingFix": 6,
+  "entriesCorrected": 6,
+  "entriesNeedingHumanReview": 1,
+  "finalTotalRegeneration": 34,
+  "breakdown": {
+    "originalLinguisticCorrections": 28,
+    "newPacingCorrections": 6
+  },
+  "correctedItems": [
+    {
+      "audioId": "official_intro_scene_1-4",
+      "path": "public/audio/ui/official_intro_scene_1-4.mp3",
+      "oldSentences": 0,
+      "newSentences": 3,
+      "notes": "Split into 3 natural sentences for better breathing pauses"
+    },
+    {
+      "audioId": "official_intro_scene_2",
+      "path": "public/audio/ui/official_intro_scene_2.mp3",
+      "oldSentences": 0,
+      "newSentences": 4,
+      "notes": "Split 31-word run-on into 4 natural sentences with proper academic introduction pacing"
+    },
+    {
+      "audioId": "official_intro_scene_3",
+      "path": "public/audio/ui/official_intro_scene_3.mp3",
+      "oldSentences": 0,
+      "newSentences": 5,
+      "notes": "Split supervisor listing into separate sentences for clear academic credential presentation"
+    },
+    {
+      "audioId": "welcome_intro_scene_1",
+      "path": "public/audio/ui/welcome_intro_scene_1.mp3",
+      "oldSentences": 0,
+      "newSentences": 3,
+      "notes": "Split welcome message into 3 sentences with natural greeting flow and pauses"
+    },
+    {
+      "audioId": "welcome_intro_scene_2",
+      "path": "public/audio/ui/welcome_intro_scene_2.mp3",
+      "oldSentences": 0,
+      "newSentences": 3,
+      "notes": "Split learning objectives into 3 sentences with pauses between skills"
+    },
+    {
+      "audioId": "welcome_intro_scene_3",
+      "path": "public/audio/ui/welcome_intro_scene_3.mp3",
+      "oldSentences": 0,
+      "newSentences": 4,
+      "notes": "Split call-to-action into 4 energetic sentences with natural game-like pacing"
+    }
+  ]
+}
