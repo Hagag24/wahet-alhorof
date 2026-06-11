@@ -2177,6 +2177,19 @@
       "Split long intro scenes into natural breathing units",
       "Corrected أمي to أُمِّي"
     ],
-    "secondPassAdditionalFixes": 11
+    "secondPassAdditionalFixes": 11,
+    "batch2": {
+      "generatedAt": "2026-06-10T20:31:23.935Z",
+      "visibleTextChanged": false,
+      "correctionScope": [
+        "ttsText",
+        "pronunciationNotes",
+        "linguisticReviewStatus"
+      ],
+      "totalFilesScanned": 188,
+      "correctedAudioItems": 0,
+      "highConfidenceCorrections": 0,
+      "humanReviewItems": 0
+    }
   }
 }
