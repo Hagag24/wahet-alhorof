@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   description: 'منصة تعليمية تفاعلية لتعليم الأطفال مهارات الوعي الصوتي والحروف العربية من خلال ألعاب ممتعة ومشوقة',
   keywords: ['تعليم', 'أطفال', 'لغة عربية', 'وعي صوتي', 'حروف', 'ألعاب تعليمية'],
   authors: [{ name: 'رحلة الوعي الصوتي' }],
+  other: {
+    google: "notranslate",
+  },
 }
 
 export const viewport: Viewport = {
@@ -25,11 +28,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ar" dir="rtl" className="bg-background">
+    <html lang="ar" dir="rtl" translate="no" className="bg-background notranslate">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
       </head>
-      <body className="font-sans antialiased min-h-screen" style={{ fontFamily: 'Cairo, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, Arial, sans-serif' }}>
+      <body className="font-sans antialiased min-h-screen" translate="no" style={{ fontFamily: 'Cairo, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, Arial, sans-serif' }}>
         <AppProvider>
           {children}
           <AudioGate />

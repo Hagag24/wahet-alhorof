@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "test": "node scripts/verify-pdf-change-request.cjs"
+    "test": "node scripts/verify-pdf-change-request.cjs",
+    "audit:client-spec": "node scripts/audit-client-spec-lessons.mjs",
+    "build:audio-pack": "node scripts/build-audio-recording-pack.mjs",
+    "build:audio-manifest": "node scripts/build-audio-recording-manifest.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

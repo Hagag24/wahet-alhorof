@@ -186,3 +186,82 @@
 .animation-delay-700 {
   animation-delay: 0.7s;
 }
+
+/* Arabic game app: prevent unwanted browser/site translation overlays where possible */
+html.notranslate,
+html.notranslate body,
+.notranslate {
+  translate: no;
+}
+
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget,
+.goog-tooltip,
+.goog-tooltip:hover,
+.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+/* Mobile game safe viewport */
+:root {
+  --game-mobile-max-width: 430px;
+  --game-safe-top: env(safe-area-inset-top, 0px);
+  --game-safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+/* Prevent huge overlays from blocking mobile gameplay forever */
+.lesson-experience-toast-layer {
+  pointer-events: none;
+}
+
+.lesson-experience-toast-layer button,
+.lesson-experience-toast-layer a {
+  pointer-events: auto;
+}
+
+/* Mobile scroll safety for roadmap/stage nav */
+.lesson-experience-scroll-row {
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 480px) {
+  .lesson-experience-mobile-container {
+    width: min(100%, var(--game-mobile-max-width));
+    margin-inline: auto;
+    padding-inline: 14px;
+  }
+
+  .lesson-experience-mobile-card {
+    border-radius: 24px;
+    padding: 18px 14px;
+  }
+
+  .lesson-experience-mobile-title {
+    font-size: clamp(1.35rem, 7vw, 2.15rem);
+    line-height: 1.35;
+  }
+
+  .lesson-experience-mobile-text {
+    font-size: clamp(1rem, 4.7vw, 1.28rem);
+    line-height: 1.9;
+  }
+
+  .lesson-experience-mobile-options {
+    grid-template-columns: 1fr !important;
+  }
+}
