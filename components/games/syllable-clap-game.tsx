@@ -200,7 +200,7 @@ export function SyllableClapGame({ gameData, lessonId, onComplete, onBack }: Syl
                     : ''
                   }
                   ${isCorrect === true && isCorrectAnswer && !isSelected
-                    ? 'bg-success/20 text-success'
+                    ? 'opacity-50 cursor-not-allowed'
                     : ''
                   }
                 `}

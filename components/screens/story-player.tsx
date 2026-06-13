@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ProgressBar } from "@/components/common/progress-bar";
 import type { StoryScene } from "@/types";
 import { useTTS } from "@/hooks/use-tts";
+import { useAudioCleanup } from "@/hooks/use-audio-cleanup";
 import { ArrowRight, Play, Pause, RotateCcw, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -28,6 +29,7 @@ interface StoryPlayerProps {
 export function StoryPlayer({ story, onComplete, onSkip }: StoryPlayerProps) {
   const [currentScene, setCurrentScene] = useState(0);
   const { speak, stop, isSpeaking } = useTTS();
+  useAudioCleanup(); // Stop audio when component unmounts
 
   const scenes: StoryScene[] = useMemo(() => {
     if (typeof story === "string") {
@@ -83,24 +85,39 @@ export function StoryPlayer({ story, onComplete, onSkip }: StoryPlayerProps) {
   };
 
   const handleNext = () => {
-    stop();
-    if (currentScene < totalScenes - 1) {
-      setCurrentScene(prev => prev + 1);
-    } else {
-      onComplete();
+    // Stop audio first before advancing
+    if (isSpeaking) {
+      stop();
     }
+    setTimeout(() => {
+      if (currentScene < totalScenes - 1) {
+        setCurrentScene(prev => prev + 1);
+      } else {
+        onComplete();
+      }
+    }, 100);
   };
 
   const handlePrev = () => {
-    stop();
-    if (currentScene > 0) {
-      setCurrentScene(prev => prev - 1);
+    // Stop audio first before going back
+    if (isSpeaking) {
+      stop();
     }
+    setTimeout(() => {
+      if (currentScene > 0) {
+        setCurrentScene(prev => prev - 1);
+      }
+    }, 100);
   };
 
   const handleRestart = () => {
-    stop();
-    setCurrentScene(0);
+    // Stop audio first before restarting
+    if (isSpeaking) {
+      stop();
+    }
+    setTimeout(() => {
+      setCurrentScene(0);
+    }, 100);
   };
 
   const isLastScene = currentScene === totalScenes - 1;

@@ -3,12 +3,14 @@
 import { motion } from 'framer-motion'
 import { useTTS } from '@/hooks/use-tts'
 import { useSound } from '@/hooks/use-sound'
+import { useAudioValidation } from '@/hooks/use-audio-validation'
 import { Volume2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface SoundButtonProps {
   text?: string
   audioText?: string
+  audioId?: string
   size?: 'sm' | 'md' | 'lg'
   variant?: 'primary' | 'secondary' | 'ghost' | 'outline'
   className?: string
@@ -19,6 +21,7 @@ interface SoundButtonProps {
 export function SoundButton({ 
   text, 
   audioText,
+  audioId,
   size = 'md', 
   variant = 'primary', 
   className,
@@ -27,6 +30,10 @@ export function SoundButton({
 }: SoundButtonProps) {
   const { speak, isSpeaking } = useTTS()
   const { playSound } = useSound()
+  const audioValidation = useAudioValidation(audioId)
+
+  // Only render if audio is valid or if we're using TTS
+  const shouldRender = audioValidation.isValid || !audioId || audioText || text
 
   const sizeClasses = {
     sm: 'w-8 h-8',
@@ -54,6 +61,14 @@ export function SoundButton({
     if (onClick) {
       onClick()
     }
+  }
+
+  // Guard: don't render if audio is invalid
+  if (!shouldRender) {
+    if (process.env.NODE_ENV === 'development') {
+      console.warn(`[SoundButton] Audio not available: ${audioId}`)
+    }
+    return null
   }
 
   return (

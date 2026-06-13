@@ -151,7 +151,7 @@ export function SimilarWordsGame({ gameData, lessonId, onComplete, onBack }: Sim
                     : ''
                   }
                   ${isCorrect === true && isCorrectAnswer && !isSelected
-                    ? 'bg-success/20 text-success'
+                    ? 'opacity-50 cursor-not-allowed'
                     : ''
                   }
                 `}

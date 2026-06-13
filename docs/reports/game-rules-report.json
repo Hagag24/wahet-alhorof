@@ -1,0 +1,135 @@
+{
+  "timestamp": "2026-06-13T09:03:47.170Z",
+  "gameComponents": [
+    {
+      "file": "build-word-game.tsx",
+      "violationCount": 1,
+      "violations": [
+        {
+          "type": "potential-reveal",
+          "pattern": "/bg-success\\/20.*text-success/",
+          "description": "Potential correct-answer reveal pattern detected"
+        }
+      ]
+    },
+    {
+      "file": "catch-different-word-game.tsx",
+      "violationCount": 1,
+      "violations": [
+        {
+          "type": "potential-reveal",
+          "pattern": "/bg-success\\/20.*text-success/",
+          "description": "Potential correct-answer reveal pattern detected"
+        }
+      ]
+    },
+    {
+      "file": "choose-sound-game.tsx",
+      "violationCount": 2,
+      "violations": [
+        {
+          "type": "potential-reveal",
+          "pattern": "/bg-success\\/20.*text-success/",
+          "description": "Potential correct-answer reveal pattern detected"
+        },
+        {
+          "type": "revealCorrectAnswer",
+          "description": "Styling non-selected correct answers with bg-success/20"
+        }
+      ]
+    },
+    {
+      "file": "complete-sentence-game.tsx",
+      "violationCount": 2,
+      "violations": [
+        {
+          "type": "potential-reveal",
+          "pattern": "/bg-success\\/20.*text-success/",
+          "description": "Potential correct-answer reveal pattern detected"
+        },
+        {
+          "type": "revealCorrectAnswer",
+          "description": "Styling non-selected correct answers with bg-success/20"
+        }
+      ]
+    },
+    {
+      "file": "game-router.tsx",
+      "violationCount": 0,
+      "violations": [],
+      "status": "OK ✓"
+    },
+    {
+      "file": "game-wrapper.tsx",
+      "violationCount": 0,
+      "violations": [],
+      "status": "OK ✓"
+    },
+    {
+      "file": "letter-position-game.tsx",
+      "violationCount": 2,
+      "violations": [
+        {
+          "type": "potential-reveal",
+          "pattern": "/bg-success\\/20.*text-success/",
+          "description": "Potential correct-answer reveal pattern detected"
+        },
+        {
+          "type": "revealCorrectAnswer",
+          "description": "Styling non-selected correct answers with bg-success/20"
+        }
+      ]
+    },
+    {
+      "file": "match-picture-word-game.tsx",
+      "violationCount": 2,
+      "violations": [
+        {
+          "type": "potential-reveal",
+          "pattern": "/bg-success\\/20.*text-success/",
+          "description": "Potential correct-answer reveal pattern detected"
+        },
+        {
+          "type": "revealCorrectAnswer",
+          "description": "Styling non-selected correct answers with bg-success/20"
+        }
+      ]
+    },
+    {
+      "file": "similar-words-game.tsx",
+      "violationCount": 2,
+      "violations": [
+        {
+          "type": "potential-reveal",
+          "pattern": "/bg-success\\/20.*text-success/",
+          "description": "Potential correct-answer reveal pattern detected"
+        },
+        {
+          "type": "revealCorrectAnswer",
+          "description": "Styling non-selected correct answers with bg-success/20"
+        }
+      ]
+    },
+    {
+      "file": "syllable-clap-game.tsx",
+      "violationCount": 2,
+      "violations": [
+        {
+          "type": "potential-reveal",
+          "pattern": "/bg-success\\/20.*text-success/",
+          "description": "Potential correct-answer reveal pattern detected"
+        },
+        {
+          "type": "revealCorrectAnswer",
+          "description": "Styling non-selected correct answers with bg-success/20"
+        }
+      ]
+    }
+  ],
+  "totalViolations": 14,
+  "violationTypes": {
+    "revealCorrectAnswer": 6,
+    "disabledAnswerHighlight": 0,
+    "successBackgroundHighlight": 0
+  }
+}

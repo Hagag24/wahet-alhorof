@@ -145,7 +145,7 @@ export function ChooseSoundGame({ gameData, lessonId, onComplete, onBack }: Choo
                     : ''
                   }
                   ${isCorrect === true && isCorrectAnswer && !isSelected
-                    ? 'bg-success/20 text-success'
+                    ? 'opacity-50 cursor-not-allowed'
                     : ''
                   }
                 `}
