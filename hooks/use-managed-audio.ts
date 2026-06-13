@@ -172,7 +172,9 @@ export function useManagedAudio(
   // ── Legacy helpers ───────────────────────────────────────────────────────
 
   const play = useCallback(
-    (args: PlayArgs) => playManagedAudio(args),
+    async (args: PlayArgs) => {
+      await playManagedAudio(args.id, args.src)
+    },
     []
   )
 
@@ -184,7 +186,7 @@ export function useManagedAudio(
       } else if (current.currentId === args.id && current.isPaused) {
         await resumeManagedAudio()
       } else {
-        await playManagedAudio(args)
+        await playManagedAudio(args.id, args.src)
       }
     },
     []

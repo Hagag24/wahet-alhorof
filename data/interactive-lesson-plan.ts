@@ -3,16 +3,19 @@
  * Maps lesson structures and stages.
  */
 
-export function getInteractiveStageHref(lessonId: string, stageId: string): string {
+export type LessonStageId = 'intro' | 'objectives' | 'story' | 'games' | 'results'
+
+export function getInteractiveStageHref(lessonId: string, stageId: LessonStageId): string {
   return `/lessons/${lessonId}/${stageId}`
 }
 
 export function getOfficialInteractiveLessonPlan(lessonId: string) {
-  // Returns the lesson plan structure
-  return {}
+  return {
+    stages: ['intro', 'objectives', 'story', 'games', 'results'] as const,
+    stageOrder: ['intro', 'objectives', 'story', 'games', 'results'],
+  }
 }
 
-export function getOfficialInteractiveVisibleStages(lessonId: string) {
-  // Returns visible stages for a lesson
-  return []
+export function getOfficialInteractiveVisibleStages(lessonId: string): LessonStageId[] {
+  return ['intro', 'objectives', 'story', 'games', 'results']
 }
